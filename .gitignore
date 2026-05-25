@@ -19,7 +19,8 @@ node_modules/
 src/version-data.js
 public/vendor/
 
-# Migration outputs (re-generated; keep source WXR out of repo)
+# Migration source (keep WXR + raw exports out of the repo)
+_temp/
 *.wxr
 *_WordPress_*.xml
 

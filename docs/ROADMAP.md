@@ -37,14 +37,15 @@ Tracks the eight phases from the build brief. Tick items as they land. The brief
 - [ ] Handle: already delegated, insufficient funds, user rejection
 
 ## Phase 5 — Live pool stats
-- [ ] `/api/pool-stats` via Koios `/pool_info` (already scaffolded, needs bech32 pool ID)
-- [ ] Convert ADAOZ hex pool ID → bech32 once and hard-code in `src/worker.js`
-- [ ] Edge-injected first paint via HTMLRewriter (already scaffolded)
+- [x] `/api/pool-stats` via Koios `/pool_info`
+- [x] ADAOZ bech32 pool ID hardcoded (`pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze`)
+- [x] Edge-injected first paint via HTMLRewriter
+- [ ] Verify against live Koios once deployed
 
 ## Phase 6 — Contact form
 - [ ] `/contact-us/` page with Turnstile widget
 - [ ] Wire `/api/contact` to MailChannels or Resend
-- [ ] Confirm SpeakPipe widget intent with Peter
+- [x] SpeakPipe voice widget: **dropped** (per Peter)
 
 ## Phase 7 — Cross-promo
 - [ ] `CrossPromo` block in footer + post pages + home
@@ -60,8 +61,8 @@ Tracks the eight phases from the build brief. Tick items as they land. The brief
 ## Open confirmations
 
 - Repo: `pbwebdev/cardanode` (public) ✅
-- DNS: cardanode.com.au — currently on Cloudflare? Still pointed at the WP host? (TBC)
-- Keep SpeakPipe voice widget on contact page? (TBC)
+- DNS: cardanode.com.au already on Cloudflare ✅
+- SpeakPipe widget: dropped ✅
 - Logo + brand assets: pull from CDN, or source files? (TBC)
 - The 36 EP0xx "podcast" posts — migrate-as-is, surface evergreen tutorials more prominently (default plan)
 

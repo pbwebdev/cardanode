@@ -14,12 +14,9 @@
 
 import { VERSION } from "./version-data.js";
 
-// ADAOZ pool — hex pool ID per build brief. Convert once on first deploy
-// to a bech32 pool1... ID and hard-code below; Koios pool_info accepts bech32.
-const ADAOZ_POOL_HEX = "6658713e2cbfa4e347691a0435953f5acbe9f03d330e94caa3a0cfb4";
-// TODO: replace with `pool1...` after one-time bech32 conversion. Koios
-// /pool_info specifically requires bech32 ids.
-const ADAOZ_POOL_BECH32 = "";
+// ADAOZ pool. Koios /pool_info requires bech32; hex equivalent kept for reference.
+const ADAOZ_POOL_BECH32 = "pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze";
+// hex: 6658713e2cbfa4e347691a0435953f5acbe9f03d330e94caa3a0cfb4
 
 const KOIOS = "https://api.koios.rest/api/v1";
 
@@ -78,12 +75,6 @@ async function handlePoolStats(ctx) {
 }
 
 async function fetchPoolStats(ctx) {
-  if (!ADAOZ_POOL_BECH32) {
-    return {
-      error: "pool_bech32_not_configured",
-      note: "Convert ADAOZ_POOL_HEX to bech32 in src/worker.js. Koios /pool_info requires bech32 ids.",
-    };
-  }
   const cache = caches.default;
   const cacheKey = new Request("https://cache.local/pool-stats/v1");
   const hit = await cache.match(cacheKey);
