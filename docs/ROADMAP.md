@@ -13,12 +13,14 @@ Tracks the eight phases from the build brief. Tick items as they land. The brief
 - [ ] aiagent-linux bootstrap (install wrangler, `npm install`)
 - [ ] First deploy to `cardanode.workers.dev`
 
-## Phase 1 — Content migration
-- [ ] Port / wrap `wxr-to-markdown.py` to `scripts/migrate-posts.mjs`
-- [ ] Clean malformed YouTube URLs (`youtube.com/embed//xxx`, trailing `'` and `"`) during migration
-- [ ] Generate `src/content/posts/*.md` (82) + `src/content/comments/*.json`
-- [ ] `scripts/pull-media.mjs` → R2 (or `public/uploads/`)
-- [ ] `build-posts.js` renders one static page per post + paginated `/blog/`
+## Phase 1 — Content migration ✅
+- [x] `scripts/migrate-posts.mjs` (JS port of `wxr-to-markdown.py` using fast-xml-parser + turndown)
+- [x] YouTube URLs cleaned (`/embed//` → `/embed/`, quote/unicode noise stripped, https prefix added)
+- [x] `src/content/posts/*.md` (82) + `src/content/comments/*.json` (28)
+- [x] `scripts/pull-media.mjs` → `src/static/uploads/` (121 files / 4.7 MB; 1 dead PDF link logged to `_temp/media-missing.txt`)
+- [x] `build-posts.js` renders 82 post pages + paginated `/blog/` (7 pages, 12/page)
+- [x] Restructure: `src/static/` is source, `public/` is fully generated + gitignored
+- [ ] Polish (Phase 2 candidates): dedup hero image vs first body image; strip leftover WP shortcode CSS; render `youtube.com/c/...` URLs as links not iframes
 
 ## Phase 2 — Blog
 - [ ] `/blog/` index, category filter
