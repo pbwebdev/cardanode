@@ -16,7 +16,7 @@ const POSTS_DIR = "src/content/posts";
 const COMMENTS_DIR = "src/content/comments";
 const TEMPLATES_DIR = "src/templates";
 const OUT = "public";
-const SITE = "https://dev.cardanode.com.au"; // canonicals; flip to apex at launch
+const SITE = "https://cardanode.com.au"; // production canonical; dev hosts get noindex via Worker
 const PAGE_SIZE = 12;
 const RELATED_COUNT = 3;
 
@@ -168,6 +168,100 @@ ${cards}
 </section>`;
 }
 
+function absoluteUrl(maybeRelative) {
+  if (!maybeRelative) return `${SITE}/images/peter-bui.jpg`;
+  if (/^https?:\/\//i.test(maybeRelative)) return maybeRelative;
+  return SITE + (maybeRelative.startsWith("/") ? maybeRelative : `/${maybeRelative}`);
+}
+
+function articleMetaTags(post) {
+  const tags = [];
+  if (post.date) {
+    tags.push(`<meta property="article:published_time" content="${escapeHtml(post.date)}">`);
+    tags.push(`<meta property="article:modified_time" content="${escapeHtml(post.date)}">`);
+  }
+  tags.push(`<meta property="article:author" content="Peter Bui">`);
+  for (const c of post.categoriesSlugged) {
+    tags.push(`<meta property="article:section" content="${escapeHtml(c.name)}">`);
+    tags.push(`<meta property="article:tag" content="${escapeHtml(c.name)}">`);
+  }
+  return tags.join("\n");
+}
+
+function articleJsonLd(post, canonical) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${canonical}#article`,
+    headline: post.title || post.slug,
+    description: post.metaDescription || post.excerpt || "",
+    image: absoluteUrl(post.ogImage),
+    datePublished: post.date || undefined,
+    dateModified: post.date || undefined,
+    inLanguage: "en-AU",
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    author: {
+      "@type": "Person",
+      name: "Peter Bui",
+      url: `${SITE}/#operator`,
+      sameAs: [
+        "https://x.com/astroboysoup",
+        "https://www.linkedin.com/in/peterbui1/",
+        "https://drep.learncardano.io",
+      ],
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "cardanode",
+      url: SITE,
+      logo: { "@type": "ImageObject", url: `${SITE}/images/peter-bui.jpg` },
+    },
+    articleSection: post.categoriesSlugged.map((c) => c.name),
+    keywords: post.categoriesSlugged.map((c) => c.name).join(", "),
+  };
+  // Strip undefined keys
+  const clean = JSON.parse(JSON.stringify(data));
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog/` },
+      ...(post.categoriesSlugged[0]
+        ? [{
+            "@type": "ListItem",
+            position: 3,
+            name: post.categoriesSlugged[0].name,
+            item: `${SITE}/blog/category/${post.categoriesSlugged[0].slug}/`,
+          }]
+        : []),
+      {
+        "@type": "ListItem",
+        position: post.categoriesSlugged[0] ? 4 : 3,
+        name: post.title || post.slug,
+        item: canonical,
+      },
+    ],
+  };
+
+  return `<script type="application/ld+json">${JSON.stringify(clean)}</script>
+<script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>`;
+}
+
+function indexJsonLd(canonical, headingText) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${canonical}#collection`,
+    name: headingText,
+    url: canonical,
+    inLanguage: "en-AU",
+    isPartOf: { "@type": "WebSite", "@id": `${SITE}/#website` },
+  };
+  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+}
+
 function renderPost(post, all) {
   const dir = join(OUT, post.slug);
   mkdirSync(dir, { recursive: true });
@@ -188,12 +282,15 @@ function renderPost(post, all) {
       commentsBlock: renderComments(post.comments),
     }) + renderRelated(relatedFor(post, all));
 
+  const canonical = `${SITE}/${post.slug}/`;
   const html = render(baseTpl, {
     title: `${post.title || post.slug} · cardanode`,
     description: post.metaDescription || post.excerpt || post.title || "",
     ogTitle: post.ogTitle || post.title || "",
-    ogImage: post.ogImage || "",
-    canonical: `${SITE}/${post.slug}/`,
+    ogImageAbs: absoluteUrl(post.ogImage),
+    canonical,
+    articleMeta: articleMetaTags(post),
+    jsonLd: articleJsonLd(post, canonical),
     content,
   });
 
@@ -202,6 +299,9 @@ function renderPost(post, all) {
 
 function renderIndexPage(posts, pageNum, totalPages, opts = {}) {
   const { categoryName, categorySlug, totalAll } = opts;
+  const _canonical_ = categorySlug
+    ? (pageNum === 1 ? `${SITE}/blog/category/${categorySlug}/` : `${SITE}/blog/category/${categorySlug}/page/${pageNum}/`)
+    : (pageNum === 1 ? `${SITE}/blog/` : `${SITE}/blog/page/${pageNum}/`);
   const cards = posts
     .map(
       (p) => `    <article class="post-card">
@@ -236,12 +336,13 @@ function renderIndexPage(posts, pageNum, totalPages, opts = {}) {
         ? `${heading} · cardanode`
         : `${heading} · page ${pageNum} · cardanode`,
     description: categoryName
-      ? `Posts tagged ${categoryName} on cardanode.`
-      : "Articles on Cardano staking, DeFi, NFTs, stake pool operations, and Learn Cardano podcast episodes.",
+      ? `Posts tagged ${categoryName} on cardanode — Australian Cardano stake pool ADAOZ + Learn Cardano.`
+      : "Articles on Cardano staking, DeFi, NFTs, stake pool operations, and Learn Cardano podcast episodes from Peter Bui at ADAOZ.",
     ogTitle: `${heading} · cardanode`,
-    ogImage: "",
-    canonical:
-      pageNum === 1 ? `${SITE}${basePath}/` : `${SITE}${basePath}/page/${pageNum}/`,
+    ogImageAbs: `${SITE}/images/peter-bui.jpg`,
+    canonical: _canonical_,
+    articleMeta: "",
+    jsonLd: indexJsonLd(_canonical_, heading),
     content,
   });
 
@@ -316,3 +417,51 @@ for (const cat of categories) {
 console.log(
   `✓ Generated ${posts.length} post pages + ${totalPages} blog index pages + ${categories.length} category indexes.`,
 );
+
+/* ---------------- sitemap.xml ---------------- */
+
+const sitemapUrls = [];
+const today = new Date().toISOString().slice(0, 10);
+
+sitemapUrls.push({ loc: `${SITE}/`, lastmod: today, priority: "1.0", changefreq: "weekly" });
+sitemapUrls.push({ loc: `${SITE}/blog/`, lastmod: today, priority: "0.9", changefreq: "weekly" });
+sitemapUrls.push({ loc: `${SITE}/contact-us/`, lastmod: today, priority: "0.4", changefreq: "yearly" });
+
+for (let p = 2; p <= totalPages; p++) {
+  sitemapUrls.push({ loc: `${SITE}/blog/page/${p}/`, lastmod: today, priority: "0.6", changefreq: "weekly" });
+}
+
+for (const cat of categories) {
+  sitemapUrls.push({ loc: `${SITE}/blog/category/${cat.slug}/`, lastmod: today, priority: "0.6", changefreq: "weekly" });
+  const catTotal = Math.max(1, Math.ceil(cat.posts.length / PAGE_SIZE));
+  for (let p = 2; p <= catTotal; p++) {
+    sitemapUrls.push({ loc: `${SITE}/blog/category/${cat.slug}/page/${p}/`, lastmod: today, priority: "0.4", changefreq: "weekly" });
+  }
+}
+
+for (const post of posts) {
+  sitemapUrls.push({
+    loc: `${SITE}/${post.slug}/`,
+    lastmod: post.date || today,
+    priority: "0.7",
+    changefreq: "monthly",
+  });
+}
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls
+  .map(
+    (u) => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${u.lastmod}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`,
+  )
+  .join("\n")}
+</urlset>
+`;
+
+writeFileSync(join(OUT, "sitemap.xml"), sitemapXml);
+console.log(`✓ sitemap.xml with ${sitemapUrls.length} URLs.`);

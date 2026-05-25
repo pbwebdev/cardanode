@@ -31,6 +31,8 @@ export default {
     if (url.pathname.startsWith("/api/blockfrost/"))
       return handleBlockfrost(request, env, url);
 
+    if (url.pathname === "/robots.txt") return handleRobots(url);
+
     if (
       request.method === "GET" &&
       (url.pathname === "/" || url.pathname === "/index.html")
@@ -38,9 +40,58 @@ export default {
       return handleRoot(request, env, ctx);
     }
 
+    // Every HTML response goes through the noindex injector on non-production
+    // hosts so dev.cardanode.com.au and *.workers.dev never reach search.
+    if (request.method === "GET" && isHtmlPath(url.pathname)) {
+      const res = await env.ASSETS.fetch(request);
+      return maybeNoindex(res, url);
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
+
+const PROD_HOST = "cardanode.com.au";
+
+function isProdHost(url) {
+  return url.hostname === PROD_HOST;
+}
+
+function isHtmlPath(pathname) {
+  // HTML lives at root or anywhere ending in / (directory index)
+  // or .html. Don't process /api/*, /styles/*, /images/*, etc.
+  if (pathname.startsWith("/api/")) return false;
+  if (/\.[a-z0-9]{2,5}$/i.test(pathname) && !pathname.endsWith(".html")) return false;
+  return true;
+}
+
+function maybeNoindex(res, url) {
+  if (isProdHost(url)) return res;
+  const ct = res.headers.get("content-type") || "";
+  if (!ct.includes("text/html")) return res;
+  // Every static HTML page in this site has a <meta name="robots"> tag,
+  // so we always replace rather than append (avoids ordering issues with
+  // HTMLRewriter firing the <head> open event before inner elements).
+  return new HTMLRewriter()
+    .on('meta[name="robots"]', {
+      element(el) { el.setAttribute("content", "noindex, nofollow"); },
+    })
+    .transform(res);
+}
+
+function handleRobots(url) {
+  // Dev hosts get a hard disallow. Production gets the real robots.
+  if (isProdHost(url)) {
+    return new Response(
+      `# cardanode.com.au\nUser-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://${PROD_HOST}/sitemap.xml\n`,
+      { headers: { "content-type": "text/plain; charset=utf-8" } },
+    );
+  }
+  return new Response(
+    `# Dev / preview host — not for indexing.\nUser-agent: *\nDisallow: /\n`,
+    { headers: { "content-type": "text/plain; charset=utf-8" } },
+  );
+}
 
 /* ---------------- HTML edge injection ---------------- */
 
@@ -62,7 +113,7 @@ async function handleRoot(request, env, ctx) {
   const fixedFee = stats?.fixed_cost_ada != null ? Number(stats.fixed_cost_ada).toLocaleString("en-US") + " ₳" : null;
   const saturation = stats?.live_saturation != null ? Number(stats.live_saturation).toFixed(1) + "%" : null;
 
-  return new HTMLRewriter()
+  const rewriter = new HTMLRewriter()
     .on('meta[name="build-sha"]', {
       element(el) { el.setAttribute("content", VERSION.sha); },
     })
@@ -83,8 +134,16 @@ async function handleRoot(request, env, ctx) {
     })
     .on('[data-live="saturation"]', {
       element(el) { if (saturation) el.setInnerContent(saturation); },
-    })
-    .transform(assetRes);
+    });
+
+  const url = new URL(request.url);
+  if (!isProdHost(url)) {
+    rewriter.on('meta[name="robots"]', {
+      element(el) { el.setAttribute("content", "noindex, nofollow"); },
+    });
+  }
+
+  return rewriter.transform(assetRes);
 }
 
 /* ---------------- Pool stats (Koios) ---------------- */
