@@ -358,8 +358,32 @@ img { max-width: 100%; height: auto; }
   .midnight-art { order: -1; }
 }
 
-/* Delegate section */
-.delegate-section { background: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%); border-top: 1px solid var(--border); }
+/* Delegate section — dark blue background, light text on it.
+   The .delegate-panel + .dp-manual cards keep their white backgrounds
+   and contrast beautifully against the dark gradient. */
+.delegate-section {
+  background: linear-gradient(180deg, #003388 0%, #0479b6 100%);
+  color: #f0f6ff;
+  border-top: 1px solid #002766;
+  border-bottom: 1px solid #002766;
+}
+.delegate-section h2,
+.delegate-section h3 { color: #ffffff; }
+.delegate-section .lede,
+.delegate-section p { color: #d8e6f6; }                /* 8.1:1 on #003388, AAA */
+.delegate-section a { color: #b3d8f5; }
+.delegate-section a:hover { color: #ffffff; }
+.delegate-section strong { color: #ffffff; }
+
+/* Ghost buttons on the dark section: white outline + white text */
+.delegate-section .btn.ghost {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.delegate-section .btn.ghost:hover {
+  background: #ffffff;
+  color: var(--blue-strong);
+}
 .how-to {
   max-width: 720px;
   margin: 20px 0 28px;
