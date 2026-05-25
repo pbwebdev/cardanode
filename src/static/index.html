@@ -126,17 +126,17 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 
     <div class="grid-3">
       <div class="card">
-        <div class="card-icon">🌱</div>
+        <div class="card-icon" aria-hidden="true">🌱</div>
         <h3>Powered by renewables</h3>
         <p>Infrastructure runs on renewable-energy data centres. Cardano's proof-of-stake already cuts the footprint to a fraction of proof-of-work; we go further by choosing greener hosts.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🔐</div>
+        <div class="card-icon" aria-hidden="true">🔐</div>
         <h3>Hardened security</h3>
         <p>Cold keys stored offline, hardware-backed signing, restricted SSH access, continuous monitoring on every relay. The block-producer node is not directly internet-exposed.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🛰️</div>
+        <div class="card-icon" aria-hidden="true">🛰️</div>
         <h3>Redundant relays</h3>
         <p>Multiple geographically distributed relays with health monitoring. If one drops, your delegation keeps minting on the rest.</p>
       </div>
@@ -146,21 +146,76 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
   <section id="operator" class="section operator-section">
     <div class="container">
       <h2>The operator</h2>
-      <div class="operator-text">
-        <h3>Peter Bui</h3>
-        <p class="meta">Cardano Ambassador · DRep · Founder, Mesh With Us · Host, Learn Cardano</p>
-        <p>
-          I started ADAOZ in February 2021 because I wanted Australians to have a local pool to delegate to,
-          and because I wanted to learn how Cardano really worked from the inside out. Five years later I'm
-          still running the pool, still researching every governance vote as a
-          <a href="https://drep.learncardano.io" target="_blank" rel="noopener noreferrer">DRep</a>, still publishing on
-          <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano</a>,
-          and building Cardano apps via <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>.
-        </p>
-        <p>
-          Delegating to ADAOZ funds the time it takes to review every CIP, every governance action, every new
-          tool — and turn that into content other people can learn from.
-        </p>
+      <div class="operator-grid">
+        <div class="operator-text">
+          <h3>Peter Bui</h3>
+          <p class="meta">Cardano Ambassador · Midnight Ambassador · DRep · Founder, Mesh With Us · Host, Learn Cardano</p>
+
+          <ul class="social-links" aria-label="Peter Bui social profiles">
+            <li>
+              <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui on X (opens in new tab)">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/peterbui1/" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui on LinkedIn (opens in new tab)">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://linktr.ee/peterbui" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui all links on Linktree (opens in new tab)">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.736 5.853h6.198l-4.382 4.193 4.382 4.193h-6.198L9.354 18.43V12.71l-4.382 4.193v-7.058l4.382-4.193h4.382zm-4.382 7.058v5.518h4.382v-5.518zm0-7.058L4.972 10.046h4.382z"/></svg>
+              </a>
+            </li>
+          </ul>
+
+          <p>
+            I started ADAOZ in February 2021 because I wanted Australians to have a local pool to delegate to,
+            and because I wanted to learn how Cardano really worked from the inside out. Five years later I'm
+            still running the pool, still researching every governance vote as a
+            <a href="https://drep.learncardano.io" target="_blank" rel="noopener noreferrer">DRep</a>,
+            still publishing on
+            <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano</a>,
+            and building Cardano and Midnight apps via
+            <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>.
+          </p>
+          <p>
+            I'm also a <strong>Midnight Ambassador</strong>, covering everything happening on Cardano's new
+            privacy-focused sidechain as it rolls out.
+          </p>
+          <p>
+            Delegating to ADAOZ earns you ADA rewards but also helps fund the time it takes to review every
+            governance action, every new tool, interview projects building on Cardano, and turn that into
+            content other people can learn from.
+          </p>
+        </div>
+
+        <figure class="operator-portrait">
+          <img src="/images/peter-bui.jpg" alt="Peter Bui, operator of ADAOZ Cardano stake pool." width="280" height="280" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section midnight-section">
+    <div class="container">
+      <div class="midnight-grid">
+        <div class="midnight-text">
+          <div class="eyebrow">Cardano × Midnight</div>
+          <h2>Earn ADA today. NIGHT tokens on the way.</h2>
+          <p class="lede">
+            Midnight is Cardano's privacy-focused sidechain. When NIGHT token allocations open up to
+            Cardano stakers, ADAOZ delegators will earn <strong>$NIGHT rewards on top of their ADA</strong>,
+            just for staying delegated.
+          </p>
+          <p>
+            Peter is one of the Midnight Ambassadors covering the launch, so ADAOZ delegators get a front-row
+            view of what's happening on the new chain — and the rewards that come with being early.
+          </p>
+        </div>
+        <figure class="midnight-art">
+          <img src="/images/midnight-cardano.png" alt="Cardano and Midnight logos paired together, representing ADAOZ delegators earning both ADA and future NIGHT token rewards." loading="lazy" decoding="async">
+        </figure>
       </div>
     </div>
   </section>
@@ -171,22 +226,22 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 
     <div class="grid-2">
       <a class="card link-card" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon">▶︎</div>
+        <div class="card-icon" aria-hidden="true">▶︎</div>
         <h3>Learn Cardano on YouTube</h3>
         <p>Tutorials, news, and deep dives. The successor to the original Learn Cardano podcast — same focus, broader format.</p>
       </a>
       <a class="card link-card" href="https://www.youtube.com/playlist?list=PL2fWPJCv7fcAbsfCFhHfI3B3zcLyaGnDT" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon">🪑</div>
+        <div class="card-icon" aria-hidden="true">🪑</div>
         <h3>Builders Bench</h3>
         <p>Interview series with the people actually building on Cardano — protocols, dApps, tools, education.</p>
       </a>
       <a class="card link-card" href="https://drep.learncardano.io" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon">🗳️</div>
+        <div class="card-icon" aria-hidden="true">🗳️</div>
         <h3>Peter Bui · DRep</h3>
         <p>Researched, on-chain governance votes with published rationale. Delegate your voting power to a DRep that explains every vote.</p>
       </a>
       <a class="card link-card" href="https://learncardano.io" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon">🎓</div>
+        <div class="card-icon" aria-hidden="true">🎓</div>
         <h3>learncardano.io</h3>
         <p>Long-form Cardano education hub. Companion site to the YouTube channel.</p>
       </a>
