@@ -22,6 +22,27 @@ const RELATED_COUNT = 3;
 
 marked.setOptions({ mangle: false, headerIds: true });
 
+// Auto-target external links: any link not starting with / or # or the
+// canonical site origin gets target="_blank" + rel="noopener noreferrer".
+// The CSS rule a[target="_blank"]::after appends an external-link icon.
+const SITE_ORIGIN = "cardanode.com.au";
+marked.use({
+  renderer: {
+    link({ href, title, tokens }) {
+      const text = this.parser.parseInline(tokens);
+      const isExternal =
+        href &&
+        !href.startsWith("/") &&
+        !href.startsWith("#") &&
+        !href.startsWith("mailto:") &&
+        !href.includes(SITE_ORIGIN);
+      const titleAttr = title ? ` title="${title.replace(/"/g, "&quot;")}"` : "";
+      const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${href}"${titleAttr}${targetAttr}>${text}</a>`;
+    },
+  },
+});
+
 const baseTpl = readTpl("base.html");
 const postTpl = readTpl("post.html");
 const indexTpl = readTpl("blog-index.html");

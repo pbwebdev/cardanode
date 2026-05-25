@@ -49,10 +49,12 @@ async function handleRoot(request, env, ctx) {
   if (!assetRes.ok || !ct.includes("text/html")) return assetRes;
 
   const stats = await fetchPoolStats(ctx).catch(() => null);
-  const liveStake = stats?.live_stake_ada
-    ? Number(stats.live_stake_ada).toLocaleString("en-US")
+  const liveStake = stats?.live_stake_ada != null
+    ? compactAda(stats.live_stake_ada)
     : null;
-  const blocks = stats?.block_count != null ? String(stats.block_count) : null;
+  const blocks = stats?.block_count != null
+    ? Number(stats.block_count).toLocaleString("en-US")
+    : null;
 
   const margin = stats?.margin != null ? (stats.margin * 100).toFixed(stats.margin < 0.01 ? 2 : 1) + "%" : null;
   const pledge = stats?.pledge_ada != null ? Number(stats.pledge_ada).toLocaleString("en-US") + " ₳" : null;
@@ -120,7 +122,8 @@ async function fetchPoolStats(ctx) {
     fetched_at: new Date().toISOString(),
   };
 
-  const cached = json(out, 200, { "cache-control": "public, max-age=600" });
+  // Pool stats change slowly; cache at the edge for 24h.
+  const cached = json(out, 200, { "cache-control": "public, max-age=86400" });
   ctx.waitUntil(cache.put(cacheKey, cached.clone()));
   return out;
 }
@@ -185,4 +188,15 @@ function json(data, status = 200, extra = {}) {
       ...extra,
     },
   });
+}
+
+// "61,272,784" → "61.2M" (millions, 1dp). For values >= 1B uses "1.2B".
+// Small values fall through to a plain locale string with no decimals.
+function compactAda(n) {
+  const v = Number(n);
+  if (!Number.isFinite(v)) return null;
+  if (v >= 1_000_000_000) return (v / 1_000_000_000).toFixed(1) + "B";
+  if (v >= 1_000_000) return (v / 1_000_000).toFixed(1) + "M";
+  if (v >= 1_000) return (v / 1_000).toFixed(1) + "K";
+  return Math.round(v).toLocaleString("en-US");
 }

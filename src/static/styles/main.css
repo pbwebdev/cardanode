@@ -56,6 +56,23 @@ p { margin: 0 0 1em; }
 a { color: var(--blue); text-decoration: none; }
 a:hover { color: var(--blue-hover); text-decoration: underline; }
 
+/* External-link affordance — arrow appended to any link that opens in
+   a new tab. Used by all external links across the site (homepage nav,
+   cards, footer, and blog-post body links). Suppressed inside .btn and
+   .link-card so the visual chrome there isn't doubled-up. */
+a[target="_blank"]::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 3px;
+  font-size: 0.85em;
+  vertical-align: baseline;
+  color: currentColor;
+  opacity: 0.7;
+}
+.btn[target="_blank"]::after,
+.link-card[target="_blank"]::after,
+.site-nav a[target="_blank"]::after { content: none; }
+
 img { max-width: 100%; height: auto; }
 
 .container {
