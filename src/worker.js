@@ -25,6 +25,7 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/pool-stats") return handlePoolStats(ctx);
+    if (url.pathname === "/api/account-info") return handleAccountInfo(url, ctx);
     if (url.pathname === "/api/contact" && request.method === "POST")
       return handleContact(request, env);
     if (url.pathname.startsWith("/api/blockfrost/"))
@@ -126,6 +127,47 @@ async function fetchPoolStats(ctx) {
   const cached = json(out, 200, { "cache-control": "public, max-age=86400" });
   ctx.waitUntil(cache.put(cacheKey, cached.clone()));
   return out;
+}
+
+/* ---------------- Account info (Koios) ---------------- */
+
+async function handleAccountInfo(url, ctx) {
+  const stake = url.searchParams.get("stake") || "";
+  if (!/^stake1[0-9a-z]{50,}$/.test(stake)) {
+    return json({ error: "invalid_stake_address" }, 400);
+  }
+
+  // Short edge cache (60s) — user may re-check after signing a tx.
+  const cache = caches.default;
+  const cacheKey = new Request(`https://cache.local/account-info/${stake}`);
+  const hit = await cache.match(cacheKey);
+  if (hit) return hit;
+
+  const res = await fetch(`${KOIOS}/account_info`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ _stake_addresses: [stake] }),
+  });
+  if (!res.ok) return json({ error: "koios_error", status: res.status }, 502);
+
+  const arr = await res.json();
+  const acc = Array.isArray(arr) ? arr[0] : null;
+
+  // Koios returns an empty array (or an entry with status "not registered")
+  // for a stake address that has never been registered on-chain.
+  const out = {
+    stake_address: stake,
+    registered: acc ? acc.status === "registered" : false,
+    delegated_pool: acc?.delegated_pool || null,
+    is_delegated_to_adaoz: acc?.delegated_pool === ADAOZ_POOL_BECH32,
+    total_balance_ada: acc?.total_balance ? Math.round(Number(acc.total_balance) / 1_000_000) : null,
+    rewards_available_ada: acc?.rewards_available ? Math.round(Number(acc.rewards_available) / 1_000_000) : null,
+    fetched_at: new Date().toISOString(),
+  };
+
+  const response = json(out, 200, { "cache-control": "public, max-age=60" });
+  ctx.waitUntil(cache.put(cacheKey, response.clone()));
+  return response;
 }
 
 /* ---------------- Contact form ---------------- */

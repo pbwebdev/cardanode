@@ -251,15 +251,86 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
   <section id="delegate" class="section delegate-section">
     <div class="container">
       <h2>Delegate to ADAOZ</h2>
-      <p class="lede">An in-page wallet-connect delegation flow is on the way. In the meantime, delegating manually takes about thirty seconds.</p>
-      <ol class="how-to">
-        <li>Open your Cardano wallet (<strong>Lace</strong> or <strong>Eternl</strong> recommended; Nami or Yoroi also work).</li>
-        <li>Go to the staking / delegation panel.</li>
-        <li>Search the ticker <strong>ADAOZ</strong> and select the pool.</li>
-        <li>Confirm. First-time delegators pay a one-off 2 ₳ stake-key registration; you get it back if you ever de-register.</li>
-      </ol>
-      <p>
-        <a class="btn" href="/blog/category/staking/">Read the staking guides</a>
+      <p class="lede">Connect your Cardano wallet and delegate on-chain in two clicks. First-time delegators pay a one-off <strong>2 ₳ stake-key registration deposit</strong>; you get it back if you ever de-register.</p>
+
+      <div id="delegate-panel" class="delegate-panel" aria-live="polite" data-state="idle">
+        <div id="dp-status-banner" class="dp-banner" role="status" hidden></div>
+
+        <!-- idle -->
+        <div data-show="idle">
+          <button type="button" class="btn btn-lg" data-action="open-picker">Connect wallet</button>
+          <p class="dp-hint">Works with <strong>Lace</strong>, <strong>Eternl</strong>, Nami, Typhon, NuFi, Begin, Yoroi — any CIP-30 wallet. We never see your keys.</p>
+        </div>
+
+        <!-- wallet picker -->
+        <div data-show="picking" hidden>
+          <h3>Choose a wallet</h3>
+          <ul id="dp-wallets" class="wallet-list" aria-label="Installed Cardano wallets"></ul>
+          <button type="button" class="btn ghost" data-action="cancel">Cancel</button>
+        </div>
+
+        <!-- connecting (transient) -->
+        <div data-show="connecting" hidden>
+          <h3>Connecting…</h3>
+          <p>Approve the connection in your wallet.</p>
+        </div>
+
+        <!-- connected -->
+        <div data-show="connected" hidden>
+          <h3>Wallet connected</h3>
+          <dl class="dp-kv">
+            <dt>Stake address</dt><dd><code id="dp-stake-addr"></code></dd>
+            <dt>Wallet balance</dt><dd id="dp-balance">—</dd>
+            <dt>Stake key</dt><dd id="dp-reg-status">—</dd>
+            <dt>Currently delegated</dt><dd id="dp-current-pool">—</dd>
+          </dl>
+          <p class="dp-actions">
+            <button type="button" id="dp-delegate" class="btn btn-lg" data-action="delegate">Delegate to ADAOZ</button>
+            <button type="button" class="btn ghost" data-action="disconnect">Disconnect</button>
+          </p>
+        </div>
+
+        <!-- working -->
+        <div data-show="working" hidden>
+          <h3 id="dp-working-title">Working…</h3>
+          <p id="dp-working-msg" class="dp-hint"></p>
+        </div>
+
+        <!-- success -->
+        <div data-show="success" hidden>
+          <h3>Transaction submitted 🎉</h3>
+          <p>Your delegation to ADAOZ is on the way. Rewards start flowing in 2-3 epochs (around 10-15 days).</p>
+          <p>Transaction: <a id="dp-tx-link" target="_blank" rel="noopener noreferrer">view on Cardanoscan</a></p>
+          <button type="button" class="btn ghost" data-action="reset">Done</button>
+        </div>
+
+        <!-- already delegated -->
+        <div data-show="already-adaoz" hidden>
+          <h3>You're already delegated to ADAOZ 🎉</h3>
+          <p>Thanks for your support. Nothing more to do — rewards keep coming every epoch.</p>
+          <button type="button" class="btn ghost" data-action="disconnect">Disconnect</button>
+        </div>
+
+        <!-- error -->
+        <div data-show="error" hidden>
+          <h3>Something went wrong</h3>
+          <p id="dp-error-msg" class="dp-error"></p>
+          <button type="button" class="btn" data-action="retry">Try again</button>
+        </div>
+      </div>
+
+      <details class="dp-manual">
+        <summary>Prefer to delegate from inside your wallet?</summary>
+        <ol class="how-to">
+          <li>Open your Cardano wallet (<strong>Lace</strong> or <strong>Eternl</strong> recommended).</li>
+          <li>Go to the staking / delegation panel.</li>
+          <li>Search the ticker <strong>ADAOZ</strong> and select the pool.</li>
+          <li>Confirm. First-time delegators pay a one-off 2 ₳ stake-key registration; you get it back if you ever de-register.</li>
+        </ol>
+      </details>
+
+      <p style="margin-top: 28px;">
+        <a class="btn ghost" href="/blog/category/staking/">Read the staking guides</a>
         <a class="btn ghost" href="/contact-us/">Questions? Get in touch</a>
       </p>
     </div>
@@ -284,6 +355,8 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
     </div>
   </div>
 </footer>
+
+<script type="module" src="/scripts/delegate-panel.js"></script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
