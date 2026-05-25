@@ -9,7 +9,7 @@ ogTitle: "EP008 - What is a Cardano Ambassador  with Maria Carmo"
 ogImage: "/uploads/2021/05/IMG_2227-636x800.jpg"
 youtube: ["https://www.youtube.com/mariacarmo369", "https://www.youtube.com/watch?v=vrCyLqvG170"]
 ---
-\[spreaker type=player resource="episode\_id=44880341" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=44880341&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 Maria Carmo, a Cardano Ambassador for the project joins me to talk about what an Ambassador is and how she contributes to the Cardano community to bring and raise awareness of the project and its goals. Maria is an educator and teacher with a strong passion for cryptocurrencies and especially Cardano. She aims to onboard users to space in a safe and educated way so that.
 

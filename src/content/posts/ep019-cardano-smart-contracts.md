@@ -9,7 +9,7 @@ ogTitle: "EP019 - Cardano Smart Contracts, US Legislation, FUD, & Cardano Ecosys
 ogImage: "/uploads/2021/08/twitter_E7btA5aVcAAkXTh-370x800.jpg"
 youtube: ["https://www.youtube.com/embed/-YD5cAbatOc", "https://www.youtube.com/embed/hhBWZRiWnPw"]
 ---
-\[spreaker type=player resource="episode\_id=45935844" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45935844&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 ## Cardano Smart Contracts Takes a Step Closer to Launch
 

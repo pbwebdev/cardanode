@@ -17,4 +17,4 @@ Myself, Peter, presented on Non Fungible Tokens and how to create them on the Ca
 
 If you'd like to join us at future meetups, please check out our [Meetup page](https://www.meetup.com/cardano-community-meetup), where we list all the meetups that we organise for the community across the Gold Coast, Brisbane and Sydney.
 
-<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLearnCardano%2Fposts%2F157397853096902&show_text=true&width=500" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLearnCardano%2Fposts%2F157397853096902&show_text=true&width=500" width="100%" height="652" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>

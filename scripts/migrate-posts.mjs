@@ -23,6 +23,22 @@ import TurndownService from "turndown";
 const POSTS_DIR = "src/content/posts";
 const COMMENTS_DIR = "src/content/comments";
 const MANIFEST_PATH = "src/content/post-manifest.json";
+/* ---------------- [spreaker] shortcode -> Spreaker iframe ---------------- */
+
+function spreakerIframeFor(episodeId) {
+  // Mirrors the original WordPress shortcode params (light theme, no autoplay,
+  // hide download, etc). Spreaker hosts the audio; no external mapping needed.
+  const src = `https://widget.spreaker.com/player?episode_id=${episodeId}&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true`;
+  return `<iframe class="podcast-embed" src="${src}" width="100%" height="200" frameborder="0" loading="lazy"></iframe>`;
+}
+
+function replaceSpreakerShortcodes(html) {
+  // [spreaker ... episode_id=NNNN ... ] in the raw WP HTML (un-escaped).
+  return String(html).replace(
+    /\[spreaker[^\]]*episode_id=(\d+)[^\]]*\]/gi,
+    (_m, id) => spreakerIframeFor(id),
+  );
+}
 
 /* ---------------- locate WXR ---------------- */
 
@@ -76,13 +92,23 @@ const td = new TurndownService({
   emDelimiter: "_",
 });
 
-// Preserve YouTube iframes verbatim (turndown otherwise strips them).
+// Preserve iframes verbatim (turndown otherwise strips them).
+// YouTube iframes get a normalised src + responsive attrs; everything
+// else (Spotify, etc) is emitted as-is with its original attributes.
 td.addRule("preserveIframe", {
   filter: ["iframe"],
   replacement: (_content, node) => {
     const src = node.getAttribute("src") || "";
     if (!src) return "";
-    return `\n\n<iframe src="${cleanYoutubeUrl(src)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\n`;
+    const isYouTube = /youtu(be\.com|\.be)/i.test(src);
+    if (isYouTube) {
+      return `\n\n<iframe src="${cleanYoutubeUrl(src)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n\n`;
+    }
+    // Preserve every original attribute for non-YouTube iframes.
+    const attrs = Array.from(node.attributes || [])
+      .map((a) => `${a.name}="${String(a.value).replace(/"/g, "&quot;")}"`)
+      .join(" ");
+    return `\n\n<iframe ${attrs}></iframe>\n\n`;
   },
 });
 
@@ -186,8 +212,11 @@ for (const item of items) {
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
 
+  // Spreaker shortcodes → Spotify iframes (per-episode if mapped, show otherwise)
+  const noSpreaker = replaceSpreakerShortcodes(noStyle);
+
   // Clean YouTube URLs in the raw HTML before any transform
-  const cleanedHtml = cleanYoutubeInHtml(noStyle);
+  const cleanedHtml = cleanYoutubeInHtml(noSpreaker);
 
   // First image as OG fallback
   if (!ogImage) ogImage = firstImageSrc(cleanedHtml);

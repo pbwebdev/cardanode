@@ -9,7 +9,7 @@ ogTitle: "EP006 - Delegating Your ADA to a Stake Pool & Understanding the Benefi
 ogImage: "/uploads/2021/06/Cardano-Africa-2021.jpg"
 youtube: []
 ---
-\[spreaker type=player resource="episode\_id=44620213" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=44620213&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 In this episode, I talk to Bas Mons, about the importance of moving your ADA from an exchange and delegating Your ADA to a stake pool. Bas is a stake pool operator from the Netherlands.
 

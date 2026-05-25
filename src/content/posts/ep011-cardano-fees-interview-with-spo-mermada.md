@@ -9,7 +9,7 @@ ogTitle: "EP011 - Simple Explanation of Cardano Fees & Inspirational Chat with S
 ogImage: "/uploads/2021/06/understanding-cardano-ada-staking-fees-800x420.jpg"
 youtube: []
 ---
-\[spreaker type=player resource="episode\_id=45200430" width="100%" height="250px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45200430&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 This week we look at all the Cardano fees that are involved with using the blockchain. Every Cardano fees from staking fees, registering fees and transfer fees for Cardano. MereADA also joins me on the podcast to talk about her mission-driven pool to save the world's oceans, and we look at her unique branding for her stake pool. We also talk about how she mines other cryptocurrencies with a mining setup for Ethereum.
 

@@ -9,7 +9,7 @@ ogTitle: "EP031 - Cardano News Updates"
 ogImage: "/uploads/2021/11/1_2Wsh662xSIlDgmVAD-asag-800x399.jpg"
 youtube: []
 ---
-\[spreaker type=player resource="episode\_id=47263830" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=47263830&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 There is a lot of news this week in the Cardano news update.
 

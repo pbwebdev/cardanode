@@ -11,7 +11,7 @@ youtube: ["https://www.youtube.com/embed/-Az_lsYxlak", "https://www.youtube.com/
 ---
 Since March, Cardano has had native tokens and non-fungible tokens on the blockchain and users could create them, without smart contracts! It is one of the key features of the Cardano ecosystem that makes it different to other blockchains. ADA and other tokens on the blockchain are treated the same way.
 
-\[spreaker type=player resource="episode\_id=47657477" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="true" hide-sharing="true" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=47657477&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 [Mint this Episode as an NFT](#mint34)
 

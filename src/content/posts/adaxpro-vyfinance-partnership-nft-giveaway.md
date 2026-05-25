@@ -40,4 +40,4 @@ Full disclosure, I am the marketing lead for the ADA Waifus project.
 Here is the Gleam link for those that can't see the embedded form:  
 [https://gleam.io/Me69r/adaxprovyfiadawaifus](https://gleam.io/Me69r/adaxprovyfiadawaifus)
 
-<iframe src="https://gleam.io/Me69r/adaxprovyfiadawaifus" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://gleam.io/Me69r/adaxprovyfiadawaifus" width="100%" height="800" border="0" frame="0"></iframe>

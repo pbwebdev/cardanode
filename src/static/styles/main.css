@@ -262,6 +262,13 @@ img { max-width: 100%; height: auto; }
   margin: 24px 0;
 }
 
+/* Podcast embed (Spreaker) — fixed height, not 16:9 */
+.post iframe.podcast-embed {
+  aspect-ratio: auto;
+  height: 200px;
+  background: transparent;
+}
+
 /* Footer */
 .site-footer {
   margin-top: 80px;

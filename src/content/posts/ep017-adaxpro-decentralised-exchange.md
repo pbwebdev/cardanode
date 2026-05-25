@@ -9,7 +9,7 @@ ogTitle: "EP017 - ADAXPRO Decentralised Exchange"
 ogImage: ""
 youtube: ["https://www.youtube.com/embed/0gr1-k94ukU", "https://www.youtube.com/embed/U9K-8jILGcg"]
 ---
-\[spreaker type=player resource="episode\_id=45756397" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45756397&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 This week I chat with Dovydas Petkevičius, the Chief Marketing Officer of ADAXPro, a decentralised exchange being built on Cardano. The main point of difference with their exchange is that they're going simple with a basic approach and porting over what they have been working on in the Ethereum space over to Cardano.
 

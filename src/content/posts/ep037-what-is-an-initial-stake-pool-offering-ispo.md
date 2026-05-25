@@ -9,7 +9,7 @@ ogTitle: "EP037 - What is an Initial Stake Pool Offering (ISPO)"
 ogImage: ""
 youtube: ["https://www.youtube.com/embed/rQbL9Nry3iM"]
 ---
-\[spreaker type=player resource="episode\_id=48010293" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="true" hide-sharing="true" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=48010293&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 An Initial Stake Pool Offering or ISPO is a unique fundraising model only available in the Cardano ecosystem. Users can delegate their ADA wallet balance to a stake pool and, in exchange, receive the token for the project that they are participating in.
 

@@ -51,7 +51,7 @@ The process is overall fairly easy and can be complete within 15 minutes if the 
 
 All the commands once you've downloaded all the files and config.
 
-<iframe src="https://pastebin.com/embed_iframe/Rc5ZjZiJ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://pastebin.com/embed_iframe/Rc5ZjZiJ" style="border:none;width:100%; height:600px;"></iframe>
 
 ### Download Daedalus and Install on Windows
 
@@ -156,7 +156,7 @@ If it sends then you have successfully connected CCVault to Daedalus or Nami to 
 
 <iframe src="https://www.youtube.com/embed/dpZX9eF9UUI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe src="https://pastebin.com/embed_iframe/c9dT2XMJ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://pastebin.com/embed_iframe/c9dT2XMJ" style="border:none;width:100%;height:700px;margin:2em 0;"></iframe>
 
 ## You're Set! What is this Best For?
 

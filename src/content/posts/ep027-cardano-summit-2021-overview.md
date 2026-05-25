@@ -9,7 +9,7 @@ ogTitle: "EP027 - Amazing Cardano Summit 2021 Overview"
 ogImage: "/uploads/2021/10/unknown-800x707.png"
 youtube: ["https://www.youtube.com/embed/qEnblZbOSOw", "https://www.youtube.com/playlist?list=PLnPTB0CuBOBxqd1flGm9ByJCHCjswFCO5"]
 ---
-\[spreaker type=player resource="episode\_id=46825283" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="false" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=46825283&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 The Cardano Summit just finished and there were many partnerships that were announced across the two days of the Summit. You can review and watch all of the announcements and videos on the [Cardano Summit 2021 website](https://summit.cardano.org/) or on the [IOG YouTube Channel](https://www.youtube.com/playlist?list=PLnPTB0CuBOBxqd1flGm9ByJCHCjswFCO5).
 

@@ -9,7 +9,7 @@ ogTitle: "EP009 - How to Stake Cardano (ADA) for Rewards & How Rewards Work"
 ogImage: "/uploads/2021/06/cardano-logo-800x506.jpeg"
 youtube: ["https://youtu.be/LeNGUXqzaLw"]
 ---
-\[spreaker type=player resource="episode\_id=45049587" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45049587&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 Wondering how to stake Cardano? In this episode, we take a step back and do a deep dive into the basic concepts of staking on the Cardano blockchain and understanding how rewards work.
 

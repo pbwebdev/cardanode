@@ -9,7 +9,7 @@ ogTitle: "EP030 - Simple DeFi & Cardano Project Evaluation Framework to Determin
 ogImage: ""
 youtube: ["https://www.youtube.com/embed/cGiorLrUjVI"]
 ---
-\[spreaker type=player resource="episode\_id=47192597" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="false" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=47192597&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 With so many projects launching on Cardano at the moment, all in their early stages of development and all fighting for our attention, it is hard to disseminate between a good project and a bad project to consider supporting vocally online on social media or financially in terms of participating in fundraising rounds.
 

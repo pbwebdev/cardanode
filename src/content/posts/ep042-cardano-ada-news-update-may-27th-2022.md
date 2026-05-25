@@ -11,7 +11,7 @@ youtube: ["https://www.youtube.com/embed/NSQyZykDC6o"]
 ---
 This week I look at a few updates from the Cardano community. More projects are delivering new tooling along with new partnerships.
 
-\[spreaker type=player resource="episode\_id=49965620" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="false" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=49965620&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 ## Watch the Video
 

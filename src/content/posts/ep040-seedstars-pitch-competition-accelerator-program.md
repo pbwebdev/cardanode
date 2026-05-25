@@ -11,7 +11,7 @@ youtube: ["https://www.youtube.com/embed/vfQgzZDCizI"]
 ---
 Seedstars in collaboration with the Financial Times Talent (FT Talent), Project Catalyst and Cardano are holding a pitch competition to gather the best of the best projects working in emerging markets around the world.
 
-\[spreaker type=player resource="episode\_id=49961965" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="false" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=49961965&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 Projects at any stage of development will be able to get their ideas and concepts in front of the Seedstars group of companies to be able to access an array of mentors, advisors, resources and potential funding to help seed, growth and accelerate their projects.
 

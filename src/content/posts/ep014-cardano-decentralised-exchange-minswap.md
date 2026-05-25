@@ -9,7 +9,7 @@ ogTitle: "EP014 - Understanding Cardano Decentralised Exchange (DEX) and Intervi
 ogImage: "/uploads/2021/06/cardano-summit-800x442.png"
 youtube: ["https://www.youtube.com/embed/NxZBj8e_Yic", "https://www.youtube.com/embed/jd4uYEVNaxQ", "https://www.youtube.com/watch?v=FKh8hjJNhWc", "https://www.youtube.com/watch?v=LjJhXOrPoP4"]
 ---
-\[spreaker type=player resource="episode\_id=45489117" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45489117&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 I look into a Cardano Decentralised Exchange, or cryptocurrency exchange, in this podcast episode and how they differ from centralised cryptocurrency exchanges. Long Nguyen from MinSwap joins me to discuss the Cardano decentralised exchange platform building on the Cardano blockchain. So if you ever wanted to understand what a decentralised exchange is and how to use it, this is the episode for you.
 

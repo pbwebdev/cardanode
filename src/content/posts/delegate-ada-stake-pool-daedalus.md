@@ -108,4 +108,4 @@ I would personally recommend not transferring and delegating anything less than 
 
 Listen to our latest podcast episode, all about [staking and delegating to a pool](http://cardanode.com.au/ep009-how-to-stake-cardano-for-rewards/). You'll also learn about how the rewards distribution works once you've learned how to delegate ADA.
 
-\[spreaker type=player resource="episode\_id=45049587" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45049587&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>

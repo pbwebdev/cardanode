@@ -9,7 +9,7 @@ ogTitle: "EP010 - Cardano Smart Contracts, Alonzo is Coming & Lovelace Academy w
 ogImage: "/uploads/2021/05/Screen-Shot-2021-05-30-at-12.54.31-pm-800x450.png"
 youtube: ["https://www.youtube.com/embed/DkrzlLywi9Y", "https://www.youtube.com/mariacarmo369"]
 ---
-\[spreaker type=player resource="episode\_id=45108951" width="100%" height="250px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45108951&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 I continue my interview with Maria Carmo this week. We talk about how her project Lovelace Academy got selected in Fund 2 of Project Catalyst to create content and a learning platform for Cardano covering everything from basic content to Cardano smart contracts. Maria explains her experience going through the Project Catalyst process and talks more about her content and Lovelace Academy.
 

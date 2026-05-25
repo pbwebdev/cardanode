@@ -9,7 +9,7 @@ ogTitle: "EP012 - Easily Increasing Game Development Revenue with Blockchain, In
 ogImage: "/uploads/2021/06/Grevan-Ranger-800x450.jpg"
 youtube: ["https://www.youtube.com/watch?v=Y44eMfnlVwY", "https://www.youtube.com/watch?v=p6pBE_1AWcc", "https://youtu.be/wOWippgDW9c"]
 ---
-\[spreaker type=player resource="episode\_id=45294471" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45294471&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 Many game developers want to maximise their revenue from game development. Increasing game development revenue with blockchain with one new technique can create secondary marketplaces with non-fungible tokenised items in-game. These items can be wrapped in smart contracts where the original game developers continually retain the original royalties of the sale.
 
@@ -19,7 +19,7 @@ Will from [Rektangular Studios](https://rektangularstudios.com/) joins me on the
 
 ### Listener Question
 
-<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1067556142%3Fsecret_token%3Ds-ZDTfmk5oMKM&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1067556142%3Fsecret_token%3Ds-ZDTfmk5oMKM&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
 [Pete Bui](https://soundcloud.com/pete-bui-ada "Pete Bui") · [Voice Message from Gene](https://soundcloud.com/pete-bui-ada/voice-message-from-gene/s-ZDTfmk5oMKM "Voice Message from Gene")
 

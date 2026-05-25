@@ -11,7 +11,7 @@ youtube: ["https://www.youtube.com/watch?v=Pjg_u7Oeel0", "https://www.youtube.co
 ---
 This week we look at Project Catalyst and Cardano's on-chain governance and treasury system. What it is and how it works compared to other blockchains.
 
-\[spreaker type=player resource="episode\_id=44308892" width="100%" height="202px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=44308892&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 ## News Updates
 
@@ -194,4 +194,4 @@ There is a complete [FAQ guide](https://docs.google.com/document/d/1qYtV15WXeM_A
 
 Enjoying the podcast? Leave a message and I'll see if I can add it to the show.
 
-<iframe src="https://www.speakpipe.com/widget/inline/z2hcq0c1sgbfns07uztrfe0hih0l5ufn" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.speakpipe.com/widget/inline/z2hcq0c1sgbfns07uztrfe0hih0l5ufn" allow="microphone" width="100%" height="200" frameborder="0"></iframe>

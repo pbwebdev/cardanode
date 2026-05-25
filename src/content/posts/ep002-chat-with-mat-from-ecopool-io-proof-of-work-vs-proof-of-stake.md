@@ -9,7 +9,7 @@ ogTitle: "EP002 - Chat with Mat from EcoPool.io & Proof of Work vs Proof of Stak
 ogImage: "/uploads/2021/04/bitcoin-current-power-usage.png"
 youtube: []
 ---
-\[spreaker type=player resource="episode\_id=44212740" width="100%" height="202px" theme="light" playlist="false" playlist-continuous="false" autoplay="false" live-autoplay="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=44212740&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 This week we take a look at the difference between Proof of Work that is used on blockchains such as Bitcoin and Ethereum and compares that to Proof of Stake which Cardano uses. We also have an interview with an eco-minded stake pool operator from New Zealand name Mat talking about his stake pool, [EcoPool.io](https://EcoPool.io).
 

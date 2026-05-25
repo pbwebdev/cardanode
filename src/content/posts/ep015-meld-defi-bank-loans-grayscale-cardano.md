@@ -9,7 +9,7 @@ ogTitle: "EP015 - Meld DeFi Bank Loans & Grayscale Cardano"
 ogImage: "/uploads/2021/07/Cardano_grayscale1-750x800.jpg"
 youtube: ["https://www.youtube.com/watch?v=MIEjQhZ5u9Q"]
 ---
-\[spreaker type=player resource="episode\_id=45590615" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45590615&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 I chat with Ken Olling from Meld and their new decentralised finance platform that allows DeFi bank loans and lines of credit.
 

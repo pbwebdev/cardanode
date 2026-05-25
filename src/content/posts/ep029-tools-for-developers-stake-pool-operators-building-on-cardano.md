@@ -9,7 +9,7 @@ ogTitle: "EP029 - Tools for Developers & Stake Pool Operators Building on Cardan
 ogImage: "/uploads/2021/10/Screen-Shot-2021-10-19-at-1.56.33-pm-800x273.png"
 youtube: ["https://www.youtube.com/embed/JTDwguDoumE"]
 ---
-\[spreaker type=player resource="episode\_id=47194034" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="false" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=47194034&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 There are many tools, services and products being built at the moment to help support developers in the Cardano ecosystem.
 

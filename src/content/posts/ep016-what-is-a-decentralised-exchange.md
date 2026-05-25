@@ -9,7 +9,7 @@ ogTitle: "EP016 - What Is A Decentralised Exchange? We're Helping You Understand
 ogImage: ""
 youtube: ["https://www.youtube.com/embed/Uw8NuJLpOk4", "https://www.youtube.com/embed/hhBWZRiWnPw"]
 ---
-\[spreaker type=player resource="episode\_id=45674632" width="100%" height="150px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="true" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=45674632&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 This week I explain what is a Decentralised Exchange (DEX) and I chat with Chris from Mirqur, a mathematically driven stake pool that he's been working for launch on Cardano with smart contracts.
 

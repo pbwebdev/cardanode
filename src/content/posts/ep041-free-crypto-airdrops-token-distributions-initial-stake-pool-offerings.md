@@ -11,7 +11,7 @@ youtube: ["https://www.youtube.com/embed/0-JOg30ogf0", "https://www.youtube.com/
 ---
 There are many projects launching, building and running through their marketing campaigns at the moment and as a result, many are releasing their utility and governance tokens to the ecosystem. This is our chance to pick up some of these tokens and participate on their platforms.
 
-\[spreaker type=player resource="episode\_id=49962349" width="100%" height="200px" theme="light" playlist="false" playlist-continuous="false" chapters-image="true" episode-image-position="right" hide-logo="false" hide-likes="false" hide-comments="false" hide-sharing="false" hide-download="true"\]
+<iframe class="podcast-embed" src="https://widget.spreaker.com/player?episode_id=49962349&theme=light&playlist=false&playlist-continuous=false&autoplay=false&live-autoplay=false&chapters-image=true&episode_image_position=right&hide-logo=false&hide-likes=false&hide-comments=false&hide-sharing=false&hide-download=true" width="100%" height="200" frameborder="0" loading="lazy"></iframe>
 
 ## Indigo Protocol Airdrop
 
