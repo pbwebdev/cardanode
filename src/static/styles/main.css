@@ -199,6 +199,11 @@ img { max-width: 100%; height: auto; }
 .section { padding: 64px 24px; }
 .section .lede { font-size: 1.1rem; color: var(--muted); max-width: 720px; }
 
+/* Centered section intro (h2 + first .lede) — cards/grid below stay left */
+.section--center-head > h2,
+.section--center-head > .lede { text-align: center; }
+.section--center-head > .lede { margin-left: auto; margin-right: auto; }
+
 /* 2/3-col card grids */
 .grid-3 {
   display: grid;
