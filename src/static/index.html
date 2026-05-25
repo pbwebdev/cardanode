@@ -23,17 +23,15 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 <meta name="build-sha" content="dev">
 
 <title>cardanode · ADAOZ Stake Pool & Learn Cardano</title>
-<meta name="description" content="ADAOZ — an Australian Cardano stake pool run by Peter Bui. Delegate ADA on-chain via Lace or Eternl, follow Learn Cardano tutorials, and meet your DRep.">
+<meta name="description" content="ADAOZ is an Australian Cardano stake pool run by Peter Bui, Cardano Ambassador, DRep, and host of the Learn Cardano YouTube channel. Delegate ADA on-chain in a couple of clicks.">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="cardanode">
 <meta property="og:locale" content="en_AU">
 <meta property="og:url" content="https://cardanode.com.au/">
 <meta property="og:title" content="cardanode · ADAOZ Stake Pool & Learn Cardano">
-<meta property="og:description" content="Delegate ADA to ADAOZ on-chain in two clicks. Australian-run Cardano stake pool + Learn Cardano YouTube channel.">
+<meta property="og:description" content="Delegate ADA to ADAOZ on-chain. Australian-run Cardano stake pool plus the Learn Cardano YouTube channel.">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@cardanodeau">
 <meta name="twitter:creator" content="@astroboysoup">
@@ -41,7 +39,6 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 <link rel="canonical" href="https://cardanode.com.au/">
 <link rel="icon" href="/favicon.ico">
 
-<!-- Fonts (Raleway body, Rubik display) — preload critical weights -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
@@ -57,28 +54,31 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
     <a href="/" class="brand">cardano<span class="accent">de</span></a>
     <nav aria-label="Primary">
       <a href="/blog/">Blog</a>
-      <a href="/#delegate">Delegate</a>
+      <a href="#delegate">Delegate</a>
+      <a href="#operator">About</a>
       <a href="/contact-us/">Contact</a>
-      <a href="https://learncardano.io" rel="noopener">Learn Cardano</a>
+      <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" rel="noopener">YouTube</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
+
   <section class="hero">
     <div class="container">
       <div class="eyebrow">ADAOZ · Australian Cardano stake pool</div>
-      <h1>Delegate ADA on-chain in two clicks.</h1>
+      <h1>Delegate ADA on-chain in a couple of clicks.</h1>
       <p class="lede">
-        ADAOZ is run by Peter Bui — Cardano Ambassador, DRep, and host of the Learn Cardano YouTube channel.
-        Connect your wallet, sign one transaction, start earning rewards.
+        ADAOZ is run by Peter Bui, Cardano Ambassador and DRep, host of the Learn Cardano YouTube channel.
+        Connect your wallet, sign one transaction, start earning rewards. Your stake also funds Cardano
+        education and Australian community building.
       </p>
       <div class="ctas">
         <a class="btn" href="#delegate">Delegate to ADAOZ</a>
-        <a class="btn ghost" href="/blog/">Read the blog</a>
+        <a class="btn ghost" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" rel="noopener">Learn Cardano on YouTube</a>
       </div>
 
-      <div class="stats" aria-label="Pool stats">
+      <div class="stats" aria-label="Live pool stats">
         <div class="stat">
           <div class="label">Live stake</div>
           <div class="value"><span data-live="stake-ada">—</span> ₳</div>
@@ -88,35 +88,131 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
           <div class="value" data-live="blocks-minted">—</div>
         </div>
         <div class="stat">
+          <div class="label">Saturation</div>
+          <div class="value" data-live="saturation">—</div>
+        </div>
+        <div class="stat">
           <div class="label">Pledge</div>
-          <div class="value">60,000 ₳</div>
+          <div class="value" data-live="pledge">—</div>
         </div>
         <div class="stat">
           <div class="label">Margin</div>
-          <div class="value">0.5%</div>
+          <div class="value" data-live="margin">—</div>
         </div>
+        <div class="stat">
+          <div class="label">Fixed fee</div>
+          <div class="value" data-live="fixed-fee">—</div>
+        </div>
+      </div>
+      <p class="stats-foot">Live from Koios. Refreshes every few minutes.</p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>About ADAOZ</h2>
+    <p class="lede">
+      ADAOZ has been minting blocks since <strong>20 February 2021</strong>. A small, well-maintained
+      Australian stake pool focused on reliability, security, and contributing back to Cardano rather
+      than chasing scale at any cost.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Powered by renewables</h3>
+        <p>Infrastructure runs on renewable-energy data centres. Cardano's proof-of-stake already cuts the footprint to a fraction of proof-of-work; we go further by choosing greener hosts.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Hardened security</h3>
+        <p>Cold keys stored offline, hardware-backed signing, restricted SSH access, continuous monitoring on every relay. The block-producer node is not directly internet-exposed.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛰️</div>
+        <h3>Redundant relays</h3>
+        <p>Multiple geographically distributed relays with health monitoring. If one drops, your delegation keeps minting on the rest.</p>
       </div>
     </div>
   </section>
 
-  <section class="container" style="padding: 56px 24px;">
-    <h2>Why ADAOZ</h2>
-    <p>
-      Running since 20 February 2021. Built on resilient infrastructure with redundant relays,
-      monitoring, and an operator who actually answers questions. We also run
-      <a href="https://learncardano.io">Learn Cardano</a> and the
-      <a href="https://drep.learncardano.io">Peter Bui DRep profile</a> — your stake supports content,
-      governance research, and Australian Cardano community building.
-    </p>
-
-    <h2 id="delegate">Delegate</h2>
-    <p>The on-chain delegation panel arrives in Phase 4. For now, search <strong>ADAOZ</strong> in Lace, Eternl, or your wallet of choice and delegate manually.</p>
+  <section id="operator" class="section operator-section">
+    <div class="container">
+      <h2>The operator</h2>
+      <div class="operator-text">
+        <h3>Peter Bui</h3>
+        <p class="meta">Cardano Ambassador · DRep · Founder, Mesh With Us · Host, Learn Cardano</p>
+        <p>
+          I started ADAOZ in February 2021 because I wanted Australians to have a local pool to delegate to,
+          and because I wanted to learn how Cardano really worked from the inside out. Five years later I'm
+          still running the pool, still researching every governance vote as a
+          <a href="https://drep.learncardano.io" rel="noopener">DRep</a>, still publishing on
+          <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" rel="noopener">Learn Cardano</a>,
+          and building Cardano apps via <a href="https://meshwithus.com.au" rel="noopener">Mesh With Us</a>.
+        </p>
+        <p>
+          Delegating to ADAOZ funds the time it takes to review every CIP, every governance action, every new
+          tool — and turn that into content other people can learn from.
+        </p>
+      </div>
+    </div>
   </section>
+
+  <section class="container section">
+    <h2>Contributing to Cardano</h2>
+    <p class="lede">Where ADAOZ rewards and Peter's time actually go.</p>
+
+    <div class="grid-2">
+      <a class="card link-card" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" rel="noopener">
+        <div class="card-icon">▶︎</div>
+        <h3>Learn Cardano on YouTube</h3>
+        <p>Tutorials, news, and deep dives. The successor to the original Learn Cardano podcast — same focus, broader format.</p>
+      </a>
+      <a class="card link-card" href="https://www.youtube.com/playlist?list=PL2fWPJCv7fcAbsfCFhHfI3B3zcLyaGnDT" rel="noopener">
+        <div class="card-icon">🪑</div>
+        <h3>Builders Bench</h3>
+        <p>Interview series with the people actually building on Cardano — protocols, dApps, tools, education.</p>
+      </a>
+      <a class="card link-card" href="https://drep.learncardano.io" rel="noopener">
+        <div class="card-icon">🗳️</div>
+        <h3>Peter Bui · DRep</h3>
+        <p>Researched, on-chain governance votes with published rationale. Delegate your voting power to a DRep that explains every vote.</p>
+      </a>
+      <a class="card link-card" href="https://learncardano.io" rel="noopener">
+        <div class="card-icon">🎓</div>
+        <h3>learncardano.io</h3>
+        <p>Long-form Cardano education hub. Companion site to the YouTube channel.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="delegate" class="section delegate-section">
+    <div class="container">
+      <h2>Delegate to ADAOZ</h2>
+      <p class="lede">An in-page wallet-connect delegation flow is on the way. In the meantime, delegating manually takes about thirty seconds.</p>
+      <ol class="how-to">
+        <li>Open your Cardano wallet (<strong>Lace</strong> or <strong>Eternl</strong> recommended; Nami or Yoroi also work).</li>
+        <li>Go to the staking / delegation panel.</li>
+        <li>Search the ticker <strong>ADAOZ</strong> and select the pool.</li>
+        <li>Confirm. First-time delegators pay a one-off 2 ₳ stake-key registration; you get it back if you ever de-register.</li>
+      </ol>
+      <p>
+        <a class="btn" href="/blog/category/staking/">Read the staking guides</a>
+        <a class="btn ghost" href="/contact-us/">Questions? Get in touch</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>From the blog</h2>
+    <p class="lede">82 articles across staking, DeFi, NFTs, stake pool operations, and Learn Cardano episodes.</p>
+    <p><a class="btn ghost" href="/blog/">Browse all articles →</a></p>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare.</div>
+    <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare. <span class="muted">Build <code id="build-sha-display">dev</code></span></div>
     <div class="links">
       <a href="https://learncardano.io" rel="noopener">learncardano.io</a>
       <a href="https://drep.learncardano.io" rel="noopener">drep.learncardano.io</a>
@@ -128,8 +224,9 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+  const sha = document.querySelector('meta[name="build-sha"]')?.content;
+  if (sha) document.getElementById("build-sha-display").textContent = sha;
 
-  // Mesh easter egg — type "mesh" anywhere
   (function () {
     let buf = "";
     window.addEventListener("keydown", (e) => {

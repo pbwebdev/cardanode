@@ -54,6 +54,11 @@ async function handleRoot(request, env, ctx) {
     : null;
   const blocks = stats?.block_count != null ? String(stats.block_count) : null;
 
+  const margin = stats?.margin != null ? (stats.margin * 100).toFixed(stats.margin < 0.01 ? 2 : 1) + "%" : null;
+  const pledge = stats?.pledge_ada != null ? Number(stats.pledge_ada).toLocaleString("en-US") + " ₳" : null;
+  const fixedFee = stats?.fixed_cost_ada != null ? Number(stats.fixed_cost_ada).toLocaleString("en-US") + " ₳" : null;
+  const saturation = stats?.live_saturation != null ? Number(stats.live_saturation).toFixed(1) + "%" : null;
+
   return new HTMLRewriter()
     .on('meta[name="build-sha"]', {
       element(el) { el.setAttribute("content", VERSION.sha); },
@@ -63,6 +68,18 @@ async function handleRoot(request, env, ctx) {
     })
     .on('[data-live="blocks-minted"]', {
       element(el) { if (blocks) el.setInnerContent(blocks); },
+    })
+    .on('[data-live="margin"]', {
+      element(el) { if (margin) el.setInnerContent(margin); },
+    })
+    .on('[data-live="pledge"]', {
+      element(el) { if (pledge) el.setInnerContent(pledge); },
+    })
+    .on('[data-live="fixed-fee"]', {
+      element(el) { if (fixedFee) el.setInnerContent(fixedFee); },
+    })
+    .on('[data-live="saturation"]', {
+      element(el) { if (saturation) el.setInnerContent(saturation); },
     })
     .transform(assetRes);
 }
