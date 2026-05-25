@@ -1,0 +1,240 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Frédéric Chaslin",
+    "date": "2021-06-04 00:44:22",
+    "content": "Hello\nSince you published this page a lot has changed\nBut I really don’t understand the costs and rewards. \nToday June 3, 2021, to delegate for instance 4,448 ADA to a pool would cost me about 340 Ada Pluz 2 to 4 %!!!! And the reward? 3,478599 ADA per « epoch », to 5 days. \nSo, to regain those 340 I need 2 years! Or??!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-06-04 06:25:04",
+    "content": "Yes, I always try and keep it up to date with as much information as possible.\n\nNo, it's a common misunderstanding everyone has about the fees of the pool. The fees are not taken from you when you delegate. The fee is taken from the rewards that are distributed to the pool each epoch collectively.\n\nFor example, when you delegate 4,448 ADA to the pool you will be charged a first-time delegation fee by the network, not by the pool of about 2 ADA. That is to register your wallet on the blockchain and to delegation.\n\nYou will have about 4,446 delegated to the pool.\n\nEach epoch, 5 days, if a pool mints a block, reward ADA will be given to the pool. For example, 10,000 ADA.\n\nFrom that 10,000 ADA, the pool will take a fee. The 340 ADA and any percentage of ADA that is set as the variable margin percentage. For our pool, this variable margin is 2%. \n\n10,000 ADA - 340 = 9,660. \n\nFrom that remaining 9,660 we take out the 2% fee. \n\n9,660 - (9660*0.02) = 9466.80 to be distributed to all the delegates in proportion to their total stake in the pool.\n\nWe keep the 193.20 as the pool fee, which means the pool gets 340 + 193.20 = 533.20.\n\nYou as a delegate with your stake of 4,446 ADA will get a portion of the remaining, 9466.80 ADA.\n\nI how that makes sense and I think I need to do a whole episode about this."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Tamal Deshmukh",
+    "date": "2021-06-05 16:26:20",
+    "content": "Hello, what is the transaction fee of  2.174257 ADA while delegating a pool is all about? Is it refundable after the delegation is over? Or is it a fee each time the pool charges to an individual while delegating ? Please throw some light on it."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-06-06 13:55:52",
+    "content": "It's a fee you pay to the network to register your wallet and start delegating. You don't get that back.\n\nOne part of the fee is wallet registration, the other is the delegation fee. Each time you delegate to a new pool you will part that delegation fee.\n\nI just tested by starting the delegation process to another pool at it is charging me 0.172761 ADA for the redelegation."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Cake",
+    "date": "2021-06-07 00:43:59",
+    "content": "The 2 ADA you will get back once you deregister. The fractional (.174257), you won't get back."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "fidel",
+    "date": "2021-06-09 18:09:25",
+    "content": "hai saya mendelagigasikan 2 x tapi beda pool, apakah itu tidak apa?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "fidel",
+    "date": "2021-06-09 18:10:08",
+    "content": "hi i delegate 2 x but different pool, is that ok?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-06-10 10:27:49",
+    "content": "You're more than welcome to delegate to whatever pool you want to.\n\nYou can create multiple wallets and split your ADA to delegate to multiple pools too.\n\nLots of flexibility in regards to what you want to do with your ADA."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-06-10 11:23:35",
+    "content": "Anda dapat mendelegasikan ke kolam mana pun yang Anda inginkan."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Eddy",
+    "date": "2021-07-08 02:38:48",
+    "content": "My question is about staking on Yoroi connected to ledger Nano S.  I used Firefox to download Yoroi. Firmware version is 2.0.0,  Cardano app on ledger shows version 2.4.1. I tried to delegate some ADA from my Yoroi wallet to stake pool but I´m  stuck on ¨Something unexpected happened. Please re-try¨ error message. My ledger device was connected to my MacBook during the process. Could you please advise some fix options to resolve this issue? Thanks."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-07-08 06:37:01",
+    "content": "Firmware version 1.6.1, and I'm running an older version of the Cardano app 2.2.1.\n\nI'm very reluctant to upgrade to test the issue as you're there the third person who has contacted me regarding the issues. I do have a spare Ledger Nano that I will fire up and test on.\n\nHave you tried it on the Daedalus wallet instead of Yoroi. \n\nFor the Ledger, I'm currently using it on Daedalus, and it is working as expected. Keep subscribed to the thread as I investigate and track down submitted issues around the problem."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-07-08 17:44:53",
+    "content": "People are having success using a different browser. \n\nThe common thing that I’ve found between everyone that is having issues in Firefox. \n\n<a href=\"https://www.reddit.com/r/cardano/comments/k9qeig/\" target=\"_blank\" rel=\"nofollow noopener ugc\">Reddit</a>\n\nTry the Yoroi extension on Google Chrome."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Ben",
+    "date": "2021-07-21 17:06:44",
+    "content": "Try closing all other open wallets. Log out (Lock) Metamask or Brave wallet.\nWorked for me."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-08-03 09:53:28",
+    "content": "Some users are reporting that they are having issues with Yoroi Mobile and the Bluetooth version of the Nano Ledger X.\n\nTransaction Error\nUndefined is not an object\n(evaluating 'P.Stake Credential')\n\nThis error was introduced with the latest voting features that are found in the app for Fund 4 and Fund 5 of Project Catalyst.\n\nThe workaround at the moment until a fix is deployed is to load the Ledger on Daedalus or on the browser extension version of Yoroi.\n\n<a href=\"https://www.reddit.com/r/cardano/comments/oo6z19/moved_ada_to_ledger_nano_x_using_yoroi_but_cannot/\" target=\"_blank\" rel=\"nofollow noopener ugc\">Reddit conversations about the issue.</a>"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "GG",
+    "date": "2021-08-21 18:39:52",
+    "content": "I set up a Yoroi wallet and sent 10 ada to it. I delegated the 10 ada to the most popular staking pool. I was charged a fee of about 2.1 ada which has left my balance in the pool at 7.8. So it will take years to earn that ada back in interest. Also, if I want to de-register from the pool and withdraw, after the fees it will leave me with 1.8 ada."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-08-21 21:42:09",
+    "content": "What you've done sounds right. I personally wouldn't stake anything less than 100 ADA as it takes too long to get back the fees. You'll make more trading it up and down on the exchange if you know what you're doing.\n\nYou can still add more ADA to the wallet to increase your overall balance to get a better return in the long run. e.g 5-10 years.\n\nI created the calculator on our website with that in mind. Adding an additional x ADA a month to increase the compounding interest.\n\nAs for moving your ADA off the wallet, when you do, you get your 2 ADA deposits back. So you will have 9.8 ADA and then be charged a transfer fee of about 0.17 to get back to an Exchange. You should have 9.66 after moving back to an Exchange.\n\nHope that helps."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "GG",
+    "date": "2021-08-21 22:15:33",
+    "content": "Thanks Peter, that makes sense."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-08-22 06:04:33",
+    "content": "No problem and thanks for asking the questions. Others would be thinking the same thing."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Gregor Krapež",
+    "date": "2021-08-31 01:33:15",
+    "content": "Hi\n\nHow I can add more Ada to delagate? I ad just 10 Ada for test and now there are 7 and something there. Ok, I understand, when I deregister and so on....I get back that ada`s.\n\nI saw that first reward is at 12 september for the pool that I delagate in. Is that the day that I can add more ada in that pool? \n\nSorry for my english. \n\nBest regards."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-09-01 11:30:54",
+    "content": "Hi Gregor, yes you can just add more. Send more ADA to the same wallet and it will be added to your total delegation after 2 epochs. You can add more and more at any time you like. It will build up more and more over time as you add more to your wallet.\n\nI hope that helps."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Niyati",
+    "date": "2021-09-02 22:57:30",
+    "content": "What is the recommended minimum amount of ADA to stake and period to stake it for in order to make opening a Yaroi wallet worthwhile? Anyone done the math?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-09-08 06:12:15",
+    "content": "You can use our calculator to work that out for yourself.\nhttp://cardanode.com.au/cardano-staking-calculator-rewards-ada/\n\nbut around 100 ADA and over is a sweet spot as it will generate enough o pay for the fees in a timely manner and then increase your holdings although VERY slowly."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "David",
+    "date": "2021-09-14 05:32:52",
+    "content": "Hi,\nWonderful article.\nCan you please write an article on staking on exchanges such as Binance as compared to staking in pools. I am unable to find any advantage of staking on pools over exchanges and I am sure I am missing something important."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-09-14 10:38:30",
+    "content": "Sure thing. I've just set up a draft to write it up."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Lj",
+    "date": "2021-09-16 03:47:53",
+    "content": "I'm using the android Yoroi app and cannot for the life of me find good content explaining why I am unable to delegate and continually receive a \"decryption error\". Please help so I can begin delegating."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Miguelangel Gonzalez",
+    "date": "2021-09-28 23:20:45",
+    "content": "Does this mean that if I have 20 ADA I would loose money staking them?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-10-11 10:34:36",
+    "content": "You don't lose money but it just takes a long time to recover the costs of the transactions that you pay. It's best to accumulate a larger allocation of ADA before moving to a stake pool for delegation. OTherwise those transfer fees will cut into your rewards."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Adam",
+    "date": "2021-12-09 23:54:16",
+    "content": "Hi Peter,\n\nI am using Yoroi Wallet chrome extension and have multiple wallets where I delegate to various ispos, for example\n\nWallet 1. MELD\nWallet 2. Sundaeswap\nWallet 3. Ray Network\n\nCouple of questions:\n\n1. Now MELD delegation is over  and i want to undelegate, do i just transfer from my MELD to another wallet , say Sundawswap, as i see no undelegate button?\n\n2. Also in my MELD wallet i see a small amount of ADA rewards, if i select Withdraw it displays a message about \"ALSO DEREGISTER THE STAKING KEY?\" What does this do and does it impact any of the ISPO rewards?\n\nCould you let me know best practice for undelegating and moving funds to different project wallets"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-11 23:04:08",
+    "content": "1) You can now just choose a new pool to delegate to.\n\n2) Yes that is normal as it is set to 99% not 100%. They can't set to 100. So it sounds like you have a fair decent holding of ADA to see rewards from 1%."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Abir",
+    "date": "2021-12-14 01:19:22",
+    "content": "Hi peter ,\n\nHope you are doing well.I have couple of questions in mind.\n\n###1.In my MELD wallet i see a small amount of ADA rewards, if i select Withdraw it displays a message about \"ALSO DEREGISTER THE STAKING KEY?\" What does this do and does it impact any of the ISPO rewards?\n\n###2.If I delegate on an another  project,do I need to deregister?\n\nTIA."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-14 11:25:38",
+    "content": "1) That small amount is normal. As the fee for the pools isn't 100% but rather 99%. You can't technically set it to 100. So some rewards will slip through, although very little.\n\n2) No, do not deregister, it's just a waste of ADA. Just choose another project or stake pool and choose it to delegate.\n\nGood luck with your delegation."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Omid",
+    "date": "2022-03-01 00:02:41",
+    "content": "hi\n\nI staked ada in your pool with yaroi wallet.\nhow can earn ardana token ?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "capo",
+    "date": "2022-08-04 19:59:24",
+    "content": "Thanks for this guide, I have a question, how can I know when the pool is saturated, I have read that a saturated pool gives less rewards than others.\n\nI'm going on a trip for 1 year and won't be able to be checking yoroi for a while. What happens if the pool becomes saturated or stops working, will I lose my ADA?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "",
+    "date": "2025-05-02 04:33:57",
+    "content": "Great post! The step-by-step instructions made it super easy to understand how to stake ADA on Yoroi. I appreciate the clarity and simplicity—can’t wait to start earning rewards!"
+  }
+]

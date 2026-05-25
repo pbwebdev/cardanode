@@ -1,0 +1,16 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Ken",
+    "date": "2021-12-14 03:32:17",
+    "content": "Why is my stakekey balance less than my actual balance at adapools?  Is that even possible?\n\nhttps://adapools.org/stake/stake1uxjjqeu292h56 .... shows a balance that is roughly 9% lower than the balance shown at https://adapools.org/address/addr1q99pujmg0mt4rdyg0xnpjc7he7g ...."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-14 11:26:56",
+    "content": "hmmm none of those addresses look right at all.\n\nI wouldn't use ADAPools as the data isn't always 100% accurate. There are times when the data is just waaaay off.\n\nThrow your stake key at CardanoScan or PoolTool.io. Better data there and more accurate all the time."
+  }
+]

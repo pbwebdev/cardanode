@@ -15,14 +15,21 @@ desktop.ini
 node_modules/
 .wrangler/
 
-# Generated at build time
+# Build output — public/ is fully regenerated from src/static/, src/content/,
+# build.js, build-mesh.js, and build-posts.js. Source of truth lives in src/.
 src/version-data.js
-public/vendor/
+public/*
+!public/.gitkeep
 
 # Migration source (keep WXR + raw exports out of the repo)
 _temp/
 *.wxr
 *_WordPress_*.xml
+
+# Downloaded media (50-100 MB of WordPress uploads). Pulled via
+# `npm run media` from cardanode.com.au's CDN; build.js copies into
+# public/uploads/ each build. Not for git.
+src/static/uploads/
 
 # Secrets — never commit
 .dev.vars

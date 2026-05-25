@@ -1,0 +1,499 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Wpower",
+    "date": "2022-01-30 01:07:58",
+    "content": "Curious as to why you left out instruction for connecting your nano wallet with cardano mode on a Mac. Is it the same"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "chris",
+    "date": "2022-02-02 15:56:02",
+    "content": "Would be great if you would make a video for mac users."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-02 21:39:50",
+    "content": "Instructions are on the documentation at the bottom. It's essentially the same, commands are a bit different but I don't have my mac synced yet to do the tutorial. It's coming soon."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-02 21:40:08",
+    "content": "It's coming. I need to sync Daedalus."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "CJ",
+    "date": "2022-02-03 03:44:05",
+    "content": "Wow, this is amazing!  Can't believe I haven't found your channel before.  Do you need to have the same wallet on Daedalus that you are going to use on Nami?  It doesn't seem like you would but I wanted to ask.  Really looking forward to the Mac video version as well."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-03 12:51:25",
+    "content": "No, in my latest version of the video, for doing this on MAC, you can see I don't have any wallets connected at all."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-03 13:23:29",
+    "content": "https://youtu.be/dpZX9eF9UUI\n\nJust uploaded"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Chris",
+    "date": "2022-02-04 11:44:24",
+    "content": "I've tried your tutorial about 20 times now and I keep getting the following error: Invalid argument `.\\tx-submit-mainnet-config.yaml'\n\nI'm at my wits end! I've followed every single step maticulously and can't understand how it isn't working.\n\nDaedalus is powered up, all files extracted included the YAML config file in the correct folder, but when I run the scripts in Power Shell it doesn't seem to recognise the tx-submit-mainnet-config.yaml file."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "chedd",
+    "date": "2022-02-04 11:50:45",
+    "content": "It would be great to have a 5 year old explanation. It is not easy to config if you are just a regular dentist."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Sai Nithish",
+    "date": "2022-02-05 00:15:49",
+    "content": "Hey I am having the following trouble after i tried to submit the API, which is last command \n\nThe command \n\"(base) NithishChowdary1@MacBook-Pro nami-submit % ./cardano-submit-api --config tx-submit-mainnet-config.yaml  --socket-path $CARDANO_NODE_SOCKET_PATH --port 8090 --mainnet\"\n\nThe Error\n\"Invalid argument `8090'\n\nUsage: cardano-submit-api --config FILEPATH\n                            [ --shelley-mode\n                            | --byron-mode [--epoch-slots NATURAL]\n                            | --cardano-mode [--epoch-slots NATURAL]\n                            ]\n                            (--mainnet | --testnet-magic NATURAL)\n                            --socket-path FILEPATH\n                            [--listen-address HOST]\n                            [--port INT]\n\n  Cardano transaction submission web API.\"\nHelp me with it"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-05 01:34:13",
+    "content": "I bet you anything that the yaml file that you downloaded is a .txt file and not a .yaml file.\n\nThe command is throwing the error essentially saying that it can't find that config file.\n\nLook for it in the directory, change it from 'tx-submit-mainnet-config.yaml.txt' to 'tx-submit-mainnet-config.yaml'"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-05 01:37:07",
+    "content": "I could make a file that you click and it does all of that but you'd have to trust 100% that it is doing exactly as I say it's doing otherwise it could be doing anything to your computer.\n\nIf you copy the highlight commands line by line then it should work. Works each time for me when I fire this beast up."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-05 01:38:39",
+    "content": "I have a feeling the part of the command before it defines the port might not be working.\n\n$CARDANO_NODE_SOCKET_PATH\n\nThis variable may not be set yet. Follow the first two lines of the code dump to make sure that this variable is set. Test to make sure you get that socket output.\n\nAlso, make sure Daedalus is running in the background. Let me know how you go."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Chris",
+    "date": "2022-02-05 12:14:01",
+    "content": "After typing cd .\\cardano-node-1.33.0-win64\\ it tells me directory does not exist but the zip file &amp; the unzipped files in the folder are in my docs."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Chris",
+    "date": "2022-02-05 14:19:24",
+    "content": "when I enter $ENV:CARDANO_NODE_SOCKET_PATH = (Get-ChildItem \\\\.\\pipe\\ | Where-Object {$_.name -like \"cardano-node*\"}).FullName I dont get any change. I run the command to check &amp; it seems to be doing nothing. I have Daedalus running &amp; synced. I cant seem to get past accessing the folder."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-05 15:29:17",
+    "content": "It sounds like you're in the wrong folder.\n\nThe way I've set up the tutorial is to have it in your Documents folder.\n\nMake sure it's in there and unzipped to the folder with the same name.\n\ncd ~/\ncd \"NAME OF THE CARDANO NODE FOLDER\"\n\nYou can type part of the name and press TAB key to auto complete."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-05 15:31:56",
+    "content": "That command won't do anything.\n\nThe command after \"$ENV:CARDANO_NODE_SOCKET_PATH\"\n\nwhen entered will show you the output of what that environment variable is. If that doesn't appear, it's not finding Daedalus."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Fulla",
+    "date": "2022-02-05 21:12:36",
+    "content": "Hi mate,\n\nGetting this error on Powershell-\n\nGet-ChildItem : Illegal characters in path.\nAt line:1 char:34\n+ $ENV:CARDANO_NODE_SOCKET_PATH = (Get-ChildItem \\\\.\\pipe\\ | Where-Obje ...\n+                                  ~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : InvalidArgument: (\\\\.\\pipe\\:String) [Get-ChildItem], ArgumentException\n    + FullyQualifiedErrorId : DirArgumentError,Microsoft.PowerShell.Commands.GetChildItemCommand\n\nAny advice? Thanks"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Scottyy",
+    "date": "2022-02-05 22:48:58",
+    "content": "First, thanks for the work put in here.  Greatly appreciated!\n\nMy experience...was able to complete steps above.  Downloading the .yaml file automatically got the .txt extension so had to rename that.  Might be worth a note to confirm the filename after downloading.\n\nA few questions:\n- I submitted a swap.  PowerShell nearly immediately \"successfully submitted transaction...\".  Nami took 13 minutes before showing in my history and both Nami and Cardanoscan showed that the timestamp was the later time.  Assuming this is 'normal' but curious as to why the delay?\n- Does PowerScript need to remain open?\n\nAppreciate you...."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Chris",
+    "date": "2022-02-06 01:15:39",
+    "content": "How can I fix this &amp; make it find Daedalus? I make it into the correct location with the first 3 commands but nothing after that. I have Daedalus running &amp; synced. Could files be getting removed when I unzip it to my Docs folder that would cause this? Thank you for your help."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Patrick",
+    "date": "2022-02-06 02:44:43",
+    "content": "dyld: Library not loaded: @executable_path/libffi.7.dylib\n  Referenced from: /Users/patrickwalker/Documents/nami-submit/./cardano-submit-api\n  Reason: image not found\nzsh: abort      ./cardano-submit-api --config tx-submit-mainnet-config.yaml --socket-path    patri@Ls-MacBook-Pro nami-submit % \n\n\nGet to this part and I'm lost. Also, the terminal on my Mac does not recognize the command wget - I tried using cURL instead but I'm not sure if that downloads that .yaml file or not. Great video Peter, I'm just a bit new to this."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Chris",
+    "date": "2022-02-06 03:15:15",
+    "content": "I have made it into the directory folder but I cant get powershell to find Daedalus. I can't seem to get pipe address after I used the first command. After running $ENV:CARDANO_NODE_SOCKET_PATH = (Get-ChildItem \\\\.\\pipe\\ | Where-Object {$_.name -like \"cardano-node*\"}).FullName  and then using  $ENV:CARDANO_NODE_SOCKET_PATH to check to see it worked I get nothing. If I run .\\cardano-submit-api.exe --mainnet --socket-path $ENV:CARDANO_NODE_SOCKET_PATH --config .\\tx-submit-mainnet-config.yaml --port 8090 I get the result of  Invalid argument  '.\\tx-submit-mainnet-config.ymal'  I dont understand why this isn't working for me but I see others are having the same issue. Could this be from the recent update to Daedalus? Please help lol &amp; thank you for all of this."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-06 05:51:55",
+    "content": "If the your check with the command: $ENV:CARDANO_NODE_SOCKET_PATH\n\nDidn't work, then the rest won't work.\n\nThis stumped me too. It will only work if Daedalus is running and FULLY synced. If it's still updating it won't work at all. My first sync was 36 hours and then the bloody upgrade from 4.7 to 4.8 took another 3 hours."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-06 05:57:32",
+    "content": "It's either one of two things.\n\n1) You're in the wrong folder\nI can see you're in /Users/patrickwalker/Documents/nami-submit/ Check to see where those Cardano Node files were unzipped to. We're the unzipped to the NAMI-SUBMIT folder or are then in another subfolder called \"Cardano-node-1.33.0-xxxxxxxx\" If there is that folder, you either need to move into that folder or move those files up one to the Nami-submit folder. You can do this in finder, might be a bit easier. \n\n2) The files are missing\nYour Mac may have blocked access to the files. Can you confirm that the files are there in debug step 1? As to unblock access to apps or executables, it's a system security thing that you have to allow. On the PC we can RUN AS ADMINISTRATOR, on the Mac you have to enable file access to apps."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-06 05:58:56",
+    "content": "Yeh the files may have been removed. A Virus scanner would remove them. If you have one installed you have to whitelist the files that you are using.\n\nYou could also be running the commands in the wrong folder. Make sure that the commands that you're running are in the same folder as you extracted all the files to."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-06 06:04:15",
+    "content": "Yes, that's right. I also got the .txt extension, so the way I described avoids that. Some still get it.\n\nThe process works by submitting your transaction to your node. That is when you get your success message. Great. At that point, you need to leave everything on and running as the transaction is on your node and patiently waiting for a space on a block to be included.\n\nIn your case, it took 13 minutes to it to submit from your Daedalus node to the blockchain. The usual wait time is still around 10 minutes even with this method. You do have to wait for that Nami wallet confirmation and keep Daedalus open in the background and PowerShell all that time. (well not Powershell but def Daedalus)\n\nIt is also good to NOT do another transaction until the first is finished."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-06 06:08:33",
+    "content": "That's a weird one as you're just setting a variable there. It's not liking some of the text characters that are in the formatting maybe. I'll copy all the commands to a text Pastebin and try copying from that. Give me 10, it will be above the step by step tutorial"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Josetteh",
+    "date": "2022-02-06 19:33:02",
+    "content": "Hello,\n\nI have Daedalus running on a PC with my local IP 192.168.1.72\nI use Nami wallet in another PC in the same network with IP 192.168.1.33\nThe node run as \"Running server on 127.0.0.1:8090\"\nI understand I will have to specify in Nami Wallet something like this:\nhttp://192.168.1.72:8090/api/submit/tx  as Nami wallet is not in the same PC where my custom node is running. But I am not sure yet where I have to configure the Cardano node put put the local IP as 192.168.1.72 instead of the 127.0.0.1.\n\nCould you advise? \nHow to check also after that the custom node is running with: Running server on 192.168.1.72:8090 ?\nYour tutorial assumes that the node and Nami are in the same PC, but it is not in my case. \nThanks"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "NFTA",
+    "date": "2022-02-06 21:56:28",
+    "content": "When i run the following command: \n\nwget https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml\n\nI get returned the following output:\n\n-bash: wget: command not found\n\nAre you able to give any advice on where to go from here please?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "NinjaholderA",
+    "date": "2022-02-06 23:10:13",
+    "content": "Hi peter,\n\nWhen i try and run the last step ./cardano-submit-api --config tx-submit-mainnet-config.yaml  --socket-path $CARDANO_NODE_SOCKET_PATH --port 8090 --mainnet to get this to work locally on my mac, i get returned \"cardano-submit-api\" cannot be opened because the developer cannot be verified\" \n. \n\nHow do i work around this and get this fixed please? Any help appreciated mate!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "mars",
+    "date": "2022-02-07 00:48:08",
+    "content": "thanks man, btw the instructions for mac work on linux (debian-based anyway). I just had to use 127.0.0.1 instead of localhost in ccvault settings. (and obviously use the linux binaries or build from source), changed appropriate paths, and added the first export to my $HOME/.profile\n\nthe test transaction i send was definitely confirmed faster than they have been recently :)"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "vin",
+    "date": "2022-02-07 10:03:41",
+    "content": "Hi Peter, \n\nI'm running\n \"./cardano-submit-api --config tx-submit-mainnet-config.yaml  --socket-path $CARDANO_NODE_SOCKET_PATH --port 8090 --mainnet\"\ncommon and keep getting \n\"Invalid argument `Support/Daedalus' \"  error. \n\nI've confirmed Daedalus is 100% synced and running in background (v4.8.0) \n\nAny thoughts on how tot fix this"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dj",
+    "date": "2022-02-07 12:22:41",
+    "content": "Hi! Thanks for all you do, I follow you on YouTube and Twitter.\n\nI have my Daedalus and CCVault on different machines in the same network. I got thru the process, but get the error \"Failed. Error: could not connect to the custom API endpoint\". \n\nFor the endpoint \"http://localhost:8090/api/submit/tx\", I've substituted the IP address in place of \"localhost\". I'm able to ping Daedalus machine from CCVault machine.\n\nIs there a way I can connect? What would be the syntax for the endpoint?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dark",
+    "date": "2022-02-08 08:35:56",
+    "content": "Any assistance here? I get this error I am able to confirm the first command works. When I execute the next command to start the Cardano Submit API, I see this error\n\n\nPS C:\\Users\\Admin\\Documents&gt; $ENV:CARDANO_NODE_SOCKET_PATH\n\\\\.\\pipe\\cardano-node-mainnet.15168.0\nPS C:\\Users\\Admin\\Documents&gt; .\\cardano-submit-api.exe --mainnet --socket-path $ENV:CARDANO_NODE_SOCKET_PATH --config .\\tx-submit-mainnet-config.yaml --port 8090\n.\\cardano-submit-api.exe : The term '.\\cardano-submit-api.exe' is not recognized as the name of a cmdlet, function,\nscript file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is\ncorrect and try again.\nAt line:1 char:1\n+ .\\cardano-submit-api.exe --mainnet --socket-path $ENV:CARDANO_NODE_SO ...\n+ ~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : ObjectNotFound: (.\\cardano-submit-api.exe:String) [], CommandNotFoundException\n    + FullyQualifiedErrorId : CommandNotFoundException"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "richard loader",
+    "date": "2022-02-08 18:53:49",
+    "content": "Hi, thank you for taking time for putting this info together its much apricated.\n\nI have followed the steps and my Deadalus wallet is ready to go... however I am looking to run Nami wallet on a different PC, as a result I am assuming the address http://localhost:8090/api/submit/tx wouldn't work.\n\nPlease could you advise if running Nami on a different PC to my Deadalus node is possible, and breakdown what elements I would need to add to the custom address.\n\nThanks again"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Javon",
+    "date": "2022-02-09 05:18:28",
+    "content": "Hi Peter\n\nI am on mac but getting the error: Invalid argument `Support/Daedalus'\n\nCan't figure out why. Any ideas?\n\nThanks"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Anok",
+    "date": "2022-02-09 20:59:18",
+    "content": "Hi Peter. Great tutorial. I have followed every step for the M1 Mac and got no error. I see the server is running on the terminal. However, after I input the URL into the custom node on the Nami wallet it still shows 0 ADA. Shouldn't Nami reflect the balance I have on Daedalous? Any ideas?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael",
+    "date": "2022-02-09 22:27:06",
+    "content": "This needs adding as a warning to the instructions! Thanks :D"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Eno Nishe",
+    "date": "2022-02-12 21:38:35",
+    "content": "Hello Peter,\nI followed all your instructions to connect CCvault to Daedalus but when I try to send keep getting the message :\nFailed\nError: could not connect to custom API endpoint.\nAll commands inserted in Win Powershell  tested fine and I toggled the switch for Custom Submit API Endpoint and pasted in http://localhost:8090/api/submit/tx and saved.\nWhat could be the problem?\nPls, help, Thx"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Patrick",
+    "date": "2022-02-17 06:24:22",
+    "content": "Thank you for your help Peter! I've had this working successfully for a couple of weeks now and I can't thank you enough for setting up this easy to follow tutorial!! I went to try something today and got this message in my terminal: \"Network.Socket.connect: : does not exist (No such file or directory)\"\nAny idea what this one is? Thank you again for you help!!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael",
+    "date": "2022-02-18 19:17:13",
+    "content": "Hi Peter.\nThank you for this tutorial.\n\nIt works until the last step.\nWith the last line of code i get \"FatalError \"Cannot find the logging configuration file at: .\\\\tx-submit-mainnet-config.yaml\"\nI have the tx-submit-mainnet-config in the same folder as cardano-node-1.33.0-win64 and it is a yaml file.\n\nAny suggestions?\nAppreciate your help"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael",
+    "date": "2022-02-18 19:41:58",
+    "content": "Hi Peter.\n\nIt is working. My tx-submit-mainnet.config.yaml was not in RAW.\nThat is the reason it did not function.\nI already did send 1 ADA to myself and it is working just perfectly.\nThanks again for all you do for the Cardano cummunity.\n\nMichael"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "plet",
+    "date": "2022-02-20 22:11:28",
+    "content": "Hi,\n\nThanks for the great tutorial!\nAfter setting everything up as you did and trying a transaction this keeps happening. First it says \"Transaction successfully submitted.\n←[34m[cardano-tx-submit:Info:16]←[0m [2022-02-20 12:01:37.66 UTC] txSubmitPost: successfully submitted transaction [some number]\"\n\nHowever a few seconds after this I get the following message: ←[31m[cardano-tx-submit:Error:11]←[0m [2022-02-20 12:02:33.69 UTC] tx-submit-webapi.AsyncCancelled\n\nHereafter the connection does not work. Nami transactions fail and the connection seems to no longer be running.\n\nDo you know how I can fix this?\n\nThanks in advance :)"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "JBrown",
+    "date": "2022-02-21 06:16:39",
+    "content": "All of this I completed, I even did the sending ada from daedalus to nami check and that worked. However when trying to submit any transaction on a site like sundaeswap/muesliswap, once I try to sign a transaction I get \"Transaction Error. Could not submit transaction\". Any idea why."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Steve",
+    "date": "2022-02-24 17:30:26",
+    "content": "After entering \n\n./cardano-submit-api --config tx-submit-mainnet-config.yaml  --socket-path $CARDANO_NODE_SOCKET_PATH --port 8090 --mainnet\n\nI get \nInvalid argument `Support/Daedalus' \n\n\nWhat am I doing wrong? Thank you."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "rob",
+    "date": "2022-02-24 21:15:18",
+    "content": "Hi Peter\n\nThanks for the video. I'm having trouble with the config step. It appears the wget link doesn't appear to be working? I've pasted the code and error message below. Many thanks in adavnce!\n\n\nSir-Bobby-Digital-MBP:NamiSubmit robcbradley$ tar -xf cardano-node-1.33.0-macos.tar.gz \nSir-Bobby-Digital-MBP:NamiSubmit robcbradley$ ls\ncardano-cli\t\t\t\tlibcharset.1.dylib\ncardano-node\t\t\t\tlibffi.7.dylib\ncardano-node-1.33.0-macos.tar.gz\tlibgmp.10.dylib\ncardano-node-chairman\t\t\tlibiconv-nocharset.dylib\ncardano-submit-api\t\t\tlibiconv.dylib\ncardano-testnet\t\t\t\tlibsodium.23.dylib\ncardano-topology\t\t\tlibz.dylib\ncardano-tracer\t\t\t\tlocli\nchain-sync-client-with-ledger-state\tscan-blocks\nconfiguration\t\t\t\tscan-blocks-pipelined\ndemo-acceptor\t\t\t\tstake-credential-history\ndemo-forwarder\t\t\t\ttrace-dispatcher-examples\nledger-state\nSir-Bobby-Digital-MBP:NamiSubmit robcbradley$ wget https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml\n-bash: wget: command not found"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "rob",
+    "date": "2022-02-24 21:25:05",
+    "content": "Hi Peter\n\nI'm getting an error at the config stage? I'm getting an error say wget: command not found?\n\nSir-Bobby-Digital-MBP:NamiSubmit robcbradley$ tar -xf cardano-node-1.33.0-macos.tar.gz \nSir-Bobby-Digital-MBP:NamiSubmit robcbradley$ ls\ncardano-cli\t\t\t\tlibcharset.1.dylib\ncardano-node\t\t\t\tlibffi.7.dylib\ncardano-node-1.33.0-macos.tar.gz\tlibgmp.10.dylib\ncardano-node-chairman\t\t\tlibiconv-nocharset.dylib\ncardano-submit-api\t\t\tlibiconv.dylib\ncardano-testnet\t\t\t\tlibsodium.23.dylib\ncardano-topology\t\t\tlibz.dylib\ncardano-tracer\t\t\t\tlocli\nchain-sync-client-with-ledger-state\tscan-blocks\nconfiguration\t\t\t\tscan-blocks-pipelined\ndemo-acceptor\t\t\t\tstake-credential-history\ndemo-forwarder\t\t\t\ttrace-dispatcher-examples\nledger-state\nSir-Bobby-Digital-MBP:NamiSubmit robcbradley$ wget https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml\n-bash: wget: command not found"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Mirko",
+    "date": "2022-02-26 23:54:34",
+    "content": "After:\n\n./cardano-submit-api --config tx-submit-mainnet-config.yaml  --socket-path $CARDANO_NODE_SOCKET_PATH --port 8090 --mainnet\n\nI get this error:\n\nInvalid argument `Support/Daedalus'\n\nUsage: cardano-submit-api --config FILEPATH\n                            [ --shelley-mode\n                            | --byron-mode [--epoch-slots NATURAL]\n                            | --cardano-mode [--epoch-slots NATURAL]\n                            ]\n                            (--mainnet | --testnet-magic NATURAL)\n                            --socket-path FILEPATH\n                            [--listen-address HOST]\n                            [--port INT]\n\n  Cardano transaction submission web API."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "BARNS",
+    "date": "2022-02-28 01:11:15",
+    "content": "hey guys\nI need a little help, after executing this command\n\n.\\cardano-submit-api.exe --mainnet --socket-path $ENV:CARDANO_NODE_SOCKET_PATH --config .\\tx-submit-mainnet-config.yaml --port 8090\n\nI keep getting this error message,\n\n\n\ncardano-submit-api.exe: FatalError {fatalErrorMessage = \"Cannot find the logging configuration file at : .\\\\tx-submit-mainnet-config.yaml\"}\nPS C:\\Users\\Dell\\Documents\\cardano-node-1.33.0-win64&gt;\n\n\n\nbeen frustrating for a while."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Rafs",
+    "date": "2022-03-04 09:33:41",
+    "content": "Hi all,\nI am having the exact same issue. Does anyone was able to find the root cause or was able to solve it?\nThanks m8s"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "fausi",
+    "date": "2022-03-07 08:03:16",
+    "content": "mine is in yaml but still get the errors. i never see pipe come up."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Abdul",
+    "date": "2022-03-13 06:21:28",
+    "content": "I did this exactly but now it says: Invalid argument `Support/Daedalus'\n\nPlease tell me what to do\n\nThanks"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Abdul",
+    "date": "2022-03-14 03:41:44",
+    "content": "Invalid argument `Support/Daedalus'\n\nUsage: cardano-submit-api --config FILEPATH\n                            [ --shelley-mode\n                            | --byron-mode [--epoch-slots NATURAL]\n                            | --cardano-mode [--epoch-slots NATURAL]\n                            ]\n                            (--mainnet | --testnet-magic NATURAL)\n                            --socket-path FILEPATH\n                            [--listen-address HOST]\n\nI tried to repeat the process again and again and again to find out what is the issue but the same thing happens. I saw tour comment saying make sure to run the first two lines of code again so I tried that and still the same error."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Crypto Wilson",
+    "date": "2022-03-17 01:21:51",
+    "content": "Hi Peter, I got a question: when a transaction gets submitted the output on PowerShell says something like \"txSubmitPost: successfully submitted transaction xxxxx\", but this transaction number can't be used to look up the transaction on Cardanoscan. Is there a log file that shows the actual blockchain transaction ID, or can we tweak the output to show it (e.g., increasing the log level)."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Daine",
+    "date": "2022-04-19 00:24:48",
+    "content": "Hi there, when I try send ADA, it says Transaction Failed and on the Powershell it says this : ←[34m[cardano-tx-submit:Info:16]←[0m [2022-04-18 14:11:27.84 UTC] txSubmitPost: failed to submit transaction: transaction submit era mismatchEraMismatch {ledgerEraName = \"Byron\", otherEraName = \"Alonzo\"}\n\nIf you could help me out, that would be great thanks."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "F.R.E.D",
+    "date": "2022-04-19 04:56:27",
+    "content": "if i close powershell. does it reset daedalus and nami to its old setting and would work normally?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Adriano",
+    "date": "2022-05-06 20:01:09",
+    "content": "Hi Peter,\n\nthanks a lot for sharing this priceless knowledge. I am a mac user and after the final step I get the following. Can you advise on what to do or why that is happening?\n\nInvalid argument `Support/Daedalus'\n\nUsage: cardano-submit-api --config FILEPATH\n                            [ --shelley-mode\n                            | --byron-mode [--epoch-slots NATURAL]\n                            | --cardano-mode [--epoch-slots NATURAL]\n                            ]\n                            (--mainnet | --testnet-magic NATURAL)\n                            --socket-path FILEPATH\n                            [--listen-address HOST]\n                            [--port INT]\n\n  Cardano transaction submission web API."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "fausi",
+    "date": "2022-05-07 02:08:41",
+    "content": "hey after i run this code, nothing happens. $ENV:CARDANO_NODE_SOCKET_PATH\ni have daed running, also in admin mode on powershell. i have the the yaml file. theyre all in the same folder os im confused."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Mr G",
+    "date": "2022-05-22 13:03:02",
+    "content": "Hi, will this method work if I have my daedalus node up and running in computer A in my parents home and nami wallet in computer B in my home?\n\nThanks for such a good tutorial"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Purple Octopus",
+    "date": "2022-06-01 18:31:57",
+    "content": "Does the mac instructions essentially follow the same as for a Linux? I've updated with cardano-node-1.34.1 and have just about everything but don't know where to put port 8090. Do I write it in the .yaml file or is this some kind of default port?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Purple Octopus",
+    "date": "2022-06-01 18:33:43",
+    "content": "Anyways I've gotten all the way to just pasting in the address to the nami custom settings"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "J2B_",
+    "date": "2022-06-09 01:11:54",
+    "content": "Hello just tried to set this up withou apparent problem/error but when I try to do a transaction I get\n\nCreateFile \"\\\\\\\\.\\\\pipe\\\\cardano-node-mainnet.11884.1\": does not exist (The system cannot find the file specified.)"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael Modeste",
+    "date": "2022-06-12 23:26:56",
+    "content": "It seemed to be going well in the beginning but in the second stage got this set of information which has thrown me off course. \n\nMichaels-iMac:~ michaelmodeste$ cd Documents/\nMichaels-iMac:Documents michaelmodeste$ cd nami-submit\nMichaels-iMac:nami-submit michaelmodeste$ ls\ncardano-node-1.33.0-macos\t\tcardano-node-1.33.0-macos.tar.gz\ncardano-node-1.33.0-macos (1).tar.gz\nMichaels-iMac:nami-submit michaelmodeste$ ls\ncardano-node-1.33.0-macos\t\tcardano-node-1.33.0-macos (2).tar.gz\ncardano-node-1.33.0-macos (1).tar.gz\tcardano-node-1.33.0-macos.tar.gz\nMichaels-iMac:nami-submit michaelmodeste$ tar -xf \ntar: Option -f requires an argument\nUsage:\n  List:    tar -tf \n  Extract: tar -xf \n  Create:  tar -cf  [filenames...]\n  Help:    tar --help\nMichaels-iMac:nami-submit michaelmodeste$ ls\ncardano-node-1.33.0-macos.tar.gz\nMichaels-iMac:nami-submit michaelmodeste$ ls\ncardano-node-1.33.0-macos\nMichaels-iMac:nami-submit michaelmodeste$ tar -xf \ntar: Option -f requires an argument\nUsage:\n  List:    tar -tf \n  Extract: tar -xf \n  Create:  tar -cf  [filenames...]\n  Help:    tar --help\nMichaels-iMac:nami-submit michaelmodeste$"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael Modeste",
+    "date": "2022-06-13 01:32:39",
+    "content": "Some progression but still not completed. \n\nMichaels-iMac:nami-submit michaelmodeste$ wget https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml\n-bash: wget: command not found\nMichaels-iMac:nami-submit michaelmodeste$ \nMichaels-iMac:nami-submit michaelmodeste$ wget https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml\n-bash: wget: command not found\nMichaels-iMac:nami-submit michaelmodeste$"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael",
+    "date": "2022-06-16 23:22:34",
+    "content": "I'm having trouble with linking the Daedalus wallet for API transactions, getting most of it done up until it then says command not found after attempting to install wget https://raw.githubusercontent.com/input-output-hk/cardano-node/master/cardano-submit-api/config/tx-submit-mainnet-config.yaml"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Riv",
+    "date": "2022-06-17 11:45:17",
+    "content": "First and foremost, thank you for making these videos!\n\nI am using Windows 11. Daedalus is up and running fully synced. I type all the commands and everything goes well except the last step as you can see below:\n\nPS C:\\Users\\vou&gt; cd .\\Documents\\\nPS C:\\Users\\vou\\Documents&gt; cd .\\cardano-node-1.33.0-win64\\\nPS C:\\Users\\vou\\Documents\\cardano-node-1.33.0-win64&gt;\nPS C:\\Users\\vou\\Documents\\cardano-node-1.33.0-win64&gt; $ENV:CARDANO_NODE_SOCKET_PATH = (Get-ChildItem \\\\.\\pipe\\ | Where-Object {$_.name -like \"cardano-node*\"}).FullName\nPS C:\\Users\\vou\\Documents\\cardano-node-1.33.0-win64&gt; $ENV:CARDANO_NODE_SOCKET_PATH\n\\\\.\\pipe\\cardano-node-mainnet.11856.0\nPS C:\\Users\\vou\\Documents\\cardano-node-1.33.0-win64&gt; .\\cardano-submit-api.exe --mainnet --socket-path $ENV:CARDANO_NODE_SOCKET_PATH --config .\\tx-submit-mainnet-config.yaml --port 8090\ncardano-submit-api.exe: FatalError {fatalErrorMessage = \"Cannot find the logging configuration file at : .\\\\tx-submit-mainnet-config.yaml\"}\n\nAlso, I went to my Documents folder to see if the YAML file is saved as YAML and not as txt, and the \"Type\" column says: \"YAML File\"\n\nThe YAML file is saved in the \"cardano-node-1.33.0-win64\" folder \n\nPlease, is there anything else I could do?\n\nThanks in advance!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Donvak",
+    "date": "2022-06-27 10:15:27",
+    "content": "wow, this is a nice content and also really helpful, Donvakthanks for making it easier to understand"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Ryan",
+    "date": "2022-09-15 23:57:37",
+    "content": "Running into this error on the last step. Daedalus is running and synced\n\nRyans-iMac:nami-submit iMac$ ./cardano-submit-api --config tx-submit-mainnet-config.yaml  --socket-path $CARDANO_NODE_SOCKET_PATH --port 8090 --mainnet\nInvalid argument `Support/Daedalus'\n\nUsage: cardano-submit-api --config FILEPATH\n                            [ --shelley-mode\n                            | --byron-mode [--epoch-slots NATURAL]\n                            | --cardano-mode [--epoch-slots NATURAL]\n                            ]\n                            (--mainnet | --testnet-magic NATURAL)\n                            --socket-path FILEPATH\n                            [--listen-address HOST]\n                            [--port INT]\n\n  Cardano transaction submission web API."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "y2 mate",
+    "date": "2024-09-14 15:41:09",
+    "content": "This post provides some really useful insights into improving transaction times with Cardano! Connecting wallets like CCVault or Nami to the Daedalus node seems like a game changer for enhancing efficiency. I appreciate the clear instructions and tips you shared. Looking forward to trying it out!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "",
+    "date": "2024-10-22 22:49:08",
+    "content": "Great insights! I’ve been curious about optimizing transaction times on Cardano, and your explanation of connecting CCVault or Nami to the Daedalus node is super helpful. I can't wait to try out the steps you've outlined. Thanks for sharing!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "",
+    "date": "2025-03-30 18:08:26",
+    "content": "Great insights on improving transaction speeds! I'm really interested in how connecting CCVault or Nami to a Daedalus node can enhance the Cardano experience. This could make managing assets much more efficient. Looking forward to trying it out!"
+  }
+]

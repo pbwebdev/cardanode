@@ -1,0 +1,16 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Terrence Marcon",
+    "date": "2022-01-30 10:13:14",
+    "content": "I would like some clarification regarding the pool being 'saturated'.\nToday (30/01/22) I see that the pool is 98.12% saturated. About a week ago it was around 87%.\nHow does the rise in saturation % affect the amount of reward we receive and what is the danger of the pool becoming 100% saturated?\nIf this occurs I believe rewards will become zero. What steps, if any, can be taken and are being taken to deal with this problem?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-06 06:12:47",
+    "content": "There are a lot of factors that now come into play.\n\n1) If the saturation is over 100% then we lose rewards collectively. At the start, it is a small percentage but as the increased stake increases over the limits, the % loss increases.\n\n2) Now that we have a higher saturation, smaller pools that mint blocks at the same time as us or at a similar time will win out in height battles against us. The network gives preference to smaller pools. That was the biggest thing I noticed during this epoch now that we're at 98%. Smaller pools that are minting blocks when we do win out. It means we get slightly less rewards than we should but overall that is compensated as we are minting so many more blocks and picking up the transaction fees accordingly.\n\nSee my latest video on Pool Saturation\nhttps://youtu.be/NG5DYFKvcyU"
+  }
+]

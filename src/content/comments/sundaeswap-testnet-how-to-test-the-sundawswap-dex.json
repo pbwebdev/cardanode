@@ -1,0 +1,128 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Flavio",
+    "date": "2021-12-06 22:25:34",
+    "content": "I have received the different tokens into my wallet. But can not swap or add liquidity to any pool NAOMI is telling me - collateral no set. Does not allow me to sign in for the transaction request."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "michael green",
+    "date": "2021-12-07 06:02:58",
+    "content": "I get Insufficient wallet balance on whatever I try. I have 1,000 ada if I try 10 ada I get the error message. Also if I change the slppage same thing"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "sanjay",
+    "date": "2021-12-07 07:07:32",
+    "content": "I couldn't get the swaps to work because wallet stated there was no collateral thus could not sign and had to cancel"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-07 09:22:48",
+    "content": "Under the wallet settings. Click Collateral and add 5 tADA to fund the wallet. This buffer pays for transactions."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-07 09:23:27",
+    "content": "Sounds like the collateral issue. Make sure that is funded on the wallet."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-07 09:25:41",
+    "content": "Yeh. In my video I didn’t show the process of adding Collateral. Open the wallet settings -> click collateral and fund the wallet with at least 5 tADA."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Tom",
+    "date": "2021-12-08 10:43:59",
+    "content": "I'm lost at the swap, I have this on the naomi wallet \"Your collateral amount is 5 t₳.\"\nOn the SundaeSwap page it shows that the naomi wallet is connected.\nThe portfolio wallet shows assets as 0 ADA.\nNo explanation as to anything on the page. Home page is totally confusing to me.\nI have no idea as to what the content refers to or what to do with it.\nNo feedback or explanation when I hover the mouse over anything.\nAre we expected to know what everything is for.?\nMy experience is basically, copy the address to send to and paste it into the send address along with the amount.\nI think that, in the select token window, on the swap, may be referring to the \"ADA = 0\" below the windows. Lack of information on what I see on this exchange has left me totally confused!\nThe best exchange experience I have had is from CoinSpot here in Australia, if you check it out, it may help with some ideas.\nThanks for the opportunity to be a part of this project, I know it will all be worth while in the end.\nKind regards Tom."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-08 13:52:52",
+    "content": "Hey Tom, did you follow the video tutorial on how to use the DEX. I think I covered everything you're asking there."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "jody",
+    "date": "2021-12-12 22:49:37",
+    "content": "This site looks amazing.\n\nHow soon will I be able to test it?\n\nMany thanks\n\nJody"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-13 14:52:16",
+    "content": "The testnet is available right now and you can test the DEX to see what it is like."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Mo",
+    "date": "2021-12-16 10:27:09",
+    "content": "Thank you for the tutorial. It all looks fantastic and so looking forward to this going live. I had a few comments/questions this far. 1) I have submitted to the pools and added liquidity. However, the transactions have not gone through. Going to the transaction button they are listed and I can cancel them, but they just sit there and are not reflected in my 'position' tab. Its been about 15 min so far. Am I missing anything? Also, I have noticed a HUGE discrepancy between what Sundae says I have in my Nami wallet vs what Nami says I have. Like as in 6 zeros of a mismatch. Any thoughts? TIA!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Yogi",
+    "date": "2021-12-16 16:24:54",
+    "content": "Not feeling the love here. I have been unable to complete any tasks but 1 and that was with like 100% slippage. I have no tADA left and can't get more. Tried the Beta Guide but all I get is this...\n\n\"Welcome To The Public Testnet Beta!\nUnfortunately, there are currently no dApp capable mobile wallets ready for the testnet. Give us a try on desktop!\"\n\nFeeling fairly frustrated and questioning the future, I get there are growing pains but some things should be a no-brainer, like instructions that are all in one place and actually work."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-16 18:45:26",
+    "content": "That’s been reported by other people as well. The transaction is submitted for liquidity but doesn’t actually take effect.  \n\nThe decimal places might not g\nBe set up correctly. Cardano’s default decimal is 6 zeros. So that might be the issues. \n\nPlease report all these issues to the teams via their google form."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-16 18:47:20",
+    "content": "Firstly, use the Cardano testnet faucet to get more tADA. \n\nSecondly, DeFi doesn’t work on mobile. They say there are huge security issues. The error that your getting would only appear on mobile. Are you using desktop ?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-16 19:00:58",
+    "content": "It’s strange that the instructions didn’t appear for you. It leads me to believe that your wallet isn’t in testnet mode but you sat your out of tADA so it sounds like you are."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Mo",
+    "date": "2021-12-18 05:36:10",
+    "content": "thanks for the feedback. I sent it along to their google form. cheers"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Venkata sai Sudula",
+    "date": "2022-01-21 23:22:41",
+    "content": "How to convert testnet ballance to mainnet after sundaeswap mainnet dex launching.\nI have very small amount of liquidity pools unable to either swap ada tokens or tada tokens to nomi wallet mainnet"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-25 15:00:38",
+    "content": "You can't convert testnet to mainnet. They're separate chains and don't inter-relate to each other. What you earn or play with on Testnet doesn't and won't reflect on mainnet."
+  }
+]

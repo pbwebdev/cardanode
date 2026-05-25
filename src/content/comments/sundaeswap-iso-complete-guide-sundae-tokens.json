@@ -1,0 +1,555 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Justin",
+    "date": "2021-11-12 05:50:39",
+    "content": "What a well written article with all the details needed for the ISO. You've got my vote. Thanks."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-12 10:30:09",
+    "content": "mate you rock. Thank you!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Daniel Archer",
+    "date": "2021-11-12 21:16:30",
+    "content": "You got my vote, doing that tonight.\n\nAnd getting ADA and a bit of sundae is awesome."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-12 22:19:44",
+    "content": "Mate... that is awesome. Really appreciate it. Thank you."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-12 22:26:41",
+    "content": "Listening to your music on Spotify too... you should make an NFT out some of your songs."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Ricardo",
+    "date": "2021-11-13 12:49:26",
+    "content": "Is it necessary to vote to earn sundae tokens? Also, after the pools are selected you can an join one that have been selected and earn sundae tokens even if you were on another pool (not selected) before?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-13 13:20:46",
+    "content": "No, you don't need to vote to earn the tokens but it really helps some of the small pools get into the process. Otherwise, the process simply centralises the process into the large popular pools.\n\nYes after the pools are selected in the vote, simply pick one of those pools to stake into for ADA rewards and Sundae tokens. You will have to leave your current pool and join the new  SundaeSwap pool."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Carlton",
+    "date": "2021-11-14 14:19:34",
+    "content": "really useful video, have got my vote. Where will the sundaeswap tokens be allocated when the iso starts?\n\nthe native wallet you use to delegate?\n\nthanks"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Les",
+    "date": "2021-11-14 14:37:43",
+    "content": "I am staking with Daedalus. How will I receive the Sundaeswap tokens? Where will they appear?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-14 14:38:30",
+    "content": "Yep. Right back to your wallet as long as it’s a native Cardano wallet, Yoroi or Daedalus for example."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Michael",
+    "date": "2021-11-14 14:43:56",
+    "content": "Done, and thanks for the clear instructions."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-14 14:59:26",
+    "content": "Firstly you can just stake your Ada to a pool. That will get you your Ada rewards and Sundae tokens. Hopefully we, ADAOZ, is in that list. \n\nTokens are distributed every epoch for 25 days. \n\n\nYou will need to interact with a smart contract to unlock it."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-14 15:32:37",
+    "content": "You're welcome! Hang around. We've got quite a lot of interesting DeFi content coming up."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Ryan",
+    "date": "2021-11-23 08:53:42",
+    "content": "Can I use ada lite to delegate my Cardano to receive sundaeswap rewards??"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-23 10:18:31",
+    "content": "It can be used for staking, BUT it doesn't show your native tokens. So you can stake there but you won't be able to see your $SUNDAE tokens.\n\nYou can use your ADALite mnemonic seed phrase and restore that in Yoroi or Daedalus to see your Sundae tokens and access them.\n\nTo trade the Sundae tokens, you will need to use a web3 wallet such as Nami or Yoroi Dapp Connector.\n\n(I deleted the repeated comments btw and approved your account to post more)"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "mr4nders0n",
+    "date": "2021-11-27 07:19:28",
+    "content": "Almost \"complete*\nEveryone seems to have forgotten that the cardstarter community have been staking CARDS pairs since the beginning of the year resulting in well over\n$1.3 million TVL. What advantages this has brought to sundaeswap since the June/July merger hasn't really been expressed, nor has there been any explanation what these liquidity providers should do to best maximize their investments."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-27 08:46:41",
+    "content": "Yeh I’m getting a lot of complaints from the communities at the moment around this. I haven’t been able to find answers either. No one has replied to my tweets around it."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "dave c",
+    "date": "2021-12-01 21:03:45",
+    "content": "I have my yorio wallet , now transferred all my Ada over and staked it.\nQuestion is do i need to create second wallet with some Ada ready for Sundie swap launch to buy additional sundie coins as I don't want to unstake from the pool,"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Amanda",
+    "date": "2021-12-03 19:38:13",
+    "content": "I voted for two ISO selected but I'm not skating with them. Should I change my delegation if I want to receive my awards or I will receive my awards just for had voted?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-03 22:22:33",
+    "content": "Well, you will need your ADA in a web3 wallet like Nami or Yoroi with the Dapp connector to be able to interact with the DEX. At that point, you will be able to buy more Sundae tokens or sell the tokens that you gain from staking.\n\nIf the wallet that you have staked is a web3 style wallet that will allow you to connect to the website then you're set and ready to go."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-03 22:24:17",
+    "content": "Hey Amanda, firstly, there were no rewards for voting on this. Purely just being able to participate in the process of the first DEX on Cardano.\n\nSecondly, the ISO hasn't quite started yet. So there is no need to rush your delegation just yet. It may be a week or two away before it all happens. Make sure you subscribe to the podcast or the YouTube channel to stay up to date."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Kevin",
+    "date": "2021-12-04 00:22:25",
+    "content": "hey,first of all very good article!\n\nI would like to know what happens after 5 epochs...Will is still get sundaeswap afterwards?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-04 06:55:22",
+    "content": "Hey Kevin,\nThey are planning to distribute the Sundae tokens every epoch (5 days). After the 5 days of the ISO, the distribution will stop and you're free to move your ADA elsewhere."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "dre",
+    "date": "2021-12-05 12:08:44",
+    "content": "can i not just pull my sudaeswap tokens from daedalus if im staked in an official pool"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Phil",
+    "date": "2021-12-05 19:06:41",
+    "content": "Thank you for the article, most of my questions are cleared and getting to understand the ada projects.\nHave a question, sorry if it is already answered else where, will I still get the Sundaetokens if I stake to the new pool before/on the day of launch or may be next day of the Sundaeswap ISO launch? I have seen some where that it should be delegated before the ISO launch, but not exactly sure. Could you please help me understand on this?\n\nIn general the first epoch will be delayed correct? in that case, will i still be eligible for Sundaetokens?\n\nAlso, can we move/sell the Sundae Tokens after every epoch?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-05 19:38:53",
+    "content": "From what I understand, if you're using Daedalus, you will be able to receive your Sundae rewards when you interact with a contract at the 5 day period BUT you won't be able interact with the website to swap the Sundae for ADA or vice versa"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-05 19:43:51",
+    "content": "Hey Phil:\n\n\n\n<blockquote>\n if I stake to the new pool before/on the day of launch or may be next day of the Sundaeswap ISO launch? I have seen some where that it should be delegated before the ISO launch, but not exactly sure. Could you please help me understand on this?\n</blockquote>\n\nThe snapshot is take at the epoch change over. Epoch being 5 day period. From what I understand, you will need to be in the pool before that initial launch snapshot. Since they haven't officially announced a date yet, there is no need to move to one of the pools. Just be ready to when you can. You'll have at least 5 days to do so.\n\n\n\n<blockquote>In general the first epoch will be delayed correct? in that case, will I still be eligible for Sundaetokens?</blockquote>\n\nThis isn't the same as ADA staking. They can scan and calculate the data on the blockchain-based on where you are staked and how much is there at the snapshot point. They will use that as the amount for sundae distribution. There is no locking and you can move your ADA in and out as long as you are there for the snapshot points at the end of each epoch.\n\n\n\n<blockquote>Also, can we move/sell the Sundae Tokens after every epoch?</blockquote>\n\nYes, that's right, you are free to sell the sundae tokens or ADA as soon as you receive them and do as you please."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dave",
+    "date": "2021-12-08 03:46:47",
+    "content": "I staked to an approved pool December 5th, but changed to another sister pool within that delegation.  Am I still ok to receive SundaeSwap tokens?  Any info would help and hope everyone has a great day."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dave",
+    "date": "2021-12-08 03:48:36",
+    "content": "I changed to the sister pool December 6th.  Sorry this post is a continuation of my previous post."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Steve",
+    "date": "2021-12-08 10:04:55",
+    "content": "How much sundaeswap tokens do u get per ada ?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-08 13:40:03",
+    "content": "Yeh you're fine. You're actually a little too early, which is fine too but the previous pool that you left for the Sundae tokens may have benefitted more from your delegation than these large Sundae pools. With 74 pools to choose from, no one is going to miss out."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-08 13:40:32",
+    "content": "All good, you're really early. ISO hasn't started and the start date hasn't been annouced."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-08 13:44:44",
+    "content": "At the moment with the current amount of ADA staked to the pools and the amount being distributed, the ratio is\n\n1 ADA = 0.03 Sundae.\n\nOnce the ISO actually starts, that will be even lower and could be as low as 0.01 Sundae per ADA delegated."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "DR Smith",
+    "date": "2021-12-11 03:16:05",
+    "content": "Could you kindly clarify which pools will get Sundae for staked ADA?  And specifically, is ADAOZ on the list of pools that will receive Sundae?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Jacky",
+    "date": "2021-12-11 19:53:26",
+    "content": "I have 2 wallets within  my Yoroi each having almost a similar amount of ADA. Can I stake to 2 different pools or must I move all my ADA to 1 of the 2 wallets and stake to a single pool?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-11 23:02:21",
+    "content": "The SundaeSwap article here is the official announcement Meet Your SundaeSwap Scoopers.\n\nA great tool by the community from https://PoolPeek.com/#/Sundaeswap\n\nJust keep in mind that it hasn't started yet and there is no date set yet either."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-11 23:02:49",
+    "content": "Each wallet can stake their balances at the same or different pools"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Ben",
+    "date": "2021-12-13 07:51:46",
+    "content": "Hey bro, how much Cardano of my total Cardano should I be staking I’m new to this I don’t know the risks :S"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-13 14:52:52",
+    "content": "Totally up to you how much you want to stake. I have my own personal goals that I'm striving for."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "jacky",
+    "date": "2021-12-15 16:27:57",
+    "content": "Thank you for the many 'guides' and 'how-to' articles/videos. \nAppreciate them all and I have decided to stake my few ADA with you."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-12-15 17:59:58",
+    "content": "Mate, I appreciate that. What ever people delegate is awesome."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "ronnie",
+    "date": "2021-12-29 22:13:22",
+    "content": "i was hoping you could plz tell me: i currently have all my ADA delegated to one pool via yoroi. i want to create several wallets (which i can do) but im unsure of the consequences with regard to undelegating. as i have only one wallet currently, i need to undelegate to distribute my ada across different pools. i had to wait 4 epochs before i got rewards when i first delegated, does that mean i have to start all over again i.e do i lose reward continuity or does it recognise the time i had staked , so as i will redelegate instantly, the lost staking time will be negligible. also, im nervous about the sundaeswap token drop... firstly, when was the snapshot date and if i move my ada now, will that affect my sundaeswap allocation. cheers"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Nico",
+    "date": "2022-01-12 17:06:14",
+    "content": "Is it also possible to earn sundae-tokens with the new NuFi wallet?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-16 14:20:40",
+    "content": "Technically yes as they are a native Cardano wallet, but that wallet isn't connected in regards to the DEX"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-16 14:24:28",
+    "content": "Snapshot date has now been announced. 25th Jan.\n\nYou will need to either setup a new wallet and move the ADA to it and start delegating now or simply move an existing wallet to do the same thing.\n\nThere is a 2 epoch delay before the ADA rewards are calculated but Sundae are using the LIVE count and not active. The delay isn't that long but still long for ADA rewards."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Anthony",
+    "date": "2022-01-16 16:55:09",
+    "content": "As a new single stake pool operator, ADAreactor(ARC), is there a chance to get picked for this project at a later time? Will there be another round of voting? Or, will there be an application process to request to be added to stake pool list?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-17 00:34:01",
+    "content": "In the future you will be able to apply for a Scooper license.\n\nThere are other DEXes that are using a similar model so its worth looking into each one of them and seeing which one looks good to you.\n\nI do not ever want to go through the voting process that SundaeSwap did ever again. I didn't sleep for days and the pools with the most ADA won in the end. Very hard to compete but I'm still glad we made it to the top 40."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "martin drexler",
+    "date": "2022-01-17 05:33:28",
+    "content": "i use daedalus wallet, i've been in one of the pools participating in the airdrop for a year now. my question is now you get the sundae even if you staked via daedalus?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-17 08:31:28",
+    "content": "You will need to claim the tokens. It will either be done via smart contract or by invoking an address, these details have not been revealed yet. You will have up to 12 months to claim your tokens."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Sun",
+    "date": "2022-01-17 14:04:30",
+    "content": "Is it correct, that I am going to miss 2 epochs (two times rewards) when I start delegating from today? I have still my ADA on an central exchange..."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-17 15:37:06",
+    "content": "you just need to get the ADA to your wallet and staked before the 25th"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Niro",
+    "date": "2022-01-18 02:59:55",
+    "content": "can someone clarify if, on the 20th of Jan, I can buy $sundae directly from the test DEX, swapping ADA with $sundae?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-18 07:16:39",
+    "content": "Hi, it's normal to have been searching my wallet for 4 hours and haven't found it yet.\nnetwork is testnet set Ada is also on it.\nI do not understand"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dammit Yoroi",
+    "date": "2022-01-18 11:11:30",
+    "content": "Thanks for the solid info - great content! I'll be happy to move to your stake pool after the ISO is done as a thank you.\n\nIt's so frustrating using Yoroi - I've been trying to delegate for 3 days and it just won't go through. I can't even send my ADA out because it's so glitchy. I'm afraid of missing this ISO because of this. I don't understand how something made through Cardano/Emurgo can be so bad."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Philip",
+    "date": "2022-01-18 18:46:01",
+    "content": "If you’re in the top40, does that mean I can stake with you and get the SUNDAE airdrop?  Or is it just top 30?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "DanielOxkey",
+    "date": "2022-01-18 21:05:56",
+    "content": "It states that I’ll need to interact with the smart contract to release my reward tokens. I’m new to this so can you please explain what I have to do to interact with the contract? I’m guessing it means I have to perform a swap on Sundae Swap? Is this correct please? And if so how many times or how often?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dan",
+    "date": "2022-01-19 01:18:18",
+    "content": "It states that I’ll need to interact with the contract to be able to claim my reward tokens. Does this mean using the Sundae swap dex?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "DeaconFrost",
+    "date": "2022-01-19 05:08:55",
+    "content": "How many Sundaeswap tokens will I get if I swap it with one ADA? \nso instead of delegating to a ISO pool I would like to swap my ADA for Sundae.\nIs this possible?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "JP",
+    "date": "2022-01-19 18:37:46",
+    "content": "Hi, the medium article is unavailable. Where else do i see the list of pools?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Brandon",
+    "date": "2022-01-20 06:56:16",
+    "content": "sorry if this is a dumb question, but is there an official list of pools that are participating in the SundaeSwap ISO or are all the pools eligible? FYI I just moved my ADA into the Yorori Wallet, but am not sure what pool I should delegate to or are participating."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 13:03:44",
+    "content": "Here is an interactive list of all the SundaeSwap pools\nhttps://poolpeek.com/#/sundaeiso\n\nThat will help you pick one and get delegating."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 13:05:02",
+    "content": "Here, please use this:\nhttps://poolpeek.com/#/sundaeiso\n\nThe websites are getting hammers :D"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:01:05",
+    "content": "No one knows what the launch price will be or how much supply there will be."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:01:44",
+    "content": "Yes but it also might be a simple faucet where you send ADA to trigger it and it will send you ada and tokens back"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:02:45",
+    "content": "Yes it is something along those lines. Either we have to click CLAIM on the website and that will start a process, or we send ADA to a wallet from our staking wallet and that will send the tokens back. You can do it once at the end of the process and you have 12 months to claim."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:03:20",
+    "content": "It's only the top 30 that will offer rewards.\n\nIt just looks nice that we made it to the top 40. Unfortunately, we didn't make it."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:08:39",
+    "content": "Mate, I would really appreciate it if you did that. Every little bit counts.\n\nIf you check my YouTube channel I did a video on how to import your Yoroi wallet to CCVault. Just do it and get on with life. You won't regret it.\n\nhttps://youtu.be/Ultfv_OCS1M"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:09:54",
+    "content": "Ok I'm not understanding the issue.\n\nJoin our Discord server and chat there we can step you through it:\nhttps://discord.gg/aAcjtaVv9V"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 14:10:15",
+    "content": "That is correct! Some time on that day"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Brandon",
+    "date": "2022-01-21 00:58:35",
+    "content": "Thanks Peter for the quick response. Got my ADA delegated. I see that all the single pools are saturated. Ended up delegating to a multiple pool. Curious what the difference is. \n\n I will also stake with ADAOZ after this ISO is completed. Really appreciate the help."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Mohammad",
+    "date": "2022-01-21 08:39:31",
+    "content": "Hi,\n how can I get the Sundaeswap token?\n what are the pools where Cardano should be stored to give you the Sundaeswap token?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Case",
+    "date": "2022-01-21 11:09:29",
+    "content": "hey Peter - great video and thanks for all your help at getting back to everyone with questions!\n\nI have a quick one - so I've delegated to a Sundae ISO pool via Yoroi and I'm just wondering once the 25 days is up for the token allocation, and you complete whatever smart contract exists to receive these sundae swap tokens, do they get sent into your Yoroi wallet?  And then theoretically would you be able to transfer them over to a Nami wallet since Yoroi and SundaeSwap aren't currently compatible?\n\nJust trying to figure out how you would get them in (via smart contract - even though Yoroi seems to be only ADA compatible) but also out of Yoroi wallet so you can actually start utilizing them on the SundaeSwap platform...\n\nThanks again for all your help!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-21 20:37:03",
+    "content": "It's not a huge deal but spreading out the delegated ADA across many pools makes the network less centralised.\n\nThe more ADA some of the large multi pools have the more control over the network and influence they may hold.\n\nWhen it gets above 15+ pools, and they're all not fully saturated then they're just manipulating the system for financial gain. (thanks how most see it). But if they have legitimately a good reason to have multiple full pools then that is another case.\n\nIf they have 2-3 and they're over 60% saturation, I'd say that's still healthy."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-21 20:37:33",
+    "content": "Here, please use this:\nhttps://poolpeek.com/#/sundaeiso\n\nThe websites are getting hammered ?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-21 20:40:08",
+    "content": "Yes they get sent back to the address that triggered the claim process, assuming that is also the wallet that delegated for Sundae.\n\nYes you can then transfer them over.\n\nYoroi can actually accept and display native tokens and nfts too. If you don't have any you won't see the ASSET tab in the wallet.\n\nDon't forget to subscribe and consider delegating when this is all over."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "geozat",
+    "date": "2022-01-30 03:26:29",
+    "content": "what happens isf i staked from epoch 260.Will i claim more sundae rewards?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-05 15:32:35",
+    "content": "Since epoch 260? Wow longer term staker, yeh you can claim if you're in a Sundae pool"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Hugo Knight",
+    "date": "2022-02-08 12:17:25",
+    "content": "Hey Peter, \n\nMy sentiments have already been expressed by others above. Appreciate the article. \n\nApart from Sundae Swap tokens being rewarded. What's the yield return APR? \nOr is this only for the ISO and then we withdraw our funds? \n\nThe fixed fee of 340ADA is that per staker or for the entire pool? \n\nWhat does last luck epoch % mean?\n\nBest\nHugo"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-25 14:56:46",
+    "content": "The APR for yield farming was as high as 300% which was quite high.\n\nThe Fixed fee is taken from the total rewards not one person. The entire pool.\n\nLuck relates to how many blocks are assigned to the pool. If you're lucky, we get more, if we're unlucky we get less. The protocol tried to average out all pools to 100%."
+  }
+]

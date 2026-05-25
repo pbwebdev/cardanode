@@ -1,0 +1,23 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Robert",
+    "date": "2021-09-13 21:44:37",
+    "content": "Is the Minswap deal (free minswap tokens for staking to their suggested small pools) still on despite the Minswap saga a few days ago? I heard you mention Minswap on your recent podcasts. Excellent podcast by the way. My wife currently stakes with you as we are in Australia."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-09-13 23:04:33",
+    "content": "Hey Robert, yeh the MinSwap thing is still on. You just have to delegate to one of their partner pools and you're set. Look for a low saturation pool, and delegate one of your wallets. You will still get your ADA rewards, it will just vary based on the pool's fees and at the end of the staking period, you will get MinSwap tokens distributed to you as well.\n\nThe entire MinSwap saga comes down to an engineering problem that needs to be solved. Different projects have different solutions. MinSwap just opted to release something to be first on Testnet, which is cool, but obviously bought up some other issues that hadn't been addressed yet. It will and should be solved before they launch on Mainnet.\n\nOther projects such as Meld, Sundaeswap and VyFi have options and possible solutions but haven't shared details about it yet."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-09-13 23:05:15",
+    "content": "oh... and thank you for listening and delegating to the pool. Every bit of ADA makes a difference."
+  }
+]

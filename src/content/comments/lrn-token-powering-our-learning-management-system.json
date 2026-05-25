@@ -1,0 +1,30 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Roy Ong",
+    "date": "2022-01-02 16:44:10",
+    "content": "When is the seed funding? Has it started? Thanks!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "ielts_85",
+    "date": "2022-01-11 12:35:38",
+    "content": "Dear all,\n\nFirst of all, thank you for all your great work!\n\nSecondly, I run an automated online course using wordpress and learndash (plugin). I'm very interested in evolving my website into a cardano-based learn-to-earn online course for my students/subscribers. Will your course kindly cover the process of minting a new token of our own and gamifying that token for the online learning material on a wordpress website?\n\n\nSincerely,\nMasta"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-16 14:21:51",
+    "content": "That is the exact build that we have for our LMS on Wordpress. Learn Dash is great. We've integrated our own plugin called Cardano Press to facilitate all that.\n\nI hadn't planned for that topic but will consider it for businesses and site owners."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-16 14:22:24",
+    "content": "No, not yet. I'm tweaking the tokenomics to meet the requirements of the project."
+  }
+]

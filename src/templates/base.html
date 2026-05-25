@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+
+███╗   ███╗███████╗███████╗██╗  ██╗    ██╗    ██╗██╗████████╗██╗  ██╗    ██╗   ██╗███████╗
+████╗ ████║██╔════╝██╔════╝██║  ██║    ██║    ██║██║╚══██╔══╝██║  ██║    ██║   ██║██╔════╝
+██╔████╔██║█████╗  ███████╗███████║    ██║ █╗ ██║██║   ██║   ███████║    ██║   ██║███████╗
+██║╚██╔╝██║██╔══╝  ╚════██║██╔══██║    ██║███╗██║██║   ██║   ██╔══██║    ██║   ██║╚════██║
+██║ ╚═╝ ██║███████╗███████║██║  ██║    ╚███╔███╔╝██║   ██║   ██║  ██║    ╚██████╔╝███████║
+╚═╝     ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝     ╚══╝╚══╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝     ╚═════╝ ╚══════╝
+
+Built by Mesh With Us
+https://meshwithus.com.au
+
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0693e3">
+<meta name="color-scheme" content="light">
+<meta name="build-sha" content="dev">
+
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="cardanode">
+<meta property="og:locale" content="en_AU">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:title" content="{{ogTitle}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{ogImage}}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@cardanodeau">
+<meta name="twitter:creator" content="@astroboysoup">
+
+<link rel="canonical" href="{{canonical}}">
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="inner">
+    <a href="/" class="brand">cardano<span class="accent">de</span></a>
+    <nav aria-label="Primary">
+      <a href="/blog/">Blog</a>
+      <a href="/#delegate">Delegate</a>
+      <a href="/contact-us/">Contact</a>
+      <a href="https://learncardano.io" rel="noopener">Learn Cardano</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{{content}}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare.</div>
+    <div class="links">
+      <a href="https://learncardano.io" rel="noopener">learncardano.io</a>
+      <a href="https://drep.learncardano.io" rel="noopener">drep.learncardano.io</a>
+      <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" rel="noopener">Learn Cardano YouTube</a>
+      <a href="https://meshwithus.com.au" rel="noopener">Built by Mesh With Us</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  (function () {
+    let buf = "";
+    window.addEventListener("keydown", (e) => {
+      buf = (buf + e.key.toLowerCase()).slice(-4);
+      if (buf === "mesh") {
+        console.log("%c🕸️  Built by Mesh With Us — https://meshwithus.com.au", "color:#0693e3;font-weight:bold;font-size:14px");
+        buf = "";
+      }
+    });
+    console.log("%ccardanode", "color:#0693e3;font-weight:bold;font-size:20px");
+    console.log("Built by Mesh With Us — https://meshwithus.com.au");
+  })();
+</script>
+
+</body>
+</html>

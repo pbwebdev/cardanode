@@ -1,0 +1,16 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Dustin Gray",
+    "date": "2021-10-30 11:09:00",
+    "content": "I'm a little confused here. Maybe you could share some resources with me to help better understand. \n\nSay for example I contribute or \"stake\" 100 ADA. Thats currently valued at roughly $200USD. If I contributed another 25 ADA monthly (~$50USD) what is a normal expected return? I also might not be understanding the process well enough either based on my question."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-01 09:11:55",
+    "content": "Yeh sure here is an example for you.\n\nStarting with 100 ADA and contributing an extra 25 ADA per month.\n\nBased on the current rate of return ~5%, you will have 412.0967 ADA at the end of the year.\n\nThis is made up of the first initial 100 ADA that you contributed and the (12 * 25ADA = 300) contributions you added. The amount of return you get from all of that is roughly ~12 ADA.\n\nIf you keep the same plan over 10 years, you will have 4,046.9009 at the end of 10 years and earned roughly 946.9009 in returns on your ADA."
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Myles Forman",
+    "date": "2022-03-08 03:01:16",
+    "content": "I am currently staking to a pool in the alliance. Will my Dana rewards be distributed directly to my wallet at the end of each Epoch with/like my Ada rewards?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Daniel Mak",
+    "date": "2022-04-03 05:24:34",
+    "content": "Is that too late to do any staking to get dana?  I purchase some, but it automatically went into my Nami wallet as an NFT instead of being treated as a token?  Am I buying a NFT or a token? I get my swap from Sundaeswap, will I be staking my DANA NFT?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-04-15 17:36:30",
+    "content": "Hi Myles\n\nNo, rewards for the DANA ISPO will need to be claimed at sometime after the end of the ISPO. There will be a faucet and other tools to make that possible."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "lou sassle",
+    "date": "2022-04-16 09:45:22",
+    "content": "When does the ISPO end?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Jimmy",
+    "date": "2022-04-22 16:54:57",
+    "content": "When is the ISPO over?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-04-26 15:08:53",
+    "content": "I believe it was in late Dec or Jan 2023"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-04-26 15:10:08",
+    "content": "Nami is simply incorrectly treating the metadata of the token. It should be updated so that it appears in the right places. You can still delegate for it as it officially starts in June"
+  }
+]

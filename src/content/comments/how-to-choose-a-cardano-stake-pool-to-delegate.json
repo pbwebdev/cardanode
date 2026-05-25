@@ -1,0 +1,100 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Phil",
+    "date": "2021-10-08 19:06:29",
+    "content": "Hi with the 340 ADA fee, is that a one off fixed fee? Or do I pay that every time I add ADA to your pool?\nLooking forward to hearing from you,\nKind regards,\nPhil"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-10-11 10:33:29",
+    "content": "Hi Phil, the 340 ADA is a fee from the pools rewards. Not from your delegation.\n\nYou do not pay the 340 ADA. collectively, all of the pool's delegates get that taken out of the rewards for the epoch.\n\nI hope that makes sense."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Robert",
+    "date": "2021-10-16 21:42:09",
+    "content": "sorry to be dim .... there is sooo much written about staking ADA, I really am at a point of indecision.\nI will happily delegate/stake my ada if I could see graphically how much staked ADA made X per year and where safe, say over 10 staking pools.\nSo Peter I have read your above well drafted article and am at loss. Where is profitable and safe, ideally linked to Ledger, Please?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-10-17 06:32:51",
+    "content": "Hey Robert, the topic can get quite complicated depending on how deep you want to go.\n\nIt's hard to say if past performance on a pool reflects future performance. You can only really look at past performance and make a judgement off that. Here is a view of a wallet of someone that is staking to our pool at the moment. <a href=\"https://pooltool.io/address/99e0809aa6f79c50293874fac475480637d0cf032c044ec4b1e78c3f\" rel=\"nofollow ugc\">Wallet on pooltool.io.</a> It shows the past performance of the wallet delegated to our pool and when it moved in and out of our pool or when they spent ADA etc.\n\nIn terms of the hardware wallets (ledger), performance and returns are completely irrelevant to the wallet or device you're staking with. It is ideal that you stake with a pool and operator that is active, know what is going on in the ecosystem and keeps this updated on a regular basis. Outdated software or relays will result in missed blocks etc. \n\nThis pool is a good example of a <a href=\"https://adapools.org/pool/98a124471ceee3c944a0e4275ae20ae4bd78bfe108203043ff71a0ac\" rel=\"nofollow ugc\">pool that isn't being updated</a>. At the time of writing this response, this example pool has missed blocks for the last 7 epochs. Looking at its past performance when it was making blocks, it was getting 496.14 ₳ for the owner and 3.75k ₳ for its delegates. Multiply that by 7 and they have missed out on 3472.98 ₳ for the owner, and 26,250 ₳ for its delegates.\n\nI'm sure they have a good reason for missing the blocks but that is not a pool I'd want to be in."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Rutvij",
+    "date": "2021-11-01 03:51:38",
+    "content": "So if a person can keep a tab on how stake-pools every epoch, we should be delegating to smaller pools so that whenever there's a abetter pool which shows better returns and low saturations, we can delegate, does that sound right ?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-01 09:18:59",
+    "content": "Yes and no.\n\nThere are certain conditions that you will need to monitor if you are pool hoping for higher returns and a few caveats to also know about.\n\n<ul>\n<ol>When a pool has bad luck and should still be minting. The following epochs eventually will return to a higher luck rate. Our pool for example had a month long run of bad luck giving lower returns but now this month it has recovered giving higher returns. You'll need to know when there is a run of low luck.</ol>\n\n<ol>\nYou will also need to understand why the block production was low and luck was low. Was it purely because allocated slots were low OR was there something else at play such as miss configuration.</ol>\n\n<ol>\nIt takes a couple of epochs for your delegation to kick in again on the new pool. So if you're leaving a pool that is having bad luck, you may actually still receive the high luck that follows when you leave a pool and your delegation won't actually come from the new pool for a couple of epochs. So if you delegate to a pool that is currently having high luck, it means you have missed that high luck and you won't get it.\n</ol>\n\n</ul>"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Raymond",
+    "date": "2021-11-02 20:46:43",
+    "content": "I recently started staking my ADA on ADAOZ but didn't receive rewards? How many epochs until I see gains from my delegation?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-02 22:58:31",
+    "content": "Hey Raymond, it takes 3 epochs to activate your stake and then you'll see rewards after that. Please join us on Discord so you can get your questions answered promptly. https://discord.gg/bcmUPf73Jp"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Raymond",
+    "date": "2021-11-02 23:46:45",
+    "content": "Will a partial cycle count as one of three? I joined in last cycle with over 3 days remaining?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-11-07 19:14:14",
+    "content": "No, it doesn't, you will have to add those three extra days in. This is why some people say between 15-20 days as we don't know when you may have joined in an epoch cycle."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Salome Bassey",
+    "date": "2022-01-19 20:26:13",
+    "content": "Hi, how do I know if a pool is saturated?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-20 13:04:34",
+    "content": "Depends on the website that you are on and the wallet that you're using but they all have indicators to show what that delegation level is at. If there is a total of over 66M ADA to a pool then its full!"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Arthur Lee",
+    "date": "2022-12-31 08:58:43",
+    "content": "Hopping has its own element of luck for the delegate as it is completely unpredictable to know if one poole *POOL* will return more than another at any point in time.\n\nPool hoping  *HOPPING* is fun, but you might be worse off. Don't forget the fees that you have to pay each time you redelegate you *YOUR* wallet too.\nI almost got to very end, with no errors.  I consider spelling errors an indication of attention to detail, and checking for mistakes.  There are a few other mistakes, which you might to look at."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "PAULA L. GOLDING",
+    "date": "2023-01-03 08:53:49",
+    "content": "Wow so good to hear I do not pay that 340 ADA as that would wipe me out!"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "Glenn Ray",
+    "date": "2021-07-19 18:53:09",
+    "content": "Hi, I was wondering how one can see how many ADA I have delegated to see if I did it correctly?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-07-20 11:41:31",
+    "content": "If you've set up a wallet and are delegating to the pool, then you are delegating the entire balance of the wallet as it is at the moment. \n\nWe can't split our balance and delegate to multiple pools just yet. The feature is coming soon."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "LastPanda",
+    "date": "2021-08-19 19:55:56",
+    "content": "Hi there, \nI was wondering about the conditions to retrieve the delegated ADA onto my own wallet (=stop the delegation).\nHavent found the feature on Daedalus. Not that I plan to do it soon :)\nRegards"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2021-08-19 20:20:28",
+    "content": "hmmm, thats an interesting question.\n\nIn terms of 'retrieving it', it never leaves your wallet. So it's always there and there isn't anything to retrieve. If you want to deregister your wallet and stop delegating and only hold it in your wallet, from what I've seen in Daedalus, that isn't possible. I can see the feature clearly in Yoroi though to recover all of your rewards and your 2 ADA deposit."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-01-26 12:17:17",
+    "content": "Good article, Peter. I think the following phrase needs amending:\n\"The downside to being locked in is that you can sell when the market is peaking...\"\nShould be \"you CAN'T sell\", surely.\n---\nRegarding:\n\"To recap:\nEpoch 1: Delegation is in a live state\nEpoch 2: Delegation becomes active and if the pool mints blocks you get rewards\nEpoch 3: Rewards are calculated\nEpoch 4: Rewards are distributed\nEpoch 5: Cycle begins again from Epoch step 2\"\nThis doesn't match up with your diagram. Epoch 1 is the delegation stage, in 2 it becomes live, 3 active, 4 calculated and then paid out in 5. Also, if rewards are paid out at the beginning of epoch 5, then the time to wait would be 20 days if you delegated right at the start of epoch 1, or 15 days if you delegated just before epoch 1 ended.\nHappy to be corrected on this if I have misunderstood it.\nBrgds,\nPeter (NZ)"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-25 14:59:48",
+    "content": "Thanks for that. Good pick up. First person to see that since I first wrote the article."
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "B. Packaroba",
+    "date": "2023-08-22 13:55:26",
+    "content": "Are the ADA \"rewards\" for staking that I earn of the same value of ADA and can be used the same way?  I have been staking for 2 years and in daedalus wallet I see the total earned as \"unspent\" ADA.  How can I get the earned ADA so I can stake it as well?  Appears to be not the same as ADA."
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "",
+    "parent": "",
+    "author": "sagy",
+    "date": "2022-02-08 11:38:56",
+    "content": "hello there. is there a fixed cost of 340ADA to stake in this pool. if so is that taken immediatelyon staking ADA?"
+  },
+  {
+    "id": "",
+    "parent": "",
+    "author": "Peter",
+    "date": "2022-02-25 14:57:33",
+    "content": "No. That is a miss conception and super confusing for first time stakers. the 340 fee is what is taken from the total rewards from the entire pool. Not per user."
+  }
+]
