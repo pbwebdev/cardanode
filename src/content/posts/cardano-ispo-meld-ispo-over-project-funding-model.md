@@ -21,8 +21,6 @@ Besides delegating to a small stake pool operator, such as ourselves (ADAOZ), th
 
 The main goal for speculators is to stockpile as many cryptocurrencies as possible to hopefully use them as a vehicle of income or retirement.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/WYSBP-C_c-E" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What Is an Initial Stake Pool Offering (ISPO)
@@ -72,8 +70,6 @@ The ISPO that the project is offering offers ADA rewards and the Mirqur token. T
 Read the [Mirqur white paper](https://mirqur.io/mirqur.io_lightpaper.pdf).
 
 ### Watch the Interview with Chris from Mirqur
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/Uw8NuJLpOk4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -146,8 +142,6 @@ They pioneered the future of funding projects on Cardano with the ISPO model. La
 Read about how the [emerging ISPO funding model](https://cointelegraph.com/news/meld-s-1b-ispo-highlights-emerging-use-cases-for-cardano-crypto-fundraising) is making waves in the cryptocurrency ecosystem.
 
 ### Watch the Interview with Ken Olling from Meld
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/MIEjQhZ5u9Q" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

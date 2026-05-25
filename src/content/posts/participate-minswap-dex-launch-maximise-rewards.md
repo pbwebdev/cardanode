@@ -21,8 +21,6 @@ All the content in this article has been referenced from the [MinSwap Liquidity 
 
 The MinSwap team are creating a Liquidity Bootstrapping Event (MinSwap LBE) with the aim to get ADA onto the DEX to allow for the trading of the asset. It will be paired initially with their DEX token MIN. For the MinSwap DEX to be successful long term, it needs this liquidity and ADA added to their exchange and for people to be using it.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/lCow3tGvgkk" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The MinSwap team previously held a token distribution event via their [Fair Initial Stake Pool Offering (FISO)](http://cardanode.com.au/minswap-fair-initial-stake-pool-offering/) to get the MINt & MIN tokens into the hands of as many people as possible.
@@ -52,8 +50,6 @@ We have broken down what happens at each key date and what you can do at each st
 ### Feb 23rd - March 4th: Discovery phase
 
 _Add ADA to the DEX and get purrADA tokens._
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/mwEnIYAB_SY" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -122,7 +118,5 @@ At this point in time, MinSwap will not have an auto compound feature in the DEX
 One month after the launch of the yield farming features you will be able to convert your MinT governance tokens to MIN tokens. Sometime around the 14th of April.
 
 ## Check Out My Demo & Overview of the MinSwap Dex
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/YKbXJ4XIF6c" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -11,8 +11,6 @@ youtube: ["https://www.youtube.com/embed/0DsKCoC2KjA", "https://www.youtube.com/
 ---
 What Cardano ISPO is next now that the SundaeSwap ISO is over?
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/dicR-qAmQmU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 With the SundaeSwap Initial Stakepool Offering (ISO) over, you can now finally move your delegation from the SundaeSwap pools to others in the network and there are a lot of opportunities to choose from.
@@ -28,8 +26,6 @@ https://twitter.com/astroboysoup/status/1492009557249327106?s=20&t=VEPAZfRoBjL\_
 ## Currently Active Initial Stake Pool Offerings in Cardano Feb 2022
 
 ## AADA Finance ISPO
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/EJmOlwDWgdo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -49,8 +45,6 @@ Check out all the [stake pools that are a part of the alliance](https://docs.ard
 
 ## Genius Yield ISPO
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/Ckb0iSAzA_s" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Genius Yield is creating an automated yield aggregator decentralised exchange with smart liquidity pools and swaps.
@@ -58,8 +52,6 @@ Genius Yield is creating an automated yield aggregator decentralised exchange wi
 You are able to stake in one of their GENS pools until mid-2022 when the 6 month period of staking will end. Those delegates that have delegated for the full amount of time will be able to obtain special NFTs for the process.
 
 ## FlickTo
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/mSewVFrEPK4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -88,8 +80,6 @@ Ends at epoch 327
 
 ## MetaDex
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/WGh98CPf874" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 MetaDEX, originally known as Mirquir, is building one of the simplest DEXes in terms of user experience on the Cardano blockchain. Combining aspects from Curve, Bancor and others, they're taking all of the best features in Defi and building it out on their platform.
@@ -108,8 +98,6 @@ Learn more about the [LISO](https://medium.com/@anetaBTC/anetabtcs-liquidity-iso
 
 ## WayaCollective ISPO
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/M142fYeBdM4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 WayaCollective is providing a supply chain solution for fair and sustainably made fashion in Africa. The team is using the Cardano blockchain to create the platform to track all aspects of the textile industry & supply chain from international orders to tailors, suppliers and final distribution.
@@ -119,8 +107,6 @@ Their ISPO is just starting with the initial whitelist and collection of potenti
 Find out more about the project and the [WayaCollective ISPO](https://wayacollective.com/).
 
 ## Empowa ISPO
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/0DsKCoC2KjA" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

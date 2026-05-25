@@ -180,8 +180,14 @@ for (const item of items) {
     else if (k === "_yoast_wpseo_opengraph-image") ogImage = v.trim();
   }
 
+  // Strip WP-embedded <style> and <script> blocks entirely — they bled
+  // into post bodies as text paragraphs through turndown.
+  const noStyle = String(rawContent)
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+
   // Clean YouTube URLs in the raw HTML before any transform
-  const cleanedHtml = cleanYoutubeInHtml(rawContent);
+  const cleanedHtml = cleanYoutubeInHtml(noStyle);
 
   // First image as OG fallback
   if (!ogImage) ogImage = firstImageSrc(cleanedHtml);

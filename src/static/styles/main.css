@@ -165,6 +165,28 @@ img { max-width: 100%; height: auto; }
 .post-card h2 a { color: var(--ink); }
 .post-card h2 a:hover { color: var(--blue); text-decoration: none; }
 .post-card .meta { color: var(--muted); font-size: 0.85rem; margin: 0 0 8px; }
+.post-card.related h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.post-card.related h3 a { color: var(--ink); }
+.post-card.related h3 a:hover { color: var(--blue); text-decoration: none; }
+
+/* Category badges + filter strip */
+.cat-badge, .cat-pill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+.cat-badge:hover, .cat-pill:hover { color: var(--blue); border-color: var(--blue); text-decoration: none; }
+.cat-strip { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+.cat-pill { padding: 6px 12px; font-size: 0.85rem; background: var(--surface); }
+.cat-pill .n { color: var(--muted); font-weight: 400; margin-left: 4px; }
 
 /* Article body */
 .post {

@@ -17,8 +17,6 @@ The competition will run for a week and will be drawn on the 23rd of Feb.
 
 Learn more about staking NFTs on the VyFi app and how you can earn extra rewards simply by locking the NFT into their staking vaults.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/w1Krx0c8t9w" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Bonus Entries for ADA Waifus Holders
@@ -32,8 +30,6 @@ I didn't want to exclude users that didn't have an ADA Waifu but I have Waifu ho
 If you're interested in purchasing an ADA Waifus, you can find them on [CNFT.io](https://cnft.io/marketplace?project=AdaWaifus) and [JPG.store](https://www.jpg.store/collection/adawaifus).
 
 Check out the [ADA Waifus](https://adawaidus.io) project and Kivi's anime artwork!
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/Eh5juGVMooA" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

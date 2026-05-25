@@ -13,8 +13,6 @@ The race to be the first Decentralised Exchange on Cardano is heating up or has 
 
 ## Overview of the MuesliSwap Decentralised Exchange (DEX)
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/6ca-u7ofC1Q" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## First Impressions of MuesliSwap

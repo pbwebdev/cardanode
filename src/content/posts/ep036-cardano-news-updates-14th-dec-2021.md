@@ -31,8 +31,6 @@ The Cardano project has reached a huge milestone and has hit over 1M active wall
 
 ## SundaeSwap Taste Test
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/bRs0Fa5jFYw" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The SundaeSwap team have announced their way to help protect the retail market from the pump and dumps on their DEX when the market launches. This held liquidity for a period of 10 deals where anyone can move their tokens in and out will help ease the up and down swings that occur on normal token releases. As the market is given time to determine the price based on what is provided to the liquidity pools. Read more about the [SundaeSwap Taste Test](https://sundaeswap-finance.medium.com/sundaeswap-presents-the-taste-test-a5b125ee2645).
@@ -53,8 +51,6 @@ They have now moved to the smart contracts for the marketplace.
 
 Check out the video where we demo the entire process of buying and selling NFTs via their marketplace.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/iJ1ex1EueX8" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Meld ISPO is officially Over, where to next? Final Round.
@@ -65,8 +61,6 @@ Read our [ISPO blog post](http://cardanode.com.au/cardano-ispo-meld-ispo-over-pr
 
 We also did an interview with the team from Veritree, Ken Olling from Meld and Jeremy Firster from the Cardano foundation all about the final rewards epoch for the Cardano Global Impact Challenge.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/Iw3aEHDpA18" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Dual Leaders, Double Producers
@@ -74,8 +68,6 @@ We also did an interview with the team from Veritree, Ken Olling from Meld and J
 This all came about when pool operators from the community were complaining about a lot of orphaned blocks. These are blocks that are produced correctly by stake pool operators but are discarded due to being produced on a chain that has been forked and removed. This is a common and a normal part of the network but, in this situation, blocks have nee accidentally removed due to maintenance scripts not working as they should.
 
 Watch the video by Andrew which explains the Dual Leader scenario, why pool operators run dual block producers and what happens when dual leaders are run on the network.
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/4j_SymkuxfU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -97,8 +89,6 @@ The MinSwap FISO ended last month and it is now time to start claiming your MINt
 
 Look up your stake address, enter it into the FISO dashboard, pay the fee and receive your MINt tokens.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/_dGMBLlUuNM" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [Learn more about the MinSwap Claim](https://t.co/Fdl5KU5wRo)
@@ -114,7 +104,5 @@ Look up your stake address, enter it into the FISO dashboard, pay the fee and re
 ## Interview on the Mere Mortals Podcast
 
 Also, check out an interview I did with the Mere Mortals podcast all about Cardano.
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/F9qUyrhFnjI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

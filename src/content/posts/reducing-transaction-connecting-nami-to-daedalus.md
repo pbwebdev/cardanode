@@ -29,8 +29,6 @@ This method is one way to decentralise your dependence on these services and hav
 
 Scroll down to see how to do it on a Mac.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/_-WDEaSnaWU" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Credits to Pernis Team
@@ -155,8 +153,6 @@ Send 1 ADA to yourself and test that it comes through.
 If it sends then you have successfully connected CCVault to Daedalus or Nami to Daedalus node and you're ready to use your Frankenstein wallet.
 
 ## Instructions for Connecting CCVault to Daedalus on Mac or Nami to Daedalus on a Mac
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/dpZX9eF9UUI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

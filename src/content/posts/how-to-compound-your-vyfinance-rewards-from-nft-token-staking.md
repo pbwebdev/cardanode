@@ -13,8 +13,6 @@ Compounding your rewards on the VyFinance (VyFi) platform can earn your more rew
 
 ## Harvesting Rewards & Compounding Returns on VyFinance
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/x3YADh6gZxI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Did you remember to harvest your rewards on the VyFinance platform?

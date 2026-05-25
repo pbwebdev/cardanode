@@ -19,13 +19,9 @@ Please see the latest announcement in regards to the ISO pools.
 
 https://twitter.com/SundaeSwap/status/1485054865671962630
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/NeiDo1hZ5yM" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## SundaeSwap ISO Start Date Announced 20th Jan 2022 Mainnet Launch
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/mxoZc8YTCso" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -47,8 +43,6 @@ You can find out more about the [official announcement](https://sundaeswap-finan
 
 ## Choosing a SundaeSwap Stakepool for the ISO
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/vAJMuKfR4jg" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 If you have not yet chosen a pool to delegate to, now is the time to investigate and determine which pool you will want to delegate to.
@@ -56,8 +50,6 @@ If you have not yet chosen a pool to delegate to, now is the time to investigate
 After the ISO ends, we invite you to come back to our stake pool.
 
 ## Watch the Video of the SundaeSwap DEX in Action on Testnet
-
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 <iframe src="https://www.youtube.com/embed/z4x32k6vi28" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

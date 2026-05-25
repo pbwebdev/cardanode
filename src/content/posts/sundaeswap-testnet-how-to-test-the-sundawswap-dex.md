@@ -17,8 +17,6 @@ How to test SundaeSwap on Testnet
 
 With the SundaeSwap Decentralised Exchange (DEX) launching on the Cardano Testnet, we have the opportunity to test the DEX, provide feedback to the teams and allow all parties to make changes, tweaks and upgrades to the network, code and user interface to provide the best experience as possible.
 
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
 <iframe src="https://www.youtube.com/embed/z4x32k6vi28" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The team from SundaeSwap need testing and feedback on the DEX. This is the best time to provide that feedback before it hits the Mainnet for full public use.
