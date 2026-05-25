@@ -1,0 +1,78 @@
+# Roadmap
+
+Tracks the eight phases from the build brief. Tick items as they land. The brief is the source of truth for decisions; this file tracks *progress*.
+
+## Phase 0 — Scaffold ✅
+- [x] Repo + git + GitHub (`pbwebdev/cardanode`)
+- [x] esbuild + Worker stack (mirrors `drep-learncardano`)
+- [x] `wrangler.jsonc` with `assets` binding + `run_worker_first`
+- [x] Mesh SDK bundle pipeline (`build-mesh.js`, `vendor-mesh-entry.js`)
+- [x] Brand: white bg, `#0693e3`, Raleway + Rubik
+- [x] Mesh With Us ASCII art in `index.html` head + `README.md`
+- [x] Console + "type mesh" easter egg
+- [ ] aiagent-linux bootstrap (install wrangler, `npm install`)
+- [ ] First deploy to `cardanode.workers.dev`
+
+## Phase 1 — Content migration
+- [ ] Port / wrap `wxr-to-markdown.py` to `scripts/migrate-posts.mjs`
+- [ ] Clean malformed YouTube URLs (`youtube.com/embed//xxx`, trailing `'` and `"`) during migration
+- [ ] Generate `src/content/posts/*.md` (82) + `src/content/comments/*.json`
+- [ ] `scripts/pull-media.mjs` → R2 (or `public/uploads/`)
+- [ ] `build-posts.js` renders one static page per post + paginated `/blog/`
+
+## Phase 2 — Blog
+- [ ] `/blog/` index, category filter
+- [ ] Post template: hero image, body, embeds, static comments, related posts, delegate CTA
+- [ ] Responsive YouTube iframes; flag dead videos at build time (non-blocking)
+
+## Phase 3 — Home (modernise)
+- [ ] Reframe legacy "podcast" language → Learn Cardano YouTube + Builders Bench
+- [ ] Drop dead Meetup link + CardanoPress card (confirm with Peter)
+
+## Phase 4 — Delegation (MeshSDK)
+- [ ] WalletConnect (CIP-30): Lace, Eternl primary; Nami/Yoroi mentioned only
+- [ ] Detect stake key registration state via Koios `/account_info`
+- [ ] Build delegation cert; include registration cert (2 ADA deposit) when needed
+- [ ] Submit via wallet (or KoiosProvider); show Cardanoscan link
+- [ ] Handle: already delegated, insufficient funds, user rejection
+
+## Phase 5 — Live pool stats
+- [ ] `/api/pool-stats` via Koios `/pool_info` (already scaffolded, needs bech32 pool ID)
+- [ ] Convert ADAOZ hex pool ID → bech32 once and hard-code in `src/worker.js`
+- [ ] Edge-injected first paint via HTMLRewriter (already scaffolded)
+
+## Phase 6 — Contact form
+- [ ] `/contact-us/` page with Turnstile widget
+- [ ] Wire `/api/contact` to MailChannels or Resend
+- [ ] Confirm SpeakPipe widget intent with Peter
+
+## Phase 7 — Cross-promo
+- [ ] `CrossPromo` block in footer + post pages + home
+- [ ] Footer socials: X (@astroboysoup / @cardanodeau), LinkedIn, YouTube, Discord, Telegram
+
+## Phase 8 — SEO + DNS cutover
+- [ ] Per-post `<title>`, meta description, OG/Twitter (mapped from Yoast)
+- [ ] `sitemap.xml`, `robots.txt`, canonical tags at root-level slugs
+- [ ] Confirm DNS cutover plan with Peter
+
+---
+
+## Open confirmations
+
+- Repo: `pbwebdev/cardanode` (public) ✅
+- DNS: cardanode.com.au — currently on Cloudflare? Still pointed at the WP host? (TBC)
+- Keep SpeakPipe voice widget on contact page? (TBC)
+- Logo + brand assets: pull from CDN, or source files? (TBC)
+- The 36 EP0xx "podcast" posts — migrate-as-is, surface evergreen tutorials more prominently (default plan)
+
+## Decisions made
+
+| Topic | Decision |
+|---|---|
+| Stack | esbuild + Cloudflare Worker (mirrors drep-learncardano), not React+Vite+Pages |
+| Theme | White background, `#0693e3` blue, Raleway + Rubik |
+| Primary API | **Koios** (free, no key) — Blockfrost is optional fallback |
+| Post URLs | Root-level slug `/<slug>/` (matches WP, zero SEO risk) |
+| Drafts | 23 drafts skipped |
+| Comments | Migrated as static read-only JSON, no new submissions |
+| Deploy host | aiagent-linux at `/home/aiagent/.openclaw/workspace/cardano/cardanode` (shared mount with Z:\cardano\cardanode) |

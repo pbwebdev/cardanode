@@ -1,0 +1,30 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Accidental Windows copies
+*- Copy.html
+*- Copy*.html
+* - Copy.*
+
+# Node
+node_modules/
+.wrangler/
+
+# Generated at build time
+src/version-data.js
+public/vendor/
+
+# Migration outputs (re-generated; keep source WXR out of repo)
+*.wxr
+*_WordPress_*.xml
+
+# Secrets — never commit
+.dev.vars
+.env
+.env.*
+!.env.example

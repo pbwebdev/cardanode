@@ -1,0 +1,27 @@
+{
+  "name": "cardanode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "cardanode.com.au — static site + Cloudflare Worker. ADAOZ stake pool, Learn Cardano content, on-chain delegation via MeshSDK.",
+  "type": "module",
+  "scripts": {
+    "build:mesh": "node build-mesh.js",
+    "build:posts": "node build-posts.js",
+    "build": "node build.js && node build-mesh.js && node build-posts.js",
+    "migrate": "node scripts/migrate-posts.mjs",
+    "media": "node scripts/pull-media.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "npm run build && wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "@meshsdk/core": "1.9.0-beta.103"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^14.1.3",
+    "wrangler": "^4.40.0"
+  }
+}
