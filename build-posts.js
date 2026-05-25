@@ -15,6 +15,15 @@ const POSTS_DIR = "src/content/posts";
 const COMMENTS_DIR = "src/content/comments";
 const OUT = "public";
 
+/* ---------------- fallback templates (used until src/templates/ is filled) ---------------- */
+
+const HEAD_COMMON = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{title}}</title><meta name="description" content="{{description}}"><link rel="stylesheet" href="/styles/main.css"></head><body>`;
+const FOOT_COMMON = `</body></html>`;
+
+const DEFAULT_BASE = `${HEAD_COMMON}<main class="container">{{content}}</main>${FOOT_COMMON}`;
+const DEFAULT_POST = `<article class="post"><h1>{{title}}</h1><p class="meta">{{date}}</p>{{body}}</article>`;
+const DEFAULT_INDEX = `<h1>Blog</h1><p>{{count}} posts</p><div class="post-list">{{cards}}</div>`;
+
 const baseTpl = readTplOr("base.html", DEFAULT_BASE);
 const postTpl = readTplOr("post.html", DEFAULT_POST);
 const indexTpl = readTplOr("blog-index.html", DEFAULT_INDEX);
@@ -92,14 +101,3 @@ const posts = loadPosts();
 posts.forEach(writePost);
 writeBlogIndex(posts);
 console.log(`✓ Generated ${posts.length} post page(s) + /blog/ index.`);
-
-/* ---------------- fallback templates (used until src/templates/ is filled) ---------------- */
-
-const HEAD_COMMON = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{title}}</title><meta name="description" content="{{description}}"><link rel="stylesheet" href="/styles/main.css"></head><body>`;
-const FOOT_COMMON = `</body></html>`;
-
-function _b() { return ""; } // placeholder so the const declarations below stay tidy
-const DEFAULT_BASE_inner = `${HEAD_COMMON}<main class="container">{{content}}</main>${FOOT_COMMON}`;
-export const DEFAULT_BASE = DEFAULT_BASE_inner;
-export const DEFAULT_POST = `<article class="post"><h1>{{title}}</h1><p class="meta">{{date}}</p>{{body}}</article>`;
-export const DEFAULT_INDEX = `<h1>Blog</h1><p>{{count}} posts</p><div class="post-list">{{cards}}</div>`;
