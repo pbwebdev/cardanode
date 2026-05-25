@@ -140,6 +140,48 @@ img { max-width: 100%; height: auto; }
   background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
   border-bottom: 1px solid var(--border);
 }
+/* Hero two-column: copy on left, portrait on right; stacks on narrow */
+.hero-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 48px;
+}
+.hero-copy { min-width: 0; }
+.hero-portrait {
+  margin: 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+.hero-portrait img {
+  width: 320px;
+  height: 320px;
+  max-width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  border: 4px solid #fff;
+  outline: 1px solid var(--border);
+  display: block;
+}
+.hero-portrait figcaption {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+@media (max-width: 820px) {
+  .hero-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-portrait { order: -1; }
+  .hero-portrait img { width: 220px; height: 220px; }
+}
+
 .hero .eyebrow {
   color: var(--blue);
   font-weight: 600;
