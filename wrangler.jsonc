@@ -10,7 +10,13 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "workers_dev": true
+  // Custom domain `dev.cardanode.com.au` is attached via the Cloudflare
+  // dashboard (Workers & Pages → cardanode → Domains & Routes → Add).
+  // Wrangler-driven `routes` with `custom_domain: true` requires the API
+  // token to have Workers Routes:Edit + DNS:Edit on the zone, which the
+  // current token doesn't carry. Easier to wire it once in the dashboard.
   // Secrets (set via `wrangler secret put <NAME>`):
   //   TURNSTILE_SECRET    — required for /api/contact
   //   BLOCKFROST_KEY      — OPTIONAL fallback only; Koios is primary
