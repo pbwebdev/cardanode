@@ -169,7 +169,7 @@ ${cards}
 }
 
 function absoluteUrl(maybeRelative) {
-  if (!maybeRelative) return `${SITE}/images/peter-bui.jpg`;
+  if (!maybeRelative) return `${SITE}/images/opengraph.jpg`;
   if (/^https?:\/\//i.test(maybeRelative)) return maybeRelative;
   return SITE + (maybeRelative.startsWith("/") ? maybeRelative : `/${maybeRelative}`);
 }
@@ -214,7 +214,7 @@ function articleJsonLd(post, canonical) {
       "@type": "Organization",
       name: "cardanode",
       url: SITE,
-      logo: { "@type": "ImageObject", url: `${SITE}/images/peter-bui.jpg` },
+      logo: { "@type": "ImageObject", url: `${SITE}/images/opengraph.jpg` },
     },
     articleSection: post.categoriesSlugged.map((c) => c.name),
     keywords: post.categoriesSlugged.map((c) => c.name).join(", "),
@@ -339,7 +339,7 @@ function renderIndexPage(posts, pageNum, totalPages, opts = {}) {
       ? `Posts tagged ${categoryName} on cardanode — Australian Cardano stake pool ADAOZ + Learn Cardano.`
       : "Articles on Cardano staking, DeFi, NFTs, stake pool operations, and Learn Cardano podcast episodes from Peter Bui at ADAOZ.",
     ogTitle: `${heading} · cardanode`,
-    ogImageAbs: `${SITE}/images/peter-bui.jpg`,
+    ogImageAbs: `${SITE}/images/opengraph.jpg`,
     canonical: _canonical_,
     articleMeta: "",
     jsonLd: indexJsonLd(_canonical_, heading),
