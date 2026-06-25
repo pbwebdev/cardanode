@@ -22,9 +22,12 @@
   --blue-hover: #002a8f;
   --blue-light: #6f9bff;
   --ink: #0f1729;
-  --muted: #5b6172;
-  --muted-2: #7a8194;
-  --muted-3: #9aa1b0;
+  /* All three muted shades pass WCAG AA (>=4.5:1) on the surface backgrounds
+     they sit on. muted-2 and muted-3 used to be lighter and failed Lighthouse
+     contrast audits on the stat labels / footer / form labels — now tightened. */
+  --muted: #4a5568;    /* body muted, 6.77:1 on white */
+  --muted-2: #555f73;  /* captions + small meta, 5.87:1 on white */
+  --muted-3: #5b6477;  /* uppercase tiny labels, 5.67:1 on chart-card bg */
   --surface: #ffffff;
   --surface-2: #f5f8fe;
   --surface-3: #eef3fb;
@@ -547,7 +550,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .operator-text { max-width: 560px; }
 .operator-text h2 { font-size: clamp(1.6rem, 2.6vw, 2rem); margin: 0 0 8px; }
-.operator-text .roles { font-size: 0.875rem; color: #6b7280; margin-bottom: 22px; }
+.operator-text .roles { font-size: 0.875rem; color: var(--muted); margin-bottom: 22px; }
 .operator-text p { font-size: 1rem; line-height: 1.65; color: #475063; margin: 0 0 16px; }
 .operator-text a { font-weight: 600; }
 
@@ -786,7 +789,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 14px;
 }
 .podcast-section-head h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin: 0; }
-.podcast-section-head .lede { font-size: 1rem; color: #6b7280; margin: 0; max-width: 360px; }
+.podcast-section-head .lede { font-size: 1rem; color: var(--muted); margin: 0; max-width: 360px; }
 
 .podcast-socials { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 34px; padding: 0; list-style: none; }
 .podcast-pill {
@@ -956,7 +959,7 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 20px;
 }
 .blog-strip h2 { font-size: clamp(1.4rem, 2.4vw, 1.875rem); margin: 0 0 8px; }
-.blog-strip .lede { font-size: 1rem; color: #6b7280; margin: 0; }
+.blog-strip .lede { font-size: 1rem; color: var(--muted); margin: 0; }
 
 /* ============================================================
    FOOTER
@@ -986,7 +989,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #6f7da0;
+  color: #aab3ce;        /* 8.3:1 on #0a1530, AAA */
   margin-bottom: 16px;
 }
 .site-footer .col-links { display: flex; flex-direction: column; gap: 11px; }
@@ -1005,10 +1008,12 @@ img { max-width: 100%; height: auto; display: block; }
   flex-wrap: wrap;
   gap: 12px;
   font-size: 0.8rem;
-  color: #7f88a3;
+  color: #aab3ce;        /* 8.3:1 on #0a1530, AAA */
 }
 .site-footer .lower code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.85em; }
-.site-footer .lower .muted { opacity: 0.6; margin-left: 6px; }
+/* No opacity dimming on .muted — previous opacity:0.6 dropped contrast to
+   ~2.5:1. Use a slightly muted colour instead so AA still holds. */
+.site-footer .lower .muted { color: #8c97b8; margin-left: 6px; }
 @media (max-width: 880px) {
   .site-footer .upper { grid-template-columns: 1fr 1fr; gap: 32px; padding: 48px 24px 32px; }
   .site-footer .upper > div:first-child { grid-column: span 2; }
