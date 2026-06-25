@@ -654,7 +654,48 @@ img { max-width: 100%; height: auto; }
   color: var(--muted);
   margin-bottom: 8px;
 }
+.stake-trend { position: relative; }
 .stake-trend-svg svg { display: block; width: 100%; height: auto; max-height: 260px; }
+.stake-trend-svg .sp-hit { cursor: pointer; transition: stroke 0.1s ease; }
+.stake-trend-svg .sp-hit:hover,
+.stake-trend-svg .sp-hit:focus { outline: none; stroke: rgba(4, 121, 182, 0.25); stroke-width: 2; }
+
+/* Sparkline tooltip — absolutely positioned via JS over the SVG container */
+.sp-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: var(--ink);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  box-shadow: 0 6px 20px rgba(11, 19, 32, 0.25);
+  white-space: nowrap;
+  z-index: 5;
+  transition: transform 0.08s ease-out;
+}
+.sp-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+}
+.sp-tt-epoch {
+  color: #9fb4d8;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.sp-tt-stake { font-family: "Rubik", sans-serif; font-weight: 600; }
 .stake-trend-loading { color: var(--muted); font-size: 0.85rem; padding: 40px 0; text-align: center; }
 
 /* Pool ID strip */

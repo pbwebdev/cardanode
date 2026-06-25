@@ -194,7 +194,7 @@ async function handlePoolStats(ctx) {
 
 async function fetchPoolStats(ctx) {
   const cache = caches.default;
-  const cacheKey = new Request("https://cache.local/pool-stats/v5");
+  const cacheKey = new Request("https://cache.local/pool-stats/v6");
   const hit = await cache.match(cacheKey);
   if (hit) return hit.json();
 
@@ -519,15 +519,23 @@ function buildSparkline(points) {
     })
     .join("");
 
-  // Dots: small markers + a large highlighted dot on the most recent point
+  // Visible markers + a large highlighted dot on the latest point.
+  // Each point also gets a transparent 14px hit-target so the tooltip
+  // is easy to trigger on mobile + thin pointers.
   const dots = coords
     .map(([x, y], i) => {
+      const ep = points[i].epoch;
+      const ada = compactAda(ys[i]) + " ₳";
+      const titleId = `sp-t-${i}`;
       const isLast = i === coords.length - 1;
-      if (isLast) {
-        return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="#0479b6" opacity="0.18"/>
-                <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#fff" stroke="#0479b6" stroke-width="2.5"/>`;
-      }
-      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#0479b6"/>`;
+      const visible = isLast
+        ? `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="#0479b6" opacity="0.18"/>
+           <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#fff" stroke="#0479b6" stroke-width="2.5"/>`
+        : `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#0479b6"/>`;
+      // Transparent hit-target with native SVG <title> (screen readers +
+      // free OS-level tooltip) and data attrs for the JS tooltip.
+      const hit = `<circle class="sp-hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="14" fill="transparent" stroke="transparent" tabindex="0" role="button" aria-describedby="${titleId}" data-epoch="${ep}" data-stake="${ada}"><title id="${titleId}">Epoch ${ep}: ${ada}</title></circle>`;
+      return visible + hit;
     })
     .join("");
 

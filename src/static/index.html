@@ -259,6 +259,10 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
         <div class="stake-trend-svg" data-live="sparkline">
           <div class="stake-trend-loading">Loading trend…</div>
         </div>
+        <div class="sp-tooltip" role="tooltip" hidden>
+          <div class="sp-tt-epoch"></div>
+          <div class="sp-tt-stake"></div>
+        </div>
       </figure>
 
       <div class="pool-id-strip">
@@ -562,6 +566,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 
 <script type="module" src="/scripts/delegate-panel.js"></script>
 <script type="module" src="/scripts/podcast.js"></script>
+<script type="module" src="/scripts/sparkline-tooltip.js"></script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
