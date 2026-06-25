@@ -219,14 +219,30 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
         <div class="stat">
           <div class="label">Live stake</div>
           <div class="value"><span data-live="stake-ada">—</span> ₳</div>
+          <div class="stat-trend" data-live="stake-trend"></div>
         </div>
         <div class="stat">
-          <div class="label">Blocks minted</div>
+          <div class="label">Delegators</div>
+          <div class="value" data-live="delegators">—</div>
+          <div class="stat-trend" data-live="delegators-trend"></div>
+        </div>
+        <div class="stat">
+          <div class="label">Lifetime blocks</div>
           <div class="value" data-live="blocks-minted">—</div>
+          <div class="stat-sub">minted since 20 Feb 2021</div>
         </div>
         <div class="stat">
+          <div class="label">Lifetime ROA</div>
+          <div class="value" data-live="lifetime-roa">—</div>
+          <div class="stat-sub" data-live="recent-roa"></div>
+        </div>
+        <div class="stat stat--wide">
           <div class="label">Saturation</div>
           <div class="value" data-live="saturation">—</div>
+          <div class="sat-bar" aria-hidden="true">
+            <div class="sat-bar-fill" data-live="saturation-bar" style="width:0%"></div>
+          </div>
+          <div class="stat-sub">healthy — room to grow</div>
         </div>
         <div class="stat">
           <div class="label">Pledge</div>
@@ -236,10 +252,19 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
           <div class="label">Margin</div>
           <div class="value" data-live="margin">—</div>
         </div>
-        <div class="stat">
-          <div class="label">Fixed fee</div>
-          <div class="value" data-live="fixed-fee">—</div>
+      </div>
+
+      <figure class="stake-trend" aria-label="Stake trend over the last 10 epochs">
+        <figcaption>Epoch stake trend · last 10 epochs</figcaption>
+        <div class="stake-trend-svg" data-live="sparkline">
+          <div class="stake-trend-loading">Loading trend…</div>
         </div>
+      </figure>
+
+      <div class="pool-id-strip">
+        <span class="pool-id-label">Pool ID</span>
+        <code class="pool-id" data-live="pool-id">pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze</code>
+        <button type="button" class="pool-id-copy" data-copy="pool-id" aria-label="Copy pool ID to clipboard">Copy</button>
       </div>
       <p class="stats-foot">Live from Koios. Refreshes daily.</p>
     </div>
@@ -542,6 +567,21 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
   document.getElementById("year").textContent = new Date().getFullYear();
   const sha = document.querySelector('meta[name="build-sha"]')?.content;
   if (sha) document.getElementById("build-sha-display").textContent = sha;
+
+  // Pool ID copy-to-clipboard
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const target = document.querySelector(`[data-live="${btn.dataset.copy}"]`);
+      if (!target) return;
+      try {
+        await navigator.clipboard.writeText(target.textContent.trim());
+        const original = btn.textContent;
+        btn.textContent = "Copied!";
+        btn.classList.add("copied");
+        setTimeout(() => { btn.textContent = original; btn.classList.remove("copied"); }, 1500);
+      } catch { /* clipboard blocked */ }
+    });
+  });
 
   (function () {
     let buf = "";

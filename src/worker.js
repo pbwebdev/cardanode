@@ -112,8 +112,16 @@ async function handleRoot(request, env, ctx) {
 
   const margin = stats?.margin != null ? (stats.margin * 100).toFixed(stats.margin < 0.01 ? 2 : 1) + "%" : null;
   const pledge = stats?.pledge_ada != null ? Number(stats.pledge_ada).toLocaleString("en-US") + " ₳" : null;
-  const fixedFee = stats?.fixed_cost_ada != null ? Number(stats.fixed_cost_ada).toLocaleString("en-US") + " ₳" : null;
   const saturation = stats?.live_saturation != null ? Number(stats.live_saturation).toFixed(1) + "%" : null;
+  const saturationPct = stats?.live_saturation != null ? Math.min(100, Number(stats.live_saturation)) : 0;
+  const saturationBarStyle = `width:${saturationPct.toFixed(1)}%`;
+  const delegators = stats?.delegators != null ? Number(stats.delegators).toLocaleString("en-US") : null;
+  const delegatorsTrend = formatDelegatorsTrend(stats);
+  const stakeTrend = formatStakeTrend(stats);
+  const lifetimeRoa = stats?.lifetime_roa != null ? stats.lifetime_roa.toFixed(2) + "%" : null;
+  const recentRoa = stats?.recent_roa != null ? `recent ${stats.recent_roa.toFixed(2)}%` : null;
+  const poolIdShort = ADAOZ_POOL_BECH32;
+  const sparklineSvg = stats?.sparkline?.length ? buildSparkline(stats.sparkline) : null;
 
   const rewriter = new HTMLRewriter()
     .on('meta[name="build-sha"]', {
@@ -131,11 +139,40 @@ async function handleRoot(request, env, ctx) {
     .on('[data-live="pledge"]', {
       element(el) { if (pledge) el.setInnerContent(pledge); },
     })
-    .on('[data-live="fixed-fee"]', {
-      element(el) { if (fixedFee) el.setInnerContent(fixedFee); },
-    })
     .on('[data-live="saturation"]', {
       element(el) { if (saturation) el.setInnerContent(saturation); },
+    })
+    .on('[data-live="saturation-bar"]', {
+      element(el) { el.setAttribute("style", saturationBarStyle); },
+    })
+    .on('[data-live="delegators"]', {
+      element(el) { if (delegators) el.setInnerContent(delegators); },
+    })
+    .on('[data-live="delegators-trend"]', {
+      element(el) {
+        if (delegatorsTrend) el.setInnerContent(delegatorsTrend.text);
+        if (delegatorsTrend?.cls) el.setAttribute("class", `stat-trend ${delegatorsTrend.cls}`);
+      },
+    })
+    .on('[data-live="stake-trend"]', {
+      element(el) {
+        if (stakeTrend) el.setInnerContent(stakeTrend.text);
+        if (stakeTrend?.cls) el.setAttribute("class", `stat-trend ${stakeTrend.cls}`);
+      },
+    })
+    .on('[data-live="lifetime-roa"]', {
+      element(el) { if (lifetimeRoa) el.setInnerContent(lifetimeRoa); },
+    })
+    .on('[data-live="recent-roa"]', {
+      element(el) { if (recentRoa) el.setInnerContent(recentRoa); },
+    })
+    .on('[data-live="pool-id"]', {
+      element(el) { el.setInnerContent(poolIdShort); },
+    })
+    .on('[data-live="sparkline"]', {
+      element(el) {
+        if (sparklineSvg) el.setInnerContent(sparklineSvg, { html: true });
+      },
     });
 
   const url = new URL(request.url);
@@ -157,30 +194,94 @@ async function handlePoolStats(ctx) {
 
 async function fetchPoolStats(ctx) {
   const cache = caches.default;
-  const cacheKey = new Request("https://cache.local/pool-stats/v1");
+  const cacheKey = new Request("https://cache.local/pool-stats/v4");
   const hit = await cache.match(cacheKey);
   if (hit) return hit.json();
 
-  const res = await fetch(`${KOIOS}/pool_info`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ _pool_bech32_ids: [ADAOZ_POOL_BECH32] }),
-  });
-  if (!res.ok) return null;
-  const arr = await res.json();
+  // Fetch pool_info (POST + ids array) + pool_history (GET + singular id) in parallel.
+  const [infoRes, histRes] = await Promise.all([
+    fetch(`${KOIOS}/pool_info`, {
+      method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ _pool_bech32_ids: [ADAOZ_POOL_BECH32] }),
+    }),
+    fetch(`${KOIOS}/pool_history?_pool_bech32=${ADAOZ_POOL_BECH32}`, {
+      method: "GET",
+      headers: { accept: "application/json" },
+    }),
+  ]);
+
+  if (!infoRes.ok) return null;
+  const arr = await infoRes.json();
   const p = Array.isArray(arr) ? arr[0] : null;
   if (!p) return null;
+
+  // pool_history may fail or be empty — graceful degradation.
+  let history = [];
+  try {
+    if (histRes.ok) {
+      const raw = await histRes.json();
+      if (Array.isArray(raw)) {
+        history = raw
+          .filter((r) => r && Number.isFinite(Number(r.epoch_no)))
+          .sort((a, b) => Number(a.epoch_no) - Number(b.epoch_no));
+      }
+    }
+  } catch { /* swallow */ }
+
+  // Last 10 epochs for the sparkline + 10-epoch deltas.
+  const recent = history.slice(-10);
+  const first = recent[0];
+  const last = recent[recent.length - 1];
+
+  const stakeNow = p.live_stake ? Math.round(Number(p.live_stake) / 1_000_000) : null;
+  const stake10Ago = first?.active_stake ? Math.round(Number(first.active_stake) / 1_000_000) : null;
+  const stakePct10 = (stakeNow != null && stake10Ago) ? ((stakeNow - stake10Ago) / stake10Ago) * 100 : null;
+
+  const delegatorsNow = last?.delegator_cnt ?? null;
+  const delegators10Ago = first?.delegator_cnt ?? null;
+  const delegatorsDelta10 =
+    delegatorsNow != null && delegators10Ago != null ? delegatorsNow - delegators10Ago : null;
+
+  // Lifetime ROS: average of epoch_ros across all epochs that paid rewards.
+  const rosVals = history
+    .map((r) => Number(r.epoch_ros))
+    .filter((v) => Number.isFinite(v) && v > 0);
+  const lifetimeRoa = rosVals.length
+    ? rosVals.reduce((a, b) => a + b, 0) / rosVals.length
+    : null;
+  const recentRoa = (() => {
+    for (let i = history.length - 1; i >= 0; i--) {
+      const v = Number(history[i].epoch_ros);
+      if (Number.isFinite(v) && v > 0) return v;
+    }
+    return null;
+  })();
 
   const out = {
     pool_id: ADAOZ_POOL_BECH32,
     ticker: p.meta_json?.ticker || "ADAOZ",
-    live_stake_ada: p.live_stake ? Math.round(Number(p.live_stake) / 1_000_000) : null,
+    live_stake_ada: stakeNow,
     active_stake_ada: p.active_stake ? Math.round(Number(p.active_stake) / 1_000_000) : null,
     live_saturation: p.live_saturation ?? null,
     block_count: p.block_count ?? null,
     margin: p.margin ?? null,
     fixed_cost_ada: p.fixed_cost ? Math.round(Number(p.fixed_cost) / 1_000_000) : null,
     pledge_ada: p.pledge ? Math.round(Number(p.pledge) / 1_000_000) : null,
+
+    // Trends
+    delegators: delegatorsNow,
+    delegators_delta_10: delegatorsDelta10,
+    epoch_start: first?.epoch_no ?? null,
+    epoch_end: last?.epoch_no ?? null,
+    stake_pct_change_10: stakePct10,
+    lifetime_roa: lifetimeRoa,
+    recent_roa: recentRoa,
+    sparkline: recent.map((r) => ({
+      epoch: Number(r.epoch_no),
+      stake_ada: Math.round(Number(r.active_stake || 0) / 1_000_000),
+    })),
+
     fetched_at: new Date().toISOString(),
   };
 
@@ -356,6 +457,71 @@ function json(data, status = 200, extra = {}) {
       ...extra,
     },
   });
+}
+
+function formatStakeTrend(stats) {
+  const v = stats?.stake_pct_change_10;
+  if (v == null) return null;
+  const sign = v > 0 ? "+" : v < 0 ? "" : "";
+  const arrow = v > 0.05 ? "▲" : v < -0.05 ? "▼" : "·";
+  const cls = v > 0.05 ? "up" : v < -0.05 ? "down" : "flat";
+  return { text: `${arrow} ${sign}${v.toFixed(1)}% over 10 epochs`, cls };
+}
+
+function formatDelegatorsTrend(stats) {
+  const v = stats?.delegators_delta_10;
+  const ep = stats?.epoch_start;
+  if (v == null) return null;
+  const sign = v > 0 ? "+" : v < 0 ? "" : "";
+  const arrow = v > 0 ? "▲" : v < 0 ? "▼" : "·";
+  const cls = v > 0 ? "up" : v < 0 ? "down" : "flat";
+  const since = ep != null ? ` since epoch ${ep}` : " over 10 epochs";
+  return { text: `${arrow} ${sign}${v}${since}`, cls };
+}
+
+// Builds an inline SVG sparkline (no external deps) from {epoch, stake_ada}
+// points. Width 100% via viewBox, brand-blue gradient stroke, last-point dot.
+function buildSparkline(points) {
+  const W = 600;
+  const H = 120;
+  const PAD = 8;
+  const xs = points.map((_, i) => i);
+  const ys = points.map((p) => Number(p.stake_ada) || 0);
+  const yMin = Math.min(...ys);
+  const yMax = Math.max(...ys);
+  const yRange = Math.max(1, yMax - yMin); // avoid /0
+  const xStep = (W - PAD * 2) / Math.max(1, xs.length - 1);
+  const project = (i, y) => [
+    PAD + i * xStep,
+    H - PAD - ((y - yMin) / yRange) * (H - PAD * 2),
+  ];
+  const coords = points.map((p, i) => project(i, ys[i]));
+  const path = coords
+    .map(([x, y], i) => (i === 0 ? `M${x.toFixed(1)},${y.toFixed(1)}` : `L${x.toFixed(1)},${y.toFixed(1)}`))
+    .join(" ");
+  const areaPath = `${path} L${coords[coords.length - 1][0].toFixed(1)},${H - PAD} L${coords[0][0].toFixed(1)},${H - PAD} Z`;
+  const dots = coords
+    .map(([x, y], i) => {
+      const isLast = i === coords.length - 1;
+      const r = isLast ? 5 : 2.5;
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${isLast ? "#fff" : "#0479b6"}" stroke="#0479b6" stroke-width="${isLast ? 3 : 1}"/>`;
+    })
+    .join("");
+  const firstEpoch = points[0]?.epoch ?? "";
+  const lastEpoch = points[points.length - 1]?.epoch ?? "";
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live stake trend, epoch ${firstEpoch} to ${lastEpoch}">
+    <defs>
+      <linearGradient id="sp-area" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#0693e3" stop-opacity="0.25"/>
+        <stop offset="100%" stop-color="#0693e3" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="${areaPath}" fill="url(#sp-area)"/>
+    <path d="${path}" fill="none" stroke="#0479b6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${dots}
+    <text x="${PAD}" y="${H - 2}" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#5a6577">E${firstEpoch}</text>
+    <text x="${W - PAD}" y="${H - 2}" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#5a6577" text-anchor="end">E${lastEpoch}</text>
+  </svg>`;
 }
 
 // "61,272,784" → "61.2M" (millions, 1dp). For values >= 1B uses "1.2B".
