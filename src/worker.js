@@ -127,6 +127,9 @@ async function handleRoot(request, env, ctx) {
     .on('meta[name="build-sha"]', {
       element(el) { el.setAttribute("content", VERSION.sha); },
     })
+    .on('meta[name="turnstile-sitekey"]', {
+      element(el) { if (env.TURNSTILE_SITEKEY) el.setAttribute("content", env.TURNSTILE_SITEKEY); },
+    })
     .on('[data-live="stake-ada"]', {
       element(el) { if (liveStake) el.setInnerContent(liveStake); },
     })
@@ -400,36 +403,125 @@ async function handleAccountInfo(url, ctx) {
 /* ---------------- Contact form ---------------- */
 
 async function handleContact(request, env) {
-  if (!env.TURNSTILE_SECRET)
-    return json({ error: "turnstile_not_configured" }, 503);
-
   let body;
   try { body = await request.json(); }
   catch { return json({ error: "invalid_json" }, 400); }
 
-  const { name, email, message, token } = body || {};
-  if (!name || !email || !message || !token)
-    return json({ error: "missing_fields" }, 400);
+  const name = String(body?.name || "").trim();
+  const email = String(body?.email || "").trim();
+  const message = String(body?.message || "").trim();
+  const token = body?.token || "";
+  const honeypot = String(body?.website || "");
 
-  const verify = await fetch(
-    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-    {
-      method: "POST",
-      headers: { "content-type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        secret: env.TURNSTILE_SECRET,
-        response: token,
-        remoteip: request.headers.get("cf-connecting-ip") || "",
-      }),
-    },
-  );
-  const v = await verify.json();
-  if (!v.success) return json({ error: "turnstile_failed" }, 403);
+  // Honeypot: bots fill hidden fields. Real users leave them blank.
+  if (honeypot) return json({ ok: true }); // pretend success, drop silently
 
-  // TODO Phase 6: actually send. Reference repo uses MailChannels or Resend.
-  // For now, log to observability and accept.
-  console.log("contact-form", { name, email, len: message.length });
+  if (!name || name.length > 120) return json({ error: "invalid_name" }, 400);
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200)
+    return json({ error: "invalid_email" }, 400);
+  if (!message || message.length < 5 || message.length > 5000)
+    return json({ error: "invalid_message" }, 400);
+
+  // Turnstile is optional but recommended. If TURNSTILE_SECRET is set,
+  // the form-side widget is required and we verify here.
+  if (env.TURNSTILE_SECRET) {
+    if (!token) return json({ error: "missing_turnstile_token" }, 400);
+    const verify = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: env.TURNSTILE_SECRET,
+          response: token,
+          remoteip: request.headers.get("cf-connecting-ip") || "",
+        }),
+      },
+    );
+    const v = await verify.json().catch(() => null);
+    if (!v || !v.success) return json({ error: "turnstile_failed" }, 403);
+  }
+
+  // Compose a single submission payload reused across delivery backends.
+  const submission = {
+    name,
+    email,
+    message,
+    ip: request.headers.get("cf-connecting-ip") || "unknown",
+    country: request.headers.get("cf-ipcountry") || "??",
+    ua: request.headers.get("user-agent") || "",
+    at: new Date().toISOString(),
+  };
+
+  const tasks = [];
+  if (env.CONTACT_WEBHOOK_URL) tasks.push(sendDiscord(env.CONTACT_WEBHOOK_URL, submission));
+  if (env.RESEND_API_KEY) tasks.push(sendResend(env, submission));
+
+  const results = await Promise.allSettled(tasks);
+  const failures = results.filter((r) => r.status === "rejected").map((r) => String(r.reason));
+  if (failures.length === results.length && results.length > 0) {
+    // All backends failed — surface a server error so the form retries.
+    console.error("contact-form: all backends failed", failures);
+    return json({ error: "delivery_failed", detail: failures.slice(0, 2) }, 502);
+  }
+
+  // At least one backend succeeded, OR no backends are configured (logged-only).
+  console.log("contact-form ok", { name, email, len: message.length, delivered: results.length - failures.length });
   return json({ ok: true });
+}
+
+async function sendDiscord(webhookUrl, s) {
+  const content = [
+    `**New contact-form submission** \`${s.country}\` \`${s.ip}\``,
+    `**From:** ${s.name} <${s.email}>`,
+    `**At:** ${s.at}`,
+    "",
+    "```",
+    s.message.slice(0, 1800),
+    "```",
+  ].join("\n");
+  const res = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      username: "cardanode contact",
+      content,
+      allowed_mentions: { parse: [] },
+    }),
+  });
+  if (!res.ok) throw new Error(`discord ${res.status}: ${(await res.text()).slice(0, 200)}`);
+}
+
+async function sendResend(env, s) {
+  const to = env.CONTACT_TO || "peter@meshwithus.com.au";
+  const from = env.CONTACT_FROM || "contact@cardanode.com.au"; // must be a verified Resend sender domain
+  const html = `<p><strong>From:</strong> ${escAttr(s.name)} &lt;${escAttr(s.email)}&gt;<br>
+<strong>IP:</strong> ${escAttr(s.ip)} (${escAttr(s.country)})<br>
+<strong>At:</strong> ${escAttr(s.at)}</p>
+<hr>
+<pre style="white-space:pre-wrap;font-family:system-ui,sans-serif;">${escAttr(s.message)}</pre>`;
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${env.RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({
+      from: `cardanode contact <${from}>`,
+      to: [to],
+      reply_to: s.email,
+      subject: `cardanode contact: ${s.name}`,
+      html,
+      text: `From: ${s.name} <${s.email}>\nAt: ${s.at}\nIP: ${s.ip} (${s.country})\n\n${s.message}`,
+    }),
+  });
+  if (!res.ok) throw new Error(`resend ${res.status}: ${(await res.text()).slice(0, 200)}`);
+}
+
+function escAttr(s) {
+  return String(s).replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
 }
 
 /* ---------------- Optional Blockfrost proxy ---------------- */
