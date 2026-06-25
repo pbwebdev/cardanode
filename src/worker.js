@@ -194,7 +194,7 @@ async function handlePoolStats(ctx) {
 
 async function fetchPoolStats(ctx) {
   const cache = caches.default;
-  const cacheKey = new Request("https://cache.local/pool-stats/v4");
+  const cacheKey = new Request("https://cache.local/pool-stats/v5");
   const hit = await cache.match(cacheKey);
   if (hit) return hit.json();
 
@@ -479,49 +479,112 @@ function formatDelegatorsTrend(stats) {
   return { text: `${arrow} ${sign}${v}${since}`, cls };
 }
 
-// Builds an inline SVG sparkline (no external deps) from {epoch, stake_ada}
-// points. Width 100% via viewBox, brand-blue gradient stroke, last-point dot.
+// Inline SVG sparkline of stake over the last N epochs. No preserveAspectRatio
+// override → scales uniformly so the curve isn't distorted on wide containers.
+// Smooth Catmull-Rom-style curve, gradient area fill, axis ticks and current-
+// value chip pinned to the last point.
 function buildSparkline(points) {
-  const W = 600;
-  const H = 120;
-  const PAD = 8;
-  const xs = points.map((_, i) => i);
+  const W = 1000;
+  const H = 260;
+  const PAD_L = 16, PAD_R = 16, PAD_T = 32, PAD_B = 36;
+  const innerW = W - PAD_L - PAD_R;
+  const innerH = H - PAD_T - PAD_B;
+
   const ys = points.map((p) => Number(p.stake_ada) || 0);
   const yMin = Math.min(...ys);
   const yMax = Math.max(...ys);
-  const yRange = Math.max(1, yMax - yMin); // avoid /0
-  const xStep = (W - PAD * 2) / Math.max(1, xs.length - 1);
+  const yRange = Math.max(1, yMax - yMin);
+  // Add a small headroom (5%) so the line doesn't kiss the top edge.
+  const yRangeP = yRange * 1.1;
+  const yMidShift = (yRangeP - yRange) / 2;
+
+  const xStep = innerW / Math.max(1, points.length - 1);
   const project = (i, y) => [
-    PAD + i * xStep,
-    H - PAD - ((y - yMin) / yRange) * (H - PAD * 2),
+    PAD_L + i * xStep,
+    PAD_T + innerH - ((y - yMin + yMidShift) / yRangeP) * innerH,
   ];
-  const coords = points.map((p, i) => project(i, ys[i]));
-  const path = coords
-    .map(([x, y], i) => (i === 0 ? `M${x.toFixed(1)},${y.toFixed(1)}` : `L${x.toFixed(1)},${y.toFixed(1)}`))
-    .join(" ");
-  const areaPath = `${path} L${coords[coords.length - 1][0].toFixed(1)},${H - PAD} L${coords[0][0].toFixed(1)},${H - PAD} Z`;
+  const coords = points.map((_, i) => project(i, ys[i]));
+
+  // Smooth curve via centripetal Catmull-Rom → cubic bezier.
+  const path = catmullRomPath(coords);
+  const lastX = coords[coords.length - 1][0];
+  const firstX = coords[0][0];
+  const areaPath = `${path} L${lastX.toFixed(1)},${PAD_T + innerH} L${firstX.toFixed(1)},${PAD_T + innerH} Z`;
+
+  // Light horizontal gridlines (3 of them, no labels)
+  const grid = [0.25, 0.5, 0.75]
+    .map((f) => {
+      const y = PAD_T + innerH * f;
+      return `<line x1="${PAD_L}" x2="${W - PAD_R}" y1="${y}" y2="${y}" stroke="#e3e8ef" stroke-width="1" stroke-dasharray="2 4"/>`;
+    })
+    .join("");
+
+  // Dots: small markers + a large highlighted dot on the most recent point
   const dots = coords
     .map(([x, y], i) => {
       const isLast = i === coords.length - 1;
-      const r = isLast ? 5 : 2.5;
-      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${isLast ? "#fff" : "#0479b6"}" stroke="#0479b6" stroke-width="${isLast ? 3 : 1}"/>`;
+      if (isLast) {
+        return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="#0479b6" opacity="0.18"/>
+                <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#fff" stroke="#0479b6" stroke-width="2.5"/>`;
+      }
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#0479b6"/>`;
     })
     .join("");
-  const firstEpoch = points[0]?.epoch ?? "";
-  const lastEpoch = points[points.length - 1]?.epoch ?? "";
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live stake trend, epoch ${firstEpoch} to ${lastEpoch}">
+
+  // Current value chip above the last point
+  const lastVal = compactAda(ys[ys.length - 1]) + " ₳";
+  const [lx, ly] = coords[coords.length - 1];
+  const chipW = 78, chipH = 22;
+  const chipX = Math.min(W - PAD_R - chipW, Math.max(PAD_L, lx - chipW / 2));
+  const chipY = Math.max(4, ly - chipH - 10);
+  const chip = `
+    <g>
+      <rect x="${chipX}" y="${chipY}" width="${chipW}" height="${chipH}" rx="6" fill="#0479b6"/>
+      <text x="${chipX + chipW / 2}" y="${chipY + 15}" font-family="Rubik,system-ui,sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">${lastVal}</text>
+    </g>`;
+
+  // Epoch axis labels: first, middle, last
+  const midIdx = Math.floor(points.length / 2);
+  const labels = [0, midIdx, points.length - 1]
+    .map((i) => {
+      const [x] = coords[i];
+      const anchor = i === 0 ? "start" : i === points.length - 1 ? "end" : "middle";
+      return `<text x="${x.toFixed(1)}" y="${H - 12}" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#5a6577" text-anchor="${anchor}">E${points[i].epoch}</text>`;
+    })
+    .join("");
+
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live stake trend, epoch ${points[0]?.epoch} to ${points[points.length - 1]?.epoch}, current ${lastVal}">
     <defs>
       <linearGradient id="sp-area" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#0693e3" stop-opacity="0.25"/>
+        <stop offset="0%" stop-color="#0693e3" stop-opacity="0.22"/>
         <stop offset="100%" stop-color="#0693e3" stop-opacity="0"/>
       </linearGradient>
     </defs>
+    ${grid}
     <path d="${areaPath}" fill="url(#sp-area)"/>
     <path d="${path}" fill="none" stroke="#0479b6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
     ${dots}
-    <text x="${PAD}" y="${H - 2}" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#5a6577">E${firstEpoch}</text>
-    <text x="${W - PAD}" y="${H - 2}" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#5a6577" text-anchor="end">E${lastEpoch}</text>
+    ${chip}
+    ${labels}
   </svg>`;
+}
+
+// Catmull-Rom (centripetal-ish) → cubic bezier path string.
+function catmullRomPath(pts) {
+  if (pts.length < 2) return "";
+  const d = [`M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] || p2;
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d.push(`C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`);
+  }
+  return d.join(" ");
 }
 
 // "61,272,784" → "61.2M" (millions, 1dp). For values >= 1B uses "1.2B".

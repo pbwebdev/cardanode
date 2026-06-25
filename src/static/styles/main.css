@@ -224,7 +224,7 @@ img { max-width: 100%; height: auto; }
 .hero h1 { max-width: 740px; }
 .hero p.lede { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
 .hero .ctas { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
-.stats-foot { color: var(--muted); font-size: 0.85rem; margin-top: -16px; }
+.stats-foot { color: var(--muted); font-size: 0.85rem; margin: 14px 0 0; }
 
 /* Generic section spacing */
 .section { padding: 64px 24px; }
@@ -654,20 +654,27 @@ img { max-width: 100%; height: auto; }
   color: var(--muted);
   margin-bottom: 8px;
 }
-.stake-trend-svg svg { display: block; width: 100%; height: 120px; }
+.stake-trend-svg svg { display: block; width: 100%; height: auto; max-height: 260px; }
 .stake-trend-loading { color: var(--muted); font-size: 0.85rem; padding: 40px 0; text-align: center; }
 
 /* Pool ID strip */
 .pool-id-strip {
   margin: 18px 0 0;
-  padding: 10px 14px;
+  padding: 12px 16px;
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 14px;
+}
+@media (max-width: 600px) {
+  .pool-id-strip {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .pool-id-strip .pool-id-copy { justify-self: start; }
 }
 .pool-id-label {
   color: var(--muted);
