@@ -210,9 +210,15 @@ async function handleYouTube(env, ctx) {
 
   let data;
   try {
+    // The API key MUST have "Application restrictions: None" in Google Cloud
+    // Console. Cloudflare Workers strip the Referer header from outgoing
+    // subrequests (Fetch-spec forbidden header), so HTTP-referrer-restricted
+    // keys will always get blocked. API-restriction (YouTube Data API v3
+    // only) still applies; combined with the Worker secret storage, the key
+    // can't be misused even if leaked.
     const res = await fetch(upstream, {
       headers: { accept: "application/json" },
-      cf: { cacheTtl: 21600, cacheEverything: true }, // 6h upstream CDN cache
+      cf: { cacheTtl: 21600, cacheEverything: true },
     });
     if (!res.ok) {
       const errBody = await res.text();

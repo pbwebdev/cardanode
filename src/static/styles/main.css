@@ -96,7 +96,10 @@ a[target="_blank"]::after {
 }
 .btn[target="_blank"]::after,
 .link-card[target="_blank"]::after,
-.site-nav a[target="_blank"]::after { content: none; }
+.site-nav a[target="_blank"]::after,
+a.yt-card[target="_blank"]::after,
+.podcast-socials a[target="_blank"]::after,
+.social-links a[target="_blank"]::after { content: none; }
 
 img { max-width: 100%; height: auto; }
 
