@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <!--
 
@@ -65,10 +65,15 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 <link rel="alternate" hreflang="x-default" href="https://cardanode.com.au/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="mask-icon" href="/favicon.svg" color="#0033AD">
+<link rel="apple-touch-icon" href="/favicon.svg">
 
+<!-- Preload LCP image so it starts downloading during HTML parse -->
+<link rel="preload" as="image" href="/images/peter-bui.webp" type="image/webp" fetchpriority="high">
+
+<!-- Fonts: only the weights actually used to keep mobile critical-path tiny -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Mulish:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Mulish:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/styles/main.css">
 
@@ -331,7 +336,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
         <div class="midnight-circle">
           <picture>
             <source srcset="/images/midnight-cardano.webp" type="image/webp">
-            <img src="/images/midnight-cardano.png" alt="Cardano and Midnight pairing — yin-yang of the two networks." loading="lazy" decoding="async">
+            <img src="/images/midnight-cardano.png" alt="Cardano and Midnight pairing — yin-yang of the two networks." width="512" height="512" loading="lazy" decoding="async">
           </picture>
         </div>
       </figure>

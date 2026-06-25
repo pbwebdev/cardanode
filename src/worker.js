@@ -42,16 +42,62 @@ export default {
       return handleRoot(request, env, ctx);
     }
 
-    // Every HTML response goes through the noindex injector on non-production
-    // hosts so dev.cardanode.com.au and *.workers.dev never reach search.
-    if (request.method === "GET" && isHtmlPath(url.pathname)) {
-      const res = await env.ASSETS.fetch(request);
-      return maybeNoindex(res, url);
-    }
-
-    return env.ASSETS.fetch(request);
+    return serveAsset(request, env, url);
   },
 };
+
+// Wrap env.ASSETS.fetch with path-aware Cache-Control + sitewide security
+// headers + noindex injection on non-production hosts.
+async function serveAsset(request, env, url) {
+  const res = await env.ASSETS.fetch(request);
+  const out = withSecurityHeaders(withCacheHeaders(res, url.pathname));
+  if (request.method !== "GET") return out;
+  return isHtmlPath(url.pathname) ? maybeNoindex(out, url) : out;
+}
+
+function withCacheHeaders(res, pathname) {
+  // Don't touch errors or non-OK responses
+  if (!res.ok || res.status === 304) return res;
+
+  let cc = null;
+  if (pathname === "/" || pathname.endsWith("/") || pathname.endsWith(".html")) {
+    // HTML: revalidate every request, no stale serving
+    cc = "public, max-age=0, must-revalidate";
+  } else if (/\.(?:jpe?g|png|webp|gif|svg|ico|avif)$/i.test(pathname)) {
+    // Images: long-cache, content rarely changes; bump filename if needed
+    cc = "public, max-age=31536000, immutable";
+  } else if (/\.(?:woff2?|otf|ttf|eot)$/i.test(pathname)) {
+    cc = "public, max-age=31536000, immutable";
+  } else if (/\.(?:css|m?js)$/i.test(pathname)) {
+    // CSS + JS: 1h fresh + 1d SWR. Long enough to amortise, short enough
+    // that a deploy is fully live within an hour without filename hashing.
+    cc = "public, max-age=3600, stale-while-revalidate=86400";
+  } else if (pathname === "/sitemap.xml" || pathname === "/robots.txt") {
+    cc = "public, max-age=3600";
+  } else if (/\.(?:json|txt|xml|webmanifest)$/i.test(pathname)) {
+    cc = "public, max-age=3600";
+  }
+  if (!cc) return res;
+
+  const h = new Headers(res.headers);
+  h.set("cache-control", cc);
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+}
+
+function withSecurityHeaders(res) {
+  const h = new Headers(res.headers);
+  // Defensible defaults; no CSP because the inline <script> blocks would
+  // need hashing to keep working. Keep CSP out until we move scripts to
+  // external files only (then add a strict CSP).
+  if (!h.has("x-content-type-options")) h.set("x-content-type-options", "nosniff");
+  if (!h.has("referrer-policy")) h.set("referrer-policy", "strict-origin-when-cross-origin");
+  if (!h.has("permissions-policy"))
+    h.set("permissions-policy", "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()");
+  // HSTS: harmless to send; Cloudflare zone config usually adds it too.
+  if (!h.has("strict-transport-security"))
+    h.set("strict-transport-security", "max-age=31536000; includeSubDomains; preload");
+  return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+}
 
 const PROD_HOST = "cardanode.com.au";
 
