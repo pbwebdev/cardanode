@@ -207,7 +207,7 @@ function articleJsonLd(post, canonical) {
       sameAs: [
         "https://x.com/astroboysoup",
         "https://www.linkedin.com/in/peterbui1/",
-        "https://drep.learncardano.io",
+        "https://linktr.ee/peterbui",
       ],
     },
     publisher: {
