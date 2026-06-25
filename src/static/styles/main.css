@@ -372,6 +372,29 @@ img { max-width: 100%; height: auto; }
   margin-bottom: 40px;
 }
 .podcast-logo img { width: 218px; height: auto; max-width: 100%; }
+.podcast-wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: "Rubik", sans-serif;
+  width: 218px;
+  max-width: 100%;
+}
+.podcast-wordmark .wm-line1 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue-strong);
+  margin-bottom: 6px;
+}
+.podcast-wordmark .wm-line2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
 .podcast-intro p {
   font-size: 1.1rem;
   color: var(--muted);
