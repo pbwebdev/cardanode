@@ -56,14 +56,14 @@ https://meshwithus.com.au
 <link rel="alternate" hreflang="en-au" href="{{canonical}}">
 <link rel="alternate" hreflang="x-default" href="{{canonical}}">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="mask-icon" href="/favicon.svg" color="#0693e3">
+<link rel="mask-icon" href="/favicon.svg" color="#0033AD">
 
 <!-- Structured data -->
 {{jsonLd}}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Mulish:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/styles/main.css">
 </head>
@@ -76,9 +76,11 @@ https://meshwithus.com.au
     <a href="/" class="brand">cardano<span class="accent">de</span></a>
     <nav aria-label="Primary">
       <a href="/blog/">Blog</a>
-      <a href="/#delegate">Delegate</a>
+      <a href="/#operator">About</a>
+      <a href="/#podcast">Podcast</a>
       <a href="/contact-us/">Contact</a>
-      <a href="https://learncardano.io" target="_blank" rel="noopener noreferrer">Learn Cardano</a>
+      <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="/#delegate" class="nav-cta">Delegate</a>
     </nav>
   </div>
 </header>
@@ -88,12 +90,43 @@ https://meshwithus.com.au
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare.</div>
-    <div class="links">
-      <a href="https://learncardano.io" target="_blank" rel="noopener noreferrer">learncardano.io</a>
-      <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano YouTube</a>
-      <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Built by Mesh With Us</a>
+  <div class="upper">
+    <div>
+      <div class="brand">cardano<span class="accent">de</span></div>
+      <p class="blurb">A small Australian Cardano stake pool run by Peter Bui. Reliable, security-first, and giving back to the community since 2021.</p>
+    </div>
+    <div>
+      <div class="col-head">Pool</div>
+      <div class="col-links">
+        <a href="/#delegate">Delegate</a>
+        <a href="/#main">Live stats</a>
+        <a href="/blog/category/staking/">Staking guides</a>
+        <a href="/contact-us/">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="col-head">Learn</div>
+      <div class="col-links">
+        <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano YouTube</a>
+        <a href="https://learncardano.io" target="_blank" rel="noopener noreferrer">learncardano.io</a>
+        <a href="/#podcast">Podcast</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+    <div>
+      <div class="col-head">Connect</div>
+      <div class="col-links">
+        <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        <a href="https://www.linkedin.com/in/peterbui1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>
+        <a href="https://midnight.network" target="_blank" rel="noopener noreferrer">Midnight</a>
+      </div>
+    </div>
+  </div>
+  <div class="lower">
+    <div class="inner">
+      <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare.</div>
+      <div><a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer" style="color:inherit;">Built by Mesh With Us</a></div>
     </div>
   </div>
 </footer>
@@ -105,11 +138,11 @@ https://meshwithus.com.au
     window.addEventListener("keydown", (e) => {
       buf = (buf + e.key.toLowerCase()).slice(-4);
       if (buf === "mesh") {
-        console.log("%c🕸️  Built by Mesh With Us — https://meshwithus.com.au", "color:#0693e3;font-weight:bold;font-size:14px");
+        console.log("%c🕸️  Built by Mesh With Us — https://meshwithus.com.au", "color:#0033AD;font-weight:bold;font-size:14px");
         buf = "";
       }
     });
-    console.log("%ccardanode", "color:#0693e3;font-weight:bold;font-size:20px");
+    console.log("%ccardanode", "color:#0033AD;font-weight:bold;font-size:20px");
     console.log("Built by Mesh With Us — https://meshwithus.com.au");
   })();
 </script>

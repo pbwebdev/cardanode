@@ -18,7 +18,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0693e3">
+<meta name="theme-color" content="#0033AD">
 <meta name="color-scheme" content="light">
 <meta name="build-sha" content="dev">
 
@@ -62,7 +62,13 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 <link rel="alternate" hreflang="en-au" href="https://cardanode.com.au/">
 <link rel="alternate" hreflang="x-default" href="https://cardanode.com.au/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="mask-icon" href="/favicon.svg" color="#0693e3">
+<link rel="mask-icon" href="/favicon.svg" color="#0033AD">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Mulish:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -79,16 +85,8 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
       "description": "Australian-run Cardano stake pool (ADAOZ), Cardano Ambassador and Midnight Ambassador, host of the Learn Cardano YouTube channel.",
       "foundingDate": "2021-02-20",
       "founder": { "@id": "https://cardanode.com.au/#peter" },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Brisbane",
-        "addressRegion": "QLD",
-        "addressCountry": "AU"
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "AdministrativeArea", "name": "Worldwide" }
-      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" },
+      "areaServed": [{ "@type": "Country", "name": "Australia" }, { "@type": "AdministrativeArea", "name": "Worldwide" }],
       "sameAs": [
         "https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA",
         "https://x.com/astroboysoup",
@@ -108,18 +106,8 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
       "description": "Cardano Ambassador, Midnight Ambassador, founder of Mesh With Us, host of the Learn Cardano YouTube channel.",
       "knowsAbout": ["Cardano", "Cardano staking", "Cardano governance", "Midnight blockchain", "Smart contracts", "WordPress"],
       "worksFor": { "@id": "https://cardanode.com.au/#org" },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Brisbane",
-        "addressRegion": "QLD",
-        "addressCountry": "AU"
-      },
-      "sameAs": [
-        "https://x.com/astroboysoup",
-        "https://www.linkedin.com/in/peterbui1/",
-        "https://linktr.ee/peterbui",
-        "https://meshwithus.com.au"
-      ]
+      "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" },
+      "sameAs": ["https://x.com/astroboysoup", "https://www.linkedin.com/in/peterbui1/", "https://linktr.ee/peterbui", "https://meshwithus.com.au"]
     },
     {
       "@type": "LocalBusiness",
@@ -127,23 +115,10 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
       "name": "ADAOZ Cardano Stake Pool",
       "image": "https://cardanode.com.au/images/opengraph.jpg",
       "url": "https://cardanode.com.au/",
-      "telephone": "",
       "priceRange": "Free to delegate",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Brisbane",
-        "addressRegion": "QLD",
-        "addressCountry": "AU"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -27.4698,
-        "longitude": 153.0251
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "Australia" },
-        { "@type": "AdministrativeArea", "name": "Worldwide" }
-      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" },
+      "geo": { "@type": "GeoCoordinates", "latitude": -27.4698, "longitude": 153.0251 },
+      "areaServed": [{ "@type": "Country", "name": "Australia" }, { "@type": "AdministrativeArea", "name": "Worldwide" }],
       "openingHours": "Mo-Su 00:00-23:59",
       "founder": { "@id": "https://cardanode.com.au/#peter" }
     },
@@ -168,12 +143,6 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
   ]
 }
 </script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
 
@@ -184,45 +153,52 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
     <a href="/" class="brand">cardano<span class="accent">de</span></a>
     <nav aria-label="Primary">
       <a href="/blog/">Blog</a>
-      <a href="#delegate">Delegate</a>
       <a href="#operator">About</a>
+      <a href="#podcast">Podcast</a>
       <a href="/contact-us/">Contact</a>
       <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="#delegate" class="nav-cta">Delegate</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-top">
         <div class="hero-copy">
-          <div class="eyebrow">ADAOZ · Australian Cardano stake pool</div>
+          <div class="eyebrow">ADAOZ · Australian Cardano Stake Pool</div>
           <h1>Delegate ADA on-chain in a couple of clicks.</h1>
-          <p class="lede">
-            ADAOZ is run by Peter Bui, Cardano Ambassador and Midnight Ambassador, host of the Learn Cardano YouTube channel.
-            Connect your wallet, sign one transaction, start earning rewards. Your stake also funds Cardano
-            education and Australian community building.
-          </p>
+          <p class="lede">ADAOZ is run by Peter Bui — Cardano Ambassador and host of the Learn Cardano YouTube channel. Connect your wallet, sign one transaction, and start earning. Your stake also funds Cardano education and Australian community building.</p>
           <div class="ctas">
             <a class="btn" href="#delegate">Delegate to ADAOZ</a>
-            <a class="btn ghost" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano on YouTube</a>
+            <a class="btn ghost" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+              Learn Cardano on YouTube
+            </a>
           </div>
         </div>
-        <figure class="hero-portrait">
-          <picture>
-            <source srcset="/images/peter-bui.webp" type="image/webp">
-            <img src="/images/peter-bui.jpg" alt="Peter Bui — operator of ADAOZ Cardano stake pool. The photo has a 'beware of scammers' watermark because Peter never DMs first about delegation." width="360" height="360" loading="eager" decoding="async">
-          </picture>
-          <figcaption>Peter never DMs first about delegation. Anyone who does is a scammer.</figcaption>
-        </figure>
+        <div>
+          <figure class="hero-portrait">
+            <picture>
+              <source srcset="/images/peter-bui.webp" type="image/webp">
+              <img src="/images/peter-bui.jpg" alt="Peter Bui — operator of ADAOZ Cardano stake pool. The photo has a 'beware of scammers' watermark." width="360" height="360" loading="eager" decoding="async">
+            </picture>
+          </figure>
+          <div class="scam-warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div><strong>ADAOZ never DMs first.</strong> Verify the pool ID below before delegating — anyone messaging you about delegation is a scammer.</div>
+          </div>
+        </div>
       </div>
 
+      <!-- STATS STRIP -->
       <div class="stats" aria-label="Live pool stats">
         <div class="stat">
           <div class="label">Live stake</div>
-          <div class="value"><span data-live="stake-ada">—</span> ₳</div>
+          <div class="value"><span data-live="stake-ada">—</span><span class="sub-unit"> ₳</span></div>
           <div class="stat-trend" data-live="stake-trend"></div>
         </div>
         <div class="stat">
@@ -240,7 +216,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
           <div class="value" data-live="lifetime-roa">—</div>
           <div class="stat-sub" data-live="recent-roa"></div>
         </div>
-        <div class="stat stat--wide">
+        <div class="stat">
           <div class="label">Saturation</div>
           <div class="value" data-live="saturation">—</div>
           <div class="sat-bar" aria-hidden="true">
@@ -250,6 +226,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
         </div>
       </div>
 
+      <!-- CHART -->
       <figure class="stake-trend" aria-label="Stake trend over the last 10 epochs">
         <figcaption>Epoch stake trend · last 10 epochs</figcaption>
         <div class="stake-trend-svg" data-live="sparkline">
@@ -261,283 +238,300 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
         </div>
       </figure>
 
+      <!-- POOL ID -->
       <div class="pool-id-strip">
-        <span class="pool-id-label">Pool ID</span>
-        <code class="pool-id" data-live="pool-id">pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze</code>
+        <div>
+          <span class="pool-id-label">Pool ID</span>
+          <code class="pool-id" data-live="pool-id">pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze</code>
+        </div>
         <button type="button" class="pool-id-copy" data-copy="pool-id" aria-label="Copy pool ID to clipboard">Copy</button>
       </div>
       <p class="stats-foot">Live from Koios. Refreshes daily.</p>
     </div>
   </section>
 
-  <section class="container section section--center-head">
-    <h2>About ADAOZ</h2>
-    <p class="lede">
-      ADAOZ has been minting blocks since <strong>20 February 2021</strong>. A small, well-maintained
-      Australian stake pool focused on reliability, security, and contributing back to Cardano rather
-      than chasing scale at any cost.
-    </p>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🌱</div>
-        <h3>Powered by renewables</h3>
-        <p>Infrastructure runs on renewable-energy data centres. Cardano's proof-of-stake already cuts the footprint to a fraction of proof-of-work; we go further by choosing greener hosts.</p>
+  <!-- ===== ABOUT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">About ADAOZ</div>
+        <h2>A small Australian pool built for reliability — not scale at any cost.</h2>
+        <p class="lede">Minting blocks since <strong>20 February 2021</strong>. Well-maintained, security-first, and focused on giving back to Cardano rather than chasing the biggest number.</p>
       </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🔐</div>
-        <h3>Hardened security</h3>
-        <p>Cold keys stored offline, hardware-backed signing, restricted SSH access, continuous monitoring on every relay. The block-producer node is not directly internet-exposed.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🛰️</div>
-        <h3>Redundant relays</h3>
-        <p>Multiple geographically distributed relays with health monitoring. If one drops, your delegation keeps minting on the rest.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+          <h3>Powered by renewables</h3>
+          <p>Infrastructure runs on renewable-powered data centres. Cardano's proof-of-stake already cuts energy to a fraction of proof-of-work — we go further by choosing greener hosts.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Hardened security</h3>
+          <p>Cold keys offline, hardware-backed signing, restricted SSH access, and continuous monitoring on every relay. The block-producer node is never directly exposed.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+          <h3>Redundant relays</h3>
+          <p>Multiple geographically distributed relays with health monitoring. If one drops, your delegation keeps minting on the next.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== OPERATOR ===== -->
   <section id="operator" class="section operator-section">
     <div class="container">
-      <h2>The operator</h2>
-      <div class="operator-grid">
+      <div>
+        <div class="eyebrow">The operator</div>
         <div class="operator-text">
-          <h3>Peter Bui</h3>
-          <p class="meta">Cardano Ambassador · Midnight Ambassador · Founder, Mesh With Us · Host, Learn Cardano</p>
-
-          <ul class="social-links" aria-label="Peter Bui social profiles">
+          <h2>Peter Bui</h2>
+          <div class="roles">Cardano Ambassador · Midnight Ambassador · Founder, Mesh With Us · Host, Learn Cardano</div>
+          <p>I started ADAOZ in February 2021 because I wanted Australians to have a local pool to delegate to, and because I wanted to learn how Cardano really worked from the inside out.</p>
+          <p>Five years later I'm still running the pool, still publishing on <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano</a>, and building Cardano and Midnight apps via <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>. Delegating to ADAOZ funds the time it takes to review governance, interview builders, and turn that into content anyone can learn from.</p>
+          <ul class="social-pills" aria-label="Peter Bui social profiles">
             <li>
-              <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui on X (opens in new tab)">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <a href="https://x.com/astroboysoup" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui on X (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/peterbui1/" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui on LinkedIn (opens in new tab)">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              <a href="https://www.linkedin.com/in/peterbui1/" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui on LinkedIn (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.48v6.26zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
               </a>
             </li>
             <li>
-              <a href="https://linktr.ee/peterbui" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui all links on Linktree (opens in new tab)">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.736 5.853h6.198l-4.382 4.193 4.382 4.193h-6.198L9.354 18.43V12.71l-4.382 4.193v-7.058l4.382-4.193h4.382zm-4.382 7.058v5.518h4.382v-5.518zm0-7.058L4.972 10.046h4.382z"/></svg>
+              <a href="https://linktr.ee/peterbui" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Peter Bui all links on Linktree (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
               </a>
             </li>
           </ul>
-
-          <p>
-            I started ADAOZ in February 2021 because I wanted Australians to have a local pool to delegate to,
-            and because I wanted to learn how Cardano really worked from the inside out. Five years later I'm
-            still running the pool, still publishing on
-            <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano</a>,
-            and building Cardano and Midnight apps via
-            <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>.
-          </p>
-          <p>
-            I'm also a <strong>Midnight Ambassador</strong>, covering everything happening on Cardano's new
-            privacy-focused sidechain as it rolls out.
-          </p>
-          <p>
-            Delegating to ADAOZ earns you ADA rewards but also helps fund the time it takes to review every
-            governance action, every new tool, interview projects building on Cardano, and turn that into
-            content other people can learn from.
-          </p>
         </div>
-
-        <figure class="operator-portrait">
-          <picture>
-            <source srcset="/images/peter-bui.webp" type="image/webp">
-            <img src="/images/peter-bui.jpg" alt="Peter Bui, operator of ADAOZ Cardano stake pool." width="280" height="280" loading="lazy" decoding="async">
-          </picture>
-        </figure>
       </div>
+      <figure class="operator-portrait">
+        <picture>
+          <source srcset="/images/peter-bui.webp" type="image/webp">
+          <img src="/images/peter-bui.jpg" alt="Peter Bui, operator of ADAOZ Cardano stake pool." width="280" height="350" loading="lazy" decoding="async">
+        </picture>
+      </figure>
     </div>
   </section>
 
+  <!-- ===== MIDNIGHT ===== -->
   <section class="section midnight-section">
     <div class="container">
-      <div class="midnight-grid">
-        <div class="midnight-text">
-          <div class="eyebrow">Cardano × Midnight</div>
-          <h2>Earn ADA today. NIGHT tokens on the way.</h2>
-          <p class="lede">
-            Midnight is Cardano's privacy-focused sidechain. When NIGHT token allocations open up to
-            Cardano stakers, ADAOZ delegators will earn <strong>$NIGHT rewards on top of their ADA</strong>,
-            just for staying delegated.
-          </p>
-          <p>
-            Peter is one of the Midnight Ambassadors covering the launch, so ADAOZ delegators get a front-row
-            view of what's happening on the new chain — and the rewards that come with being early.
-          </p>
-        </div>
-        <figure class="midnight-art">
+      <div>
+        <div class="eyebrow">Cardano × Midnight</div>
+        <h2>Earn ADA today. NIGHT tokens on the way.</h2>
+        <p>Midnight is Cardano's privacy-focused sidechain. When NIGHT token allocations open up to Cardano stakers, ADAOZ delegators will earn <strong>$NIGHT rewards on top of their ADA</strong>, just for staying delegated.</p>
+        <p>Peter is one of the Midnight Ambassadors covering the launch, so ADAOZ delegators get a front-row view of what's happening on the new chain — and the rewards that come with being early.</p>
+      </div>
+      <figure class="midnight-art">
+        <div class="midnight-circle">
           <picture>
             <source srcset="/images/midnight-cardano.webp" type="image/webp">
-            <img src="/images/midnight-cardano.png" alt="Cardano and Midnight logos paired together, representing ADAOZ delegators earning both ADA and future NIGHT token rewards." loading="lazy" decoding="async">
+            <img src="/images/midnight-cardano.png" alt="Cardano and Midnight pairing — yin-yang of the two networks." loading="lazy" decoding="async">
           </picture>
-        </figure>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== CONTRIBUTING ===== -->
+  <section class="contributing">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Giving back</div>
+        <h2>Contributing to Cardano</h2>
+        <p class="lede">Where ADAOZ rewards and Peter's time actually go.</p>
+      </div>
+      <div class="grid-3">
+        <a class="card link-card" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></div>
+          <h3>Learn Cardano on YouTube</h3>
+          <p>Tutorials, news, and deep dives. The successor to the original Learn Cardano podcast — same focus, broader format.</p>
+        </a>
+        <a class="card link-card" href="https://www.youtube.com/playlist?list=PL2fWPJCv7fcAbsfCFhHfI3B3zcLyaGnDT" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3>Builders Bench</h3>
+          <p>Interview series with the people actually building on Cardano — protocols, dApps, tools, education.</p>
+        </a>
+        <a class="card link-card" href="https://learncardano.io" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div>
+          <h3>learncardano.io</h3>
+          <p>Long-form Cardano education hub. Companion site to the YouTube channel.</p>
+        </a>
+        <a class="card link-card" href="https://cardanopress.io/" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 19.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></div>
+          <h3>CardanoPress</h3>
+          <p>WordPress plugin bringing Cardano wallets, tokens, and NFTs to any WP site. We're the lead developers and maintainers.</p>
+        </a>
+        <a class="card link-card" href="https://www.meetup.com/cardano-blockchain-brisbane-au/" target="_blank" rel="noopener noreferrer">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>Brisbane Cardano Meetup</h3>
+          <p>Local in-person Cardano community in Brisbane, Australia. Still running, all welcome.</p>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="container section">
-    <h2>Contributing to Cardano</h2>
-    <p class="lede">Where ADAOZ rewards and Peter's time actually go.</p>
-
-    <div class="grid-2">
-      <a class="card link-card" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon" aria-hidden="true">▶︎</div>
-        <h3>Learn Cardano on YouTube</h3>
-        <p>Tutorials, news, and deep dives. The successor to the original Learn Cardano podcast — same focus, broader format.</p>
-      </a>
-      <a class="card link-card" href="https://www.youtube.com/playlist?list=PL2fWPJCv7fcAbsfCFhHfI3B3zcLyaGnDT" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon" aria-hidden="true">🪑</div>
-        <h3>Builders Bench</h3>
-        <p>Interview series with the people actually building on Cardano — protocols, dApps, tools, education.</p>
-      </a>
-      <a class="card link-card" href="https://learncardano.io" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon" aria-hidden="true">🎓</div>
-        <h3>learncardano.io</h3>
-        <p>Long-form Cardano education hub. Companion site to the YouTube channel.</p>
-      </a>
-      <a class="card link-card" href="https://cardanopress.io/" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon" aria-hidden="true">🧩</div>
-        <h3>CardanoPress</h3>
-        <p>WordPress plugin bringing Cardano wallets, tokens, and NFTs to any WP site. We're the lead developers and maintainers.</p>
-      </a>
-      <a class="card link-card" href="https://www.meetup.com/cardano-blockchain-brisbane-au/" target="_blank" rel="noopener noreferrer">
-        <div class="card-icon" aria-hidden="true">📍</div>
-        <h3>Brisbane Cardano Meetup</h3>
-        <p>Local in-person Cardano community in Brisbane, Australia. Still running, all welcome.</p>
-      </a>
-    </div>
-  </section>
-
+  <!-- ===== DELEGATE ===== -->
   <section id="delegate" class="section delegate-section">
     <div class="container">
-      <h2>Delegate to ADAOZ</h2>
-      <p class="lede">Connect your Cardano wallet and delegate on-chain in two clicks. First-time delegators pay a one-off <strong>2 ₳ stake-key registration deposit</strong>; you get it back if you ever de-register.</p>
+      <div>
+        <div class="eyebrow">Start staking</div>
+        <h2>Delegate to ADAOZ</h2>
+        <p class="lede">Connect your Cardano wallet and delegate on-chain in two clicks. First-time delegators pay a one-off <strong>2 ₳ stake-key registration deposit</strong> — refunded if you ever de-register.</p>
 
-      <div id="delegate-panel" class="delegate-panel" aria-live="polite" data-state="idle">
-        <div id="dp-status-banner" class="dp-banner" role="status" hidden></div>
+        <div id="delegate-panel" class="delegate-panel" aria-live="polite" data-state="idle">
+          <div id="dp-status-banner" class="dp-banner" role="status" hidden></div>
 
-        <!-- idle -->
-        <div data-show="idle">
-          <button type="button" class="btn btn-lg" data-action="open-picker">Connect wallet</button>
-          <p class="dp-hint">Works with <strong>Lace</strong>, <strong>Eternl</strong>, Nami, Typhon, NuFi, Begin, Yoroi — any CIP-30 wallet. We never see your keys.</p>
-        </div>
+          <div data-show="idle">
+            <button type="button" class="btn btn-lg" data-action="open-picker">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+              Connect wallet
+            </button>
+            <p class="dp-hint">Works with <strong>Lace</strong>, <strong>Eternl</strong>, Nami, Typhon, NuFi, Begin, Yoroi — any CIP-30 wallet. <strong>We never see your keys.</strong></p>
+          </div>
 
-        <!-- wallet picker -->
-        <div data-show="picking" hidden>
-          <h3>Choose a wallet</h3>
-          <ul id="dp-wallets" class="wallet-list" aria-label="Installed Cardano wallets"></ul>
-          <button type="button" class="btn ghost" data-action="cancel">Cancel</button>
-        </div>
+          <div data-show="picking" hidden>
+            <h3>Choose a wallet</h3>
+            <ul id="dp-wallets" class="wallet-list" aria-label="Installed Cardano wallets"></ul>
+            <button type="button" class="btn ghost" data-action="cancel">Cancel</button>
+          </div>
 
-        <!-- connecting (transient) -->
-        <div data-show="connecting" hidden>
-          <h3>Connecting…</h3>
-          <p>Approve the connection in your wallet.</p>
-        </div>
+          <div data-show="connecting" hidden>
+            <h3>Connecting…</h3>
+            <p>Approve the connection in your wallet.</p>
+          </div>
 
-        <!-- connected -->
-        <div data-show="connected" hidden>
-          <h3>Wallet connected</h3>
-          <dl class="dp-kv">
-            <dt>Stake address</dt><dd><code id="dp-stake-addr"></code></dd>
-            <dt>Wallet balance</dt><dd id="dp-balance">—</dd>
-            <dt>Stake key</dt><dd id="dp-reg-status">—</dd>
-            <dt>Currently delegated</dt><dd id="dp-current-pool">—</dd>
-          </dl>
-          <p class="dp-actions">
-            <button type="button" id="dp-delegate" class="btn btn-lg" data-action="delegate">Delegate to ADAOZ</button>
+          <div data-show="connected" hidden>
+            <h3>Wallet connected</h3>
+            <dl class="dp-kv">
+              <dt>Stake address</dt><dd><code id="dp-stake-addr"></code></dd>
+              <dt>Wallet balance</dt><dd id="dp-balance">—</dd>
+              <dt>Stake key</dt><dd id="dp-reg-status">—</dd>
+              <dt>Currently delegated</dt><dd id="dp-current-pool">—</dd>
+            </dl>
+            <p class="dp-actions">
+              <button type="button" id="dp-delegate" class="btn btn-lg" data-action="delegate">Delegate to ADAOZ</button>
+              <button type="button" class="btn ghost" data-action="disconnect">Disconnect</button>
+            </p>
+          </div>
+
+          <div data-show="working" hidden>
+            <h3 id="dp-working-title">Working…</h3>
+            <p id="dp-working-msg" class="dp-hint"></p>
+          </div>
+
+          <div data-show="success" hidden>
+            <h3>Transaction submitted 🎉</h3>
+            <p>Your delegation to ADAOZ is on the way. Rewards start flowing in 2–3 epochs (around 10–15 days).</p>
+            <p>Transaction: <a id="dp-tx-link" target="_blank" rel="noopener noreferrer">view on Cardanoscan</a></p>
+            <button type="button" class="btn ghost" data-action="reset">Done</button>
+          </div>
+
+          <div data-show="already-adaoz" hidden>
+            <h3>You're already delegated to ADAOZ 🎉</h3>
+            <p>Thanks for your support. Nothing more to do — rewards keep coming every epoch.</p>
             <button type="button" class="btn ghost" data-action="disconnect">Disconnect</button>
-          </p>
+          </div>
+
+          <div data-show="error" hidden>
+            <h3>Something went wrong</h3>
+            <p id="dp-error-msg" class="dp-error"></p>
+            <button type="button" class="btn" data-action="retry">Try again</button>
+          </div>
         </div>
 
-        <!-- working -->
-        <div data-show="working" hidden>
-          <h3 id="dp-working-title">Working…</h3>
-          <p id="dp-working-msg" class="dp-hint"></p>
-        </div>
+        <details class="dp-manual">
+          <summary>Prefer to delegate from inside your wallet?</summary>
+          <ol class="how-to">
+            <li>Open your Cardano wallet (Lace or Eternl recommended).</li>
+            <li>Go to the staking / delegation panel.</li>
+            <li>Search the ticker <strong>ADAOZ</strong> and select the pool.</li>
+            <li>Confirm. First-time delegators pay a one-off 2 ₳ stake-key registration; you get it back if you ever de-register.</li>
+          </ol>
+        </details>
 
-        <!-- success -->
-        <div data-show="success" hidden>
-          <h3>Transaction submitted 🎉</h3>
-          <p>Your delegation to ADAOZ is on the way. Rewards start flowing in 2-3 epochs (around 10-15 days).</p>
-          <p>Transaction: <a id="dp-tx-link" target="_blank" rel="noopener noreferrer">view on Cardanoscan</a></p>
-          <button type="button" class="btn ghost" data-action="reset">Done</button>
-        </div>
-
-        <!-- already delegated -->
-        <div data-show="already-adaoz" hidden>
-          <h3>You're already delegated to ADAOZ 🎉</h3>
-          <p>Thanks for your support. Nothing more to do — rewards keep coming every epoch.</p>
-          <button type="button" class="btn ghost" data-action="disconnect">Disconnect</button>
-        </div>
-
-        <!-- error -->
-        <div data-show="error" hidden>
-          <h3>Something went wrong</h3>
-          <p id="dp-error-msg" class="dp-error"></p>
-          <button type="button" class="btn" data-action="retry">Try again</button>
+        <div class="delegate-extra-links">
+          <a href="/blog/category/staking/">Read the staking guides</a>
+          <a href="/contact-us/">Questions? Get in touch</a>
         </div>
       </div>
 
-      <details class="dp-manual">
-        <summary>Prefer to delegate from inside your wallet?</summary>
-        <ol class="how-to">
-          <li>Open your Cardano wallet (<strong>Lace</strong> or <strong>Eternl</strong> recommended).</li>
-          <li>Go to the staking / delegation panel.</li>
-          <li>Search the ticker <strong>ADAOZ</strong> and select the pool.</li>
-          <li>Confirm. First-time delegators pay a one-off 2 ₳ stake-key registration; you get it back if you ever de-register.</li>
-        </ol>
-      </details>
-
-      <p style="margin-top: 28px;">
-        <a class="btn ghost" href="/blog/category/staking/">Read the staking guides</a>
-        <a class="btn ghost" href="/contact-us/">Questions? Get in touch</a>
-      </p>
+      <aside class="reassure-card">
+        <h3>What to expect</h3>
+        <ul class="reassure-list">
+          <li>
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span>
+            <div>
+              <h4>Non-custodial</h4>
+              <p>Your ADA never leaves your wallet. Delegating only points your stake — we can't move or spend it.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span>
+            <div>
+              <h4>Two clicks</h4>
+              <p>Connect your wallet, sign one transaction. That's it.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span>
+            <div>
+              <h4>One-off 2 ₳ deposit</h4>
+              <p>A refundable stake-key registration deposit — you get it back if you ever de-register.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span>
+            <div>
+              <h4>Rewards every epoch</h4>
+              <p>Earn roughly every 5 days, automatically compounding. No claiming needed.</p>
+            </div>
+          </li>
+        </ul>
+      </aside>
     </div>
   </section>
 
-  <section id="podcast" class="section podcast-section">
+  <!-- ===== PODCAST ===== -->
+  <section id="podcast" class="podcast-section">
     <div class="container">
-      <div class="podcast-head">
-        <div class="podcast-wordmark" aria-label="Learn Cardano Podcast">
-          <span class="wm-line1">Learn Cardano</span>
-          <span class="wm-line2">Podcast</span>
+      <div class="podcast-section-head">
+        <div>
+          <div class="eyebrow">Learn Cardano</div>
+          <h2>Podcast</h2>
         </div>
-        <div class="podcast-intro">
-          <p>Stay up to date with everything that's happening on Cardano and in crypto.</p>
-          <ul class="podcast-socials" aria-label="Learn Cardano on">
-            <li>
-              <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on YouTube (opens in new tab)">
-                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="8" fill="#FF0000"/><path d="M14.4 11.7v12.6L25.2 18z" fill="#fff"/></svg>
-                <span>YouTube</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (opens in new tab)">
-                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="8" fill="#0b1320"/><path d="M22.2 9.5h3l-6.55 7.49L26.4 26.5h-6.03l-4.72-6.18-5.4 6.18H7.24l7.01-8.02L7.5 9.5h6.18l4.27 5.65L22.2 9.5zm-1.05 15.18h1.66L12.96 11.23h-1.78l9.97 13.45z" fill="#fff"/></svg>
-                <span>Follow on X</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://open.spotify.com/show/11FpPiHPzivZoSOTgVcfgT" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on Spotify (opens in new tab)">
-                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="18" fill="#1DB954"/><path d="M25.7 16.16c-4.18-2.48-11.07-2.71-15.06-1.5a1.21 1.21 0 1 1-.7-2.32c4.58-1.39 12.2-1.12 17.01 1.74a1.21 1.21 0 1 1-1.25 2.08zm-.14 3.67a1.01 1.01 0 0 1-1.39.33c-3.49-2.14-8.8-2.76-12.93-1.51a1.01 1.01 0 1 1-.59-1.94c4.71-1.43 10.57-.74 14.58 1.73.47.29.62.91.33 1.39zm-1.59 3.53a.81.81 0 0 1-1.11.27c-3.05-1.86-6.88-2.28-11.4-1.25a.81.81 0 1 1-.36-1.58c4.94-1.13 9.19-.65 12.6 1.43.38.23.5.73.27 1.13z" fill="#000"/></svg>
-                <span>Spotify</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://podcasts.apple.com/au/podcast/learn-cardano-podcast/id1561218671" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on Apple Podcasts (opens in new tab)">
-                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><defs><linearGradient id="apgrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="36" height="36" rx="8" fill="url(#apgrad)"/><path d="M18 7.5a8.5 8.5 0 0 0-3.07 16.42l.51-2.07a6.5 6.5 0 1 1 5.12 0l.51 2.07A8.5 8.5 0 0 0 18 7.5zm0 4.5a4 4 0 0 0-1.4 7.75l.6-2.45a1.7 1.7 0 1 1 1.6 0l.6 2.45A4 4 0 0 0 18 12zm-1.85 9.4 1.85-.4 1.85.4 1.05 4.25a2 2 0 0 1-1.95 2.45h-1.9a2 2 0 0 1-1.95-2.45L16.15 21.4z" fill="#fff"/></svg>
-                <span>Apple Podcasts</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <p class="lede">Stay up to date with everything happening on Cardano and in crypto.</p>
       </div>
-
-      <h3 class="podcast-h3">Latest videos</h3>
+      <ul class="podcast-socials" aria-label="Learn Cardano on">
+        <li>
+          <a class="podcast-pill" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on YouTube (opens in new tab)">
+            <svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#FF0000"/><path d="M14.4 11.7v12.6L25.2 18z" fill="#fff"/></svg>
+            YouTube
+          </a>
+        </li>
+        <li>
+          <a class="podcast-pill" href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (opens in new tab)">
+            <svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#0b1320"/><path d="M22.2 9.5h3l-6.55 7.49L26.4 26.5h-6.03l-4.72-6.18-5.4 6.18H7.24l7.01-8.02L7.5 9.5h6.18l4.27 5.65L22.2 9.5zm-1.05 15.18h1.66L12.96 11.23h-1.78l9.97 13.45z" fill="#fff"/></svg>
+            Follow on X
+          </a>
+        </li>
+        <li>
+          <a class="podcast-pill" href="https://open.spotify.com/show/11FpPiHPzivZoSOTgVcfgT" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on Spotify (opens in new tab)">
+            <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" fill="#1DB954"/><path d="M25.7 16.16c-4.18-2.48-11.07-2.71-15.06-1.5a1.21 1.21 0 1 1-.7-2.32c4.58-1.39 12.2-1.12 17.01 1.74a1.21 1.21 0 1 1-1.25 2.08zm-.14 3.67a1.01 1.01 0 0 1-1.39.33c-3.49-2.14-8.8-2.76-12.93-1.51a1.01 1.01 0 1 1-.59-1.94c4.71-1.43 10.57-.74 14.58 1.73.47.29.62.91.33 1.39zm-1.59 3.53a.81.81 0 0 1-1.11.27c-3.05-1.86-6.88-2.28-11.4-1.25a.81.81 0 1 1-.36-1.58c4.94-1.13 9.19-.65 12.6 1.43.38.23.5.73.27 1.13z" fill="#000"/></svg>
+            Spotify
+          </a>
+        </li>
+        <li>
+          <a class="podcast-pill" href="https://podcasts.apple.com/au/podcast/learn-cardano-podcast/id1561218671" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on Apple Podcasts (opens in new tab)">
+            <svg viewBox="0 0 36 36" aria-hidden="true"><defs><linearGradient id="apgrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="36" height="36" rx="8" fill="url(#apgrad)"/><path d="M18 7.5a8.5 8.5 0 0 0-3.07 16.42l.51-2.07a6.5 6.5 0 1 1 5.12 0l.51 2.07A8.5 8.5 0 0 0 18 7.5zm0 4.5a4 4 0 0 0-1.4 7.75l.6-2.45a1.7 1.7 0 1 1 1.6 0l.6 2.45A4 4 0 0 0 18 12zm-1.85 9.4 1.85-.4 1.85.4 1.05 4.25a2 2 0 0 1-1.95 2.45h-1.9a2 2 0 0 1-1.95-2.45L16.15 21.4z" fill="#fff"/></svg>
+            Apple Podcasts
+          </a>
+        </li>
+      </ul>
+      <div class="label-small" style="margin-bottom:18px;">Latest videos</div>
       <div id="yt-grid" class="yt-grid">
         <div class="yt-loading">Loading latest videos…</div>
       </div>
@@ -547,28 +541,65 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
     </div>
   </section>
 
-  <section class="container section">
-    <h2>From the blog</h2>
-    <p class="lede">82 articles across staking, DeFi, NFTs, stake pool operations, and Learn Cardano episodes.</p>
-    <p><a class="btn ghost" href="/blog/">Browse all articles →</a></p>
+  <!-- ===== FROM THE BLOG ===== -->
+  <section class="blog-strip">
+    <div class="container">
+      <div>
+        <h2>From the blog</h2>
+        <p class="lede">82 articles across staking, DeFi, NFTs, stake pool operations, and Learn Cardano episodes.</p>
+      </div>
+      <a class="btn" href="/blog/">Browse all articles
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare. <span class="muted">Build <code id="build-sha-display">dev</code></span></div>
-    <div class="links">
-      <a href="https://learncardano.io" target="_blank" rel="noopener noreferrer">learncardano.io</a>
-      <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano YouTube</a>
-      <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Built by Mesh With Us</a>
+  <div class="upper">
+    <div>
+      <div class="brand">cardano<span class="accent">de</span></div>
+      <p class="blurb">A small Australian Cardano stake pool run by Peter Bui. Reliable, security-first, and giving back to the community since 2021.</p>
+    </div>
+    <div>
+      <div class="col-head">Pool</div>
+      <div class="col-links">
+        <a href="#delegate">Delegate</a>
+        <a href="#">Live stats</a>
+        <a href="/blog/category/staking/">Staking guides</a>
+        <a href="/contact-us/">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="col-head">Learn</div>
+      <div class="col-links">
+        <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">Learn Cardano YouTube</a>
+        <a href="https://learncardano.io" target="_blank" rel="noopener noreferrer">learncardano.io</a>
+        <a href="#podcast">Podcast</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+    <div>
+      <div class="col-head">Connect</div>
+      <div class="col-links">
+        <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        <a href="https://www.linkedin.com/in/peterbui1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>
+        <a href="https://midnight.network" target="_blank" rel="noopener noreferrer">Midnight</a>
+      </div>
+    </div>
+  </div>
+  <div class="lower">
+    <div class="inner">
+      <div>© <span id="year"></span> cardanode.com.au · Built with care on Cloudflare. <span class="muted">Build <code id="build-sha-display">dev</code></span></div>
+      <div><a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer" style="color:inherit;">Built by Mesh With Us</a></div>
     </div>
   </div>
 </footer>
 
 <script type="module" src="/scripts/delegate-panel.js"></script>
 <script type="module" src="/scripts/podcast.js"></script>
-<script type="module" src="/scripts/sparkline-tooltip.js"></script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
@@ -595,11 +626,11 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
     window.addEventListener("keydown", (e) => {
       buf = (buf + e.key.toLowerCase()).slice(-4);
       if (buf === "mesh") {
-        console.log("%c🕸️  Built by Mesh With Us — https://meshwithus.com.au", "color:#0693e3;font-weight:bold;font-size:14px");
+        console.log("%c🕸️  Built by Mesh With Us — https://meshwithus.com.au", "color:#0033AD;font-weight:bold;font-size:14px");
         buf = "";
       }
     });
-    console.log("%ccardanode", "color:#0693e3;font-weight:bold;font-size:20px");
+    console.log("%ccardanode", "color:#0033AD;font-weight:bold;font-size:20px");
     console.log("Built by Mesh With Us — https://meshwithus.com.au");
   })();
 </script>

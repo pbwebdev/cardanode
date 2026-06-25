@@ -194,7 +194,7 @@ async function handlePoolStats(ctx) {
 
 async function fetchPoolStats(ctx) {
   const cache = caches.default;
-  const cacheKey = new Request("https://cache.local/pool-stats/v6");
+  const cacheKey = new Request("https://cache.local/pool-stats/v7");
   const hit = await cache.match(cacheKey);
   if (hit) return hit.json();
 
@@ -529,9 +529,9 @@ function buildSparkline(points) {
       const titleId = `sp-t-${i}`;
       const isLast = i === coords.length - 1;
       const visible = isLast
-        ? `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="#0479b6" opacity="0.18"/>
-           <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#fff" stroke="#0479b6" stroke-width="2.5"/>`
-        : `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#0479b6"/>`;
+        ? `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="#0033AD" opacity="0.18"/>
+           <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#fff" stroke="#0033AD" stroke-width="2.5"/>`
+        : `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#0033AD"/>`;
       // Transparent hit-target with native SVG <title> (screen readers +
       // free OS-level tooltip) and data attrs for the JS tooltip.
       const hit = `<circle class="sp-hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="14" fill="transparent" stroke="transparent" tabindex="0" role="button" aria-describedby="${titleId}" data-epoch="${ep}" data-stake="${ada}"><title id="${titleId}">Epoch ${ep}: ${ada}</title></circle>`;
@@ -547,7 +547,7 @@ function buildSparkline(points) {
   const chipY = Math.max(4, ly - chipH - 10);
   const chip = `
     <g>
-      <rect x="${chipX}" y="${chipY}" width="${chipW}" height="${chipH}" rx="6" fill="#0479b6"/>
+      <rect x="${chipX}" y="${chipY}" width="${chipW}" height="${chipH}" rx="6" fill="#0033AD"/>
       <text x="${chipX + chipW / 2}" y="${chipY + 15}" font-family="Rubik,system-ui,sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">${lastVal}</text>
     </g>`;
 
@@ -564,13 +564,13 @@ function buildSparkline(points) {
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live stake trend, epoch ${points[0]?.epoch} to ${points[points.length - 1]?.epoch}, current ${lastVal}">
     <defs>
       <linearGradient id="sp-area" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#0693e3" stop-opacity="0.22"/>
-        <stop offset="100%" stop-color="#0693e3" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#0033AD" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#0033AD" stop-opacity="0"/>
       </linearGradient>
     </defs>
     ${grid}
     <path d="${areaPath}" fill="url(#sp-area)"/>
-    <path d="${path}" fill="none" stroke="#0479b6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="${path}" fill="none" stroke="#0033AD" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
     ${dots}
     ${chip}
     ${labels}
