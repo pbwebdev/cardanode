@@ -218,7 +218,7 @@ Local dev secrets in `.dev.vars` (gitignored).
 
 ## Common pitfalls
 
-1. **Don't edit `public/*` directly** — wiped every build.
+1. **Don't edit `public/*` directly** — wiped every build. Image assets go in `src/static/images/`. Blog-post uploaded media goes in `src/static/uploads/` (via `npm run media`). Anything saved into `public/` disappears on the next `npm run build`.
 2. **Don't run git on Windows for this repo** — SMB ownership mismatch.
 3. **Use `bash -ic 'cmd'` over ssh** so `~/.bashrc` is sourced and `CLOUDFLARE_API_TOKEN` is available.
 4. **`wrangler whoami` returning 401 is fine** — the token lacks User:Read but has Workers:Edit. `wrangler deploy` works.
