@@ -26,6 +26,10 @@ marked.setOptions({ mangle: false, headerIds: true });
 // canonical site origin gets target="_blank" + rel="noopener noreferrer".
 // The CSS rule a[target="_blank"]::after appends an external-link icon.
 const SITE_ORIGIN = "cardanode.com.au";
+
+// For images: emit a <picture> with a WebP <source> if the .webp sibling
+// exists on disk under src/static/. Falls back gracefully to plain <img>
+// for unknown URLs (external sources etc).
 marked.use({
   renderer: {
     link({ href, title, tokens }) {
@@ -40,8 +44,43 @@ marked.use({
       const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : "";
       return `<a href="${href}"${titleAttr}${targetAttr}>${text}</a>`;
     },
+    image({ href, title, text }) {
+      const altAttr = ` alt="${escapeHtml(text || "")}"`;
+      const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+      const webpHref = pictureWebpFor(href);
+      if (webpHref) {
+        return `<picture>
+  <source srcset="${escapeHtml(webpHref)}" type="image/webp">
+  <img src="${escapeHtml(href)}"${altAttr}${titleAttr} loading="lazy" decoding="async">
+</picture>`;
+      }
+      return `<img src="${escapeHtml(href)}"${altAttr}${titleAttr} loading="lazy" decoding="async">`;
+    },
   },
 });
+
+// Resolve /images/foo.jpg → src/static/images/foo.webp on disk; if it exists,
+// return /images/foo.webp (the public URL). Otherwise null (no WebP available).
+// Helper for emitting a <picture> from build code (non-markdown).
+function renderPicture(src, alt = "", className = "", { eager = false } = {}) {
+  const webp = pictureWebpFor(src);
+  const cls = className ? ` class="${className}"` : "";
+  const loading = eager ? "eager" : "lazy";
+  const imgAttrs = `src="${escapeHtml(src)}"${cls} alt="${escapeHtml(alt)}" loading="${loading}" decoding="async"`;
+  if (webp) {
+    return `<picture><source srcset="${escapeHtml(webp)}" type="image/webp"><img ${imgAttrs}></picture>`;
+  }
+  return `<img ${imgAttrs}>`;
+}
+
+function pictureWebpFor(href) {
+  if (!href || !href.startsWith("/")) return null;
+  const m = href.match(/^(.+)\.(jpe?g|png)(\?.*)?$/i);
+  if (!m) return null;
+  const webpUrl = m[1] + ".webp" + (m[3] || "");
+  const diskPath = join("src/static", webpUrl.split("?")[0].replace(/^\//, ""));
+  return existsSync(diskPath) ? webpUrl : null;
+}
 
 const baseTpl = readTpl("base.html");
 const postTpl = readTpl("post.html");
@@ -270,7 +309,7 @@ function renderPost(post, all) {
     ? " · " + renderCategoryBadges(post.categoriesSlugged)
     : "";
   const heroImage = post.ogImage
-    ? `<img class="hero" src="${escapeHtml(post.ogImage)}" alt="">`
+    ? renderPicture(post.ogImage, "", "hero")
     : "";
   const content =
     render(postTpl, {
