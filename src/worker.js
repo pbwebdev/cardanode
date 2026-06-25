@@ -19,6 +19,7 @@ const ADAOZ_POOL_BECH32 = "pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts
 // hex: 6658713e2cbfa4e347691a0435953f5acbe9f03d330e94caa3a0cfb4
 
 const KOIOS = "https://api.koios.rest/api/v1";
+const YOUTUBE_CHANNEL_ID = "UCj-_2e7L2UgHaJLrGEOJRzA"; // Learn Cardano
 
 export default {
   async fetch(request, env, ctx) {
@@ -26,6 +27,7 @@ export default {
 
     if (url.pathname === "/api/pool-stats") return handlePoolStats(ctx);
     if (url.pathname === "/api/account-info") return handleAccountInfo(url, ctx);
+    if (url.pathname === "/api/youtube") return handleYouTube(env, ctx);
     if (url.pathname === "/api/contact" && request.method === "POST")
       return handleContact(request, env);
     if (url.pathname.startsWith("/api/blockfrost/"))
@@ -186,6 +188,65 @@ async function fetchPoolStats(ctx) {
   const cached = json(out, 200, { "cache-control": "public, max-age=86400" });
   ctx.waitUntil(cache.put(cacheKey, cached.clone()));
   return out;
+}
+
+/* ---------------- YouTube (Data API v3) ---------------- */
+
+async function handleYouTube(env, ctx) {
+  const cache = caches.default;
+  const cacheKey = new Request(`https://cache.local/youtube/v1/${YOUTUBE_CHANNEL_ID}`);
+  const hit = await cache.match(cacheKey);
+  if (hit) return hit;
+
+  if (!env.YOUTUBE_API_KEY) {
+    return json({ error: "YOUTUBE_API_KEY secret not set on Worker" }, 503);
+  }
+
+  // The "uploads" playlist id for a channel is deterministic: UC… → UU…
+  const uploadsId = "UU" + YOUTUBE_CHANNEL_ID.slice(2);
+  const upstream =
+    `https://www.googleapis.com/youtube/v3/playlistItems` +
+    `?part=snippet&playlistId=${uploadsId}&maxResults=6&key=${env.YOUTUBE_API_KEY}`;
+
+  let data;
+  try {
+    const res = await fetch(upstream, {
+      headers: { accept: "application/json" },
+      cf: { cacheTtl: 21600, cacheEverything: true }, // 6h upstream CDN cache
+    });
+    if (!res.ok) {
+      const errBody = await res.text();
+      return json({ error: `YouTube API ${res.status}`, detail: errBody.slice(0, 200) }, 502);
+    }
+    data = await res.json();
+  } catch (err) {
+    return json({ error: String(err?.message || err) }, 502);
+  }
+
+  const items = (data.items || []).map((it) => {
+    const sn = it.snippet || {};
+    const videoId = sn.resourceId?.videoId || "";
+    const thumb =
+      sn.thumbnails?.maxres?.url ||
+      sn.thumbnails?.standard?.url ||
+      sn.thumbnails?.high?.url ||
+      sn.thumbnails?.medium?.url ||
+      sn.thumbnails?.default?.url ||
+      "";
+    return {
+      title: sn.title || "",
+      videoId,
+      link: videoId ? `https://www.youtube.com/watch?v=${videoId}` : "",
+      published: sn.publishedAt || "",
+      thumbnail: thumb,
+    };
+  });
+
+  const response = json({ items, fetched_at: new Date().toISOString() }, 200, {
+    "cache-control": "public, max-age=21600",
+  });
+  ctx.waitUntil(cache.put(cacheKey, response.clone()));
+  return response;
 }
 
 /* ---------------- Account info (Koios) ---------------- */

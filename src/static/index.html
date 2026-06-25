@@ -477,6 +477,54 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
     </div>
   </section>
 
+  <section id="podcast" class="section podcast-section">
+    <div class="container">
+      <div class="podcast-head">
+        <picture class="podcast-logo">
+          <source srcset="/images/learn-cardano-logo.webp" type="image/webp">
+          <img src="/images/learn-cardano-logo.png" alt="Learn Cardano Podcast" width="218" height="104" loading="lazy" decoding="async">
+        </picture>
+        <div class="podcast-intro">
+          <p>I created the Learn Cardano Podcast to simplify governance, highlight builders, and help ADA holders, like you, stay informed.</p>
+          <ul class="podcast-socials" aria-label="Learn Cardano on">
+            <li>
+              <a href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on YouTube (opens in new tab)">
+                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="8" fill="#FF0000"/><path d="M14.4 11.7v12.6L25.2 18z" fill="#fff"/></svg>
+                <span>YouTube</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (opens in new tab)">
+                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><rect width="36" height="36" rx="8" fill="#0b1320"/><path d="M22.2 9.5h3l-6.55 7.49L26.4 26.5h-6.03l-4.72-6.18-5.4 6.18H7.24l7.01-8.02L7.5 9.5h6.18l4.27 5.65L22.2 9.5zm-1.05 15.18h1.66L12.96 11.23h-1.78l9.97 13.45z" fill="#fff"/></svg>
+                <span>Follow on X</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://open.spotify.com/show/11FpPiHPzivZoSOTgVcfgT" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on Spotify (opens in new tab)">
+                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="18" fill="#1DB954"/><path d="M25.7 16.16c-4.18-2.48-11.07-2.71-15.06-1.5a1.21 1.21 0 1 1-.7-2.32c4.58-1.39 12.2-1.12 17.01 1.74a1.21 1.21 0 1 1-1.25 2.08zm-.14 3.67a1.01 1.01 0 0 1-1.39.33c-3.49-2.14-8.8-2.76-12.93-1.51a1.01 1.01 0 1 1-.59-1.94c4.71-1.43 10.57-.74 14.58 1.73.47.29.62.91.33 1.39zm-1.59 3.53a.81.81 0 0 1-1.11.27c-3.05-1.86-6.88-2.28-11.4-1.25a.81.81 0 1 1-.36-1.58c4.94-1.13 9.19-.65 12.6 1.43.38.23.5.73.27 1.13z" fill="#000"/></svg>
+                <span>Spotify</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://podcasts.apple.com/au/podcast/learn-cardano-podcast/id1561218671" target="_blank" rel="noopener noreferrer" aria-label="Learn Cardano on Apple Podcasts (opens in new tab)">
+                <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><defs><linearGradient id="apgrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F452FF"/><stop offset="1" stop-color="#832BC1"/></linearGradient></defs><rect width="36" height="36" rx="8" fill="url(#apgrad)"/><path d="M18 7.5a8.5 8.5 0 0 0-3.07 16.42l.51-2.07a6.5 6.5 0 1 1 5.12 0l.51 2.07A8.5 8.5 0 0 0 18 7.5zm0 4.5a4 4 0 0 0-1.4 7.75l.6-2.45a1.7 1.7 0 1 1 1.6 0l.6 2.45A4 4 0 0 0 18 12zm-1.85 9.4 1.85-.4 1.85.4 1.05 4.25a2 2 0 0 1-1.95 2.45h-1.9a2 2 0 0 1-1.95-2.45L16.15 21.4z" fill="#fff"/></svg>
+                <span>Apple Podcasts</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="podcast-h3">Latest videos</h3>
+      <div id="yt-grid" class="yt-grid">
+        <div class="yt-loading">Loading latest videos…</div>
+      </div>
+      <p class="podcast-more">
+        <a class="btn ghost" href="https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA" target="_blank" rel="noopener noreferrer">View more on YouTube</a>
+      </p>
+    </div>
+  </section>
+
   <section class="container section">
     <h2>From the blog</h2>
     <p class="lede">82 articles across staking, DeFi, NFTs, stake pool operations, and Learn Cardano episodes.</p>
@@ -498,6 +546,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 </footer>
 
 <script type="module" src="/scripts/delegate-panel.js"></script>
+<script type="module" src="/scripts/podcast.js"></script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
