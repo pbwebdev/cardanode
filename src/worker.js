@@ -454,7 +454,8 @@ async function handleContact(request, env) {
   };
 
   const tasks = [];
-  if (env.CONTACT_WEBHOOK_URL) tasks.push(sendDiscord(env.CONTACT_WEBHOOK_URL, submission));
+  if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID)
+    tasks.push(sendTelegram(env, submission));
   if (env.RESEND_API_KEY) tasks.push(sendResend(env, submission));
 
   const results = await Promise.allSettled(tasks);
@@ -470,26 +471,33 @@ async function handleContact(request, env) {
   return json({ ok: true });
 }
 
-async function sendDiscord(webhookUrl, s) {
-  const content = [
-    `**New contact-form submission** \`${s.country}\` \`${s.ip}\``,
-    `**From:** ${s.name} <${s.email}>`,
-    `**At:** ${s.at}`,
-    "",
-    "```",
-    s.message.slice(0, 1800),
-    "```",
-  ].join("\n");
-  const res = await fetch(webhookUrl, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      username: "cardanode contact",
-      content,
-      allowed_mentions: { parse: [] },
-    }),
-  });
-  if (!res.ok) throw new Error(`discord ${res.status}: ${(await res.text()).slice(0, 200)}`);
+async function sendTelegram(env, s) {
+  // Telegram caps message text at 4096 chars. Keep room for headers + tags.
+  const body = s.message.length > 3500 ? s.message.slice(0, 3500) + "… [truncated]" : s.message;
+  const text =
+    `📬 <b>New cardanode contact</b>  <code>${escAttr(s.country)}</code>\n` +
+    `<b>From:</b> ${escAttr(s.name)} &lt;${escAttr(s.email)}&gt;\n` +
+    `<b>At:</b> <code>${escAttr(s.at)}</code>\n` +
+    `<b>IP:</b> <code>${escAttr(s.ip)}</code>\n` +
+    `\n<pre>${escAttr(body)}</pre>`;
+  const res = await fetch(
+    `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        chat_id: env.TELEGRAM_CHAT_ID,
+        text,
+        parse_mode: "HTML",
+        disable_web_page_preview: true,
+      }),
+    },
+  );
+  if (!res.ok) {
+    throw new Error(`telegram ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  }
+  const j = await res.json().catch(() => null);
+  if (!j?.ok) throw new Error(`telegram api: ${JSON.stringify(j).slice(0, 200)}`);
 }
 
 async function sendResend(env, s) {
