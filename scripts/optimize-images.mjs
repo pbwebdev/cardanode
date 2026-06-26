@@ -17,7 +17,7 @@ import sharp from "sharp";
 
 const ROOTS = ["src/static/images", "src/static/uploads"];
 const EXTS = new Set([".jpg", ".jpeg", ".png"]);
-const QUALITY = 82;
+const QUALITY = 75;
 
 function* walk(dir) {
   if (!existsSync(dir)) return;

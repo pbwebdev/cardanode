@@ -70,10 +70,11 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 <!-- Preload LCP image so it starts downloading during HTML parse -->
 <link rel="preload" as="image" href="/images/peter-bui-header.webp" type="image/webp" fetchpriority="high">
 
-<!-- Fonts: only the weights actually used to keep mobile critical-path tiny -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Mulish:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<!-- Fonts self-hosted under /fonts/, @font-face declarations inlined in
+     main.css. Preload the two critical Latin subsets so they're in flight
+     before the CSS parser even discovers them. -->
+<link rel="preload" as="font" type="font/woff2" href="/fonts/1Ptvg83HX_SGhgqk3wot.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" crossorigin>
 
 <link rel="stylesheet" href="/styles/main.css">
 
