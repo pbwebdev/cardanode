@@ -978,6 +978,43 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .wallet-name { font-weight: 500; }
 
+.calc-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 0;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #f0f5ff 0%, #f5f8fe 100%);
+  border: 1px solid #c7d6f5;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.calc-cta:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--ink);
+}
+.calc-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--blue);
+  color: #fff;
+  flex-shrink: 0;
+}
+.calc-cta-icon svg { width: 20px; height: 20px; }
+.calc-cta-text { flex: 1; font-size: 0.92rem; line-height: 1.4; color: var(--muted); }
+.calc-cta-text strong { display: block; color: var(--ink); font-family: "Poppins", sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
+.calc-cta-arrow { font-size: 1.4rem; color: var(--blue); flex-shrink: 0; transition: transform 0.15s ease; }
+.calc-cta:hover .calc-cta-arrow { transform: translateX(3px); }
+
 .dp-manual {
   margin: 18px 0 0;
   background: var(--surface);
