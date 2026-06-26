@@ -292,6 +292,31 @@ a { color: var(--blue); text-decoration: none; }
 a:hover { color: var(--blue-hover); text-decoration: underline; }
 a strong { color: inherit; }
 
+/* WCAG 1.4.1 (use of colour): links inside body text need a non-colour
+   indicator. Subtle underline by default, full-thickness on hover. */
+.lede a,
+p a,
+.post a,
+.comment-body a,
+.faq-item p a,
+.dp-hint a,
+.operator-text p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0, 51, 173, 0.4);
+}
+.lede a:hover,
+p a:hover,
+.post a:hover,
+.comment-body a:hover,
+.faq-item p a:hover,
+.dp-hint a:hover,
+.operator-text p a:hover {
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
+}
+
 /* External-link affordance */
 a[target="_blank"]::after {
   content: "↗";
