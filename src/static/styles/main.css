@@ -314,6 +314,17 @@ a.yt-card[target="_blank"]::after,
 img { max-width: 100%; height: auto; display: block; }
 
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  /* Section vertical spacing tightens on narrow viewports too */
+  .section { padding: 56px 0; }
+  /* Form cards lose some internal padding on mobile so fields aren't cramped */
+  .delegate-panel, .contact-form, .reassure-card { padding: 22px; }
+  .contact-form { gap: 14px; }
+  .cf-field input, .cf-field textarea { font-size: 16px; }
+  /* Stack hero CTAs full-width on the smallest screens */
+  .hero .ctas .btn { width: 100%; justify-content: center; }
+}
 
 .eyebrow {
   font-family: "Mulish", sans-serif;
@@ -367,6 +378,9 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+@media (max-width: 640px) {
+  .site-nav .inner { padding: 12px 20px; }
 }
 .site-nav .brand {
   font-family: "Poppins", sans-serif;
