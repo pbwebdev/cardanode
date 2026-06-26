@@ -7,7 +7,7 @@
   "scripts": {
     "build:mesh": "node build-mesh.js",
     "build:posts": "node build-posts.js",
-    "build": "node build.js && node build-mesh.js && node build-posts.js && node scripts/inline-css.mjs",
+    "build": "node scripts/build-favicons.mjs && node build.js && node build-mesh.js && node build-posts.js && node scripts/inline-css.mjs",
     "migrate": "node scripts/migrate-posts.mjs",
     "media": "node scripts/pull-media.mjs",
     "optimize": "node scripts/optimize-images.mjs",

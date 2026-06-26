@@ -279,7 +279,7 @@ async function handlePoolStats(ctx) {
 
 async function fetchPoolStats(ctx) {
   const cache = caches.default;
-  const cacheKey = new Request("https://cache.local/pool-stats/v8");
+  const cacheKey = new Request("https://cache.local/pool-stats/v9");
   const hit = await cache.match(cacheKey);
   if (hit) return hit.json();
 
@@ -714,12 +714,14 @@ function buildSparkline(points) {
           " ₳ (" + (deltaPct > 0 ? "+" : "") + deltaPct.toFixed(2) + "%)";
       const deltaDir = deltaAbs == null ? "flat" : deltaAbs > 0 ? "up" : deltaAbs < 0 ? "down" : "flat";
       const fill = isLast ? "url(#sp-bar-last)" : "url(#sp-bar)";
-      const titleId = `sp-t-${i}`;
       // Visible bar
       const bar = `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="${barRx.toFixed(1)}" fill="${fill}"/>`;
       // Full-column hit target so cursor catches the bar even at the top.
-      // Carries data attrs the JS tooltip consumes.
-      const hit = `<rect class="sp-hit" x="${(x - slotW * gapFrac / 2).toFixed(1)}" y="${PAD_T}" width="${slotW.toFixed(1)}" height="${innerH}" fill="transparent" tabindex="0" role="button" aria-describedby="${titleId}" data-epoch="${p.epoch}" data-stake="${ada}" data-delta="${deltaText}" data-delta-dir="${deltaDir}"><title id="${titleId}">Epoch ${p.epoch}: ${ada}${deltaText ? " (" + (deltaAbs > 0 ? "+" : "−") + deltaPct.toFixed(2) + "% vs prev)" : ""}</title></rect>`;
+      // Uses aria-label directly (no inner <title>) so SEO scanners that
+      // naively concatenate every <title> in the document don't read these
+      // as part of the page title.
+      const a11yLabel = `Epoch ${p.epoch}: ${ada}${deltaText ? " (" + (deltaAbs > 0 ? "+" : "−") + Math.abs(deltaPct).toFixed(2) + "% vs prev)" : ""}`;
+      const hit = `<rect class="sp-hit" x="${(x - slotW * gapFrac / 2).toFixed(1)}" y="${PAD_T}" width="${slotW.toFixed(1)}" height="${innerH}" fill="transparent" tabindex="0" role="button" aria-label="${a11yLabel}" data-epoch="${p.epoch}" data-stake="${ada}" data-delta="${deltaText}" data-delta-dir="${deltaDir}"></rect>`;
       return bar + hit;
     })
     .join("");

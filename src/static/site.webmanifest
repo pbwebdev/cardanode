@@ -1,0 +1,17 @@
+{
+  "name": "cardanode — ADAOZ Cardano Stake Pool Australia",
+  "short_name": "cardanode",
+  "description": "Australian Cardano stake pool ADAOZ. Delegate ADA on-chain to stake in a couple of clicks.",
+  "lang": "en-AU",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0033AD",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
