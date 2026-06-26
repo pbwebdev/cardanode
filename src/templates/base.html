@@ -62,9 +62,9 @@ https://meshwithus.com.au
 <!-- Structured data -->
 {{jsonLd}}
 
-<!-- Self-hosted fonts (declarations live in main.css) -->
-<link rel="preload" as="font" type="font/woff2" href="/fonts/1Ptvg83HX_SGhgqk3wot.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/fonts/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" crossorigin>
+<!-- Self-hosted fonts (declarations live in main.css). No preload; fonts
+     load via CSS discovery, text renders in metric-adjusted system
+     fallback first to keep CLS at zero on font swap. -->
 
 <link rel="stylesheet" href="/styles/main.css">
 </head>
