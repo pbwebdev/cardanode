@@ -187,8 +187,10 @@ function project(amount, weekly, aprPct, years) {
 // SVG area chart of ADA balance over the horizon, monthly sampling.
 // ADAOZ as filled area in brand blue, compare as a line in amber.
 function buildChart(amount, weekly, aprAdaoz, aprCompare, months, compareTicker) {
-  const W = 800, H = 320;
-  const PAD_L = 56, PAD_R = 16, PAD_T = 18, PAD_B = 30;
+  // Wider viewBox so the chart reads as a proper landscape area chart
+  // when given the full container width.
+  const W = 1200, H = 380;
+  const PAD_L = 72, PAD_R = 24, PAD_T = 24, PAD_B = 36;
   const innerW = W - PAD_L - PAD_R;
   const innerH = H - PAD_T - PAD_B;
   const n = Math.max(1, months);
@@ -228,7 +230,7 @@ function buildChart(amount, weekly, aprAdaoz, aprCompare, months, compareTicker)
   const gridY = yTicks.map((v) => {
     const y = yScale(v);
     return `<line x1="${PAD_L}" x2="${W - PAD_R}" y1="${y}" y2="${y}" stroke="#e3e8ef" stroke-width="1" stroke-dasharray="2 4"/>
-            <text x="${PAD_L - 8}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10" fill="#5b6477">${formatAdaShort(v)}</text>`;
+            <text x="${PAD_L - 10}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono,ui-monospace,monospace" font-size="13" fill="#5b6477">${formatAdaShort(v)}</text>`;
   }).join("");
 
   // X axis ticks (start, mid, end)
@@ -236,7 +238,7 @@ function buildChart(amount, weekly, aprAdaoz, aprCompare, months, compareTicker)
   const xTicks = xTickIdxs.map((m) => {
     const x = PAD_L + m * xStep;
     const label = m === 0 ? "today" : formatHorizonShort(m);
-    return `<text x="${x.toFixed(1)}" y="${H - 8}" text-anchor="${m === 0 ? "start" : m === n ? "end" : "middle"}" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10" fill="#5b6477">${label}</text>`;
+    return `<text x="${x.toFixed(1)}" y="${H - 10}" text-anchor="${m === 0 ? "start" : m === n ? "end" : "middle"}" font-family="JetBrains Mono,ui-monospace,monospace" font-size="13" fill="#5b6477">${label}</text>`;
   }).join("");
 
   const compareLayer = comparePts
@@ -245,8 +247,8 @@ function buildChart(amount, weekly, aprAdaoz, aprCompare, months, compareTicker)
 
   // Final-value chip on the ADAOZ line
   const lastA = adaozPts[adaozPts.length - 1];
-  const chipW = 84, chipH = 22;
-  const chipX = Math.min(W - PAD_R - chipW, Math.max(PAD_L, lastA[0] - chipW - 6));
+  const chipW = 110, chipH = 28;
+  const chipX = Math.min(W - PAD_R - chipW, Math.max(PAD_L, lastA[0] - chipW - 8));
   const chipY = Math.max(PAD_T, lastA[1] - chipH / 2);
 
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Projected ADA balance over time">
@@ -262,7 +264,7 @@ function buildChart(amount, weekly, aprAdaoz, aprCompare, months, compareTicker)
     ${compareLayer}
     <g>
       <rect x="${chipX}" y="${chipY}" width="${chipW}" height="${chipH}" rx="6" fill="#0033AD"/>
-      <text x="${chipX + chipW / 2}" y="${chipY + 15}" font-family="Poppins,system-ui,sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">${formatAdaShort(adaozSeries[adaozSeries.length - 1])} ₳</text>
+      <text x="${chipX + chipW / 2}" y="${chipY + 19}" font-family="Poppins,system-ui,sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">${formatAdaShort(adaozSeries[adaozSeries.length - 1])} ₳</text>
     </g>
     ${xTicks}
   </svg>`;
