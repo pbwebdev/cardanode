@@ -393,9 +393,11 @@ async function handleYouTube(env, ctx) {
 
   // The "uploads" playlist id for a channel is deterministic: UC… → UU…
   const uploadsId = "UU" + YOUTUBE_CHANNEL_ID.slice(2);
+  // _v query param is a CF upstream cache buster — bump if a previous
+  // failed response (e.g. a stale 403) got stuck in cache.
   const upstream =
     `https://www.googleapis.com/youtube/v3/playlistItems` +
-    `?part=snippet&playlistId=${uploadsId}&maxResults=6&key=${env.YOUTUBE_API_KEY}`;
+    `?part=snippet&playlistId=${uploadsId}&maxResults=6&key=${env.YOUTUBE_API_KEY}&_v=4`;
 
   let data;
   try {
