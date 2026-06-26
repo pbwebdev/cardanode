@@ -387,9 +387,9 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 12px;
 }
 .stake-trend-svg svg { display: block; width: 100%; height: auto; max-height: 240px; }
-.stake-trend-svg .sp-hit { cursor: pointer; transition: stroke 0.1s ease; }
+.stake-trend-svg .sp-hit { cursor: pointer; transition: fill 0.1s ease; }
 .stake-trend-svg .sp-hit:hover,
-.stake-trend-svg .sp-hit:focus { outline: none; stroke: rgba(0, 51, 173, .25); stroke-width: 2; }
+.stake-trend-svg .sp-hit:focus { outline: none; fill: rgba(0, 51, 173, .07); }
 .stake-trend-loading { color: var(--muted-2); font-size: 0.9rem; padding: 32px 0; text-align: center; }
 
 .sp-tooltip {
@@ -397,16 +397,21 @@ img { max-width: 100%; height: auto; display: block; }
   top: 0;
   left: 0;
   pointer-events: none;
-  background: var(--ink);
+  background: linear-gradient(180deg, #0a1530 0%, #16213a 100%);
   color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
   font-size: 0.85rem;
   line-height: 1.3;
-  box-shadow: 0 6px 20px rgba(15, 23, 41, .25);
+  box-shadow: 0 14px 38px rgba(15, 23, 41, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset;
   white-space: nowrap;
   z-index: 5;
+  min-width: 156px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.12s ease-out, transform 0.12s ease-out;
 }
+.sp-tooltip[data-visible="1"] { opacity: 1; transform: translateY(0); }
 .sp-tooltip::after {
   content: "";
   position: absolute;
@@ -415,17 +420,39 @@ img { max-width: 100%; height: auto; display: block; }
   transform: translateX(-50%) rotate(45deg);
   width: 10px;
   height: 10px;
-  background: var(--ink);
+  background: #16213a;
+  box-shadow: 1px 1px 0 0 rgba(255, 255, 255, .04) inset;
 }
 .sp-tt-epoch {
-  color: #9fb4d8;
-  font-size: 0.7rem;
+  color: #6f9bff;
+  font-family: "Mulish", sans-serif;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin-bottom: 2px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
-.sp-tt-stake { font-family: "Poppins", sans-serif; font-weight: 600; }
+.sp-tt-stake {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.sp-tt-delta {
+  display: inline-block;
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  color: #aab3ce;
+}
+.sp-tt-delta.up   { background: rgba(46, 175, 99, .18); color: #6ad08a; }
+.sp-tt-delta.down { background: rgba(216, 76, 71, .18); color: #ff8b85; }
+.sp-tt-delta:empty { display: none; }
 
 /* ============================================================
    POOL ID PILL

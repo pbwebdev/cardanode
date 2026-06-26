@@ -234,14 +234,15 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
       </div>
 
       <!-- CHART -->
-      <figure class="stake-trend" aria-label="Stake trend over the last 10 epochs">
-        <figcaption>Epoch stake trend · last 10 epochs</figcaption>
+      <figure class="stake-trend" aria-label="Stake trend over the last 20 epochs">
+        <figcaption>Epoch stake trend · last 20 epochs</figcaption>
         <div class="stake-trend-svg" data-live="sparkline">
           <div class="stake-trend-loading">Loading trend…</div>
         </div>
         <div class="sp-tooltip" role="tooltip" hidden>
           <div class="sp-tt-epoch"></div>
           <div class="sp-tt-stake"></div>
+          <div class="sp-tt-delta"></div>
         </div>
       </figure>
 
@@ -611,7 +612,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
   <div class="upper">
     <div>
       <div class="brand">cardano<span class="accent">de</span></div>
-      <p class="blurb">A small Australian Cardano stake pool run by Peter Bui. Reliable, security-first, and giving back to the community since 2021.</p>
+      <p class="blurb">An Australian Cardano stake pool run by Peter Bui. Reliable, security-first, and giving back to the community since 2021.</p>
     </div>
     <div>
       <div class="col-head">Pool</div>
@@ -637,7 +638,6 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
         <a href="https://x.com/astroboysoup" target="_blank" rel="noopener noreferrer">X / Twitter</a>
         <a href="https://www.linkedin.com/in/peterbui1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://meshwithus.com.au" target="_blank" rel="noopener noreferrer">Mesh With Us</a>
-        <a href="https://midnight.network" target="_blank" rel="noopener noreferrer">Midnight</a>
       </div>
     </div>
   </div>
@@ -652,6 +652,7 @@ Easter egg: open your DevTools console — or just type "mesh" anywhere on the p
 <script type="module" src="/scripts/delegate-panel.js"></script>
 <script type="module" src="/scripts/podcast.js"></script>
 <script type="module" src="/scripts/contact-form.js"></script>
+<script type="module" src="/scripts/sparkline-tooltip.js"></script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();

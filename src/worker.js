@@ -243,7 +243,7 @@ async function handlePoolStats(ctx) {
 
 async function fetchPoolStats(ctx) {
   const cache = caches.default;
-  const cacheKey = new Request("https://cache.local/pool-stats/v7");
+  const cacheKey = new Request("https://cache.local/pool-stats/v8");
   const hit = await cache.match(cacheKey);
   if (hit) return hit.json();
 
@@ -278,17 +278,20 @@ async function fetchPoolStats(ctx) {
     }
   } catch { /* swallow */ }
 
-  // Last 10 epochs for the sparkline + 10-epoch deltas.
-  const recent = history.slice(-10);
-  const first = recent[0];
-  const last = recent[recent.length - 1];
+  // Last 10 epochs power the headline trend chips; last 20 power the
+  // sparkline bar chart. Trends stay 10-epoch so existing copy still reads
+  // sensibly ("+12.7% over 10 epochs").
+  const recent10 = history.slice(-10);
+  const recent20 = history.slice(-20);
+  const first10 = recent10[0];
+  const last10 = recent10[recent10.length - 1];
 
   const stakeNow = p.live_stake ? Math.round(Number(p.live_stake) / 1_000_000) : null;
-  const stake10Ago = first?.active_stake ? Math.round(Number(first.active_stake) / 1_000_000) : null;
+  const stake10Ago = first10?.active_stake ? Math.round(Number(first10.active_stake) / 1_000_000) : null;
   const stakePct10 = (stakeNow != null && stake10Ago) ? ((stakeNow - stake10Ago) / stake10Ago) * 100 : null;
 
-  const delegatorsNow = last?.delegator_cnt ?? null;
-  const delegators10Ago = first?.delegator_cnt ?? null;
+  const delegatorsNow = last10?.delegator_cnt ?? null;
+  const delegators10Ago = first10?.delegator_cnt ?? null;
   const delegatorsDelta10 =
     delegatorsNow != null && delegators10Ago != null ? delegatorsNow - delegators10Ago : null;
 
@@ -321,12 +324,12 @@ async function fetchPoolStats(ctx) {
     // Trends
     delegators: delegatorsNow,
     delegators_delta_10: delegatorsDelta10,
-    epoch_start: first?.epoch_no ?? null,
-    epoch_end: last?.epoch_no ?? null,
+    epoch_start: first10?.epoch_no ?? null,
+    epoch_end: last10?.epoch_no ?? null,
     stake_pct_change_10: stakePct10,
     lifetime_roa: lifetimeRoa,
     recent_roa: recentRoa,
-    sparkline: recent.map((r) => ({
+    sparkline: recent20.map((r) => ({
       epoch: Number(r.epoch_no),
       stake_ada: Math.round(Number(r.active_stake || 0) / 1_000_000),
     })),
@@ -625,39 +628,30 @@ function formatDelegatorsTrend(stats) {
   return { text: `${arrow} ${sign}${v}${since}`, cls };
 }
 
-// Inline SVG sparkline of stake over the last N epochs. No preserveAspectRatio
-// override → scales uniformly so the curve isn't distorted on wide containers.
-// Smooth Catmull-Rom-style curve, gradient area fill, axis ticks and current-
-// value chip pinned to the last point.
+// Inline SVG bar chart of stake over the last N epochs. Bars carry rich
+// data attrs so the JS tooltip can show prev-epoch delta + colour-code it.
 function buildSparkline(points) {
   const W = 1000;
   const H = 260;
-  const PAD_L = 16, PAD_R = 16, PAD_T = 32, PAD_B = 36;
+  const PAD_L = 16, PAD_R = 16, PAD_T = 30, PAD_B = 36;
   const innerW = W - PAD_L - PAD_R;
   const innerH = H - PAD_T - PAD_B;
+  const n = points.length;
 
   const ys = points.map((p) => Number(p.stake_ada) || 0);
   const yMin = Math.min(...ys);
   const yMax = Math.max(...ys);
-  const yRange = Math.max(1, yMax - yMin);
-  // Add a small headroom (5%) so the line doesn't kiss the top edge.
-  const yRangeP = yRange * 1.1;
-  const yMidShift = (yRangeP - yRange) / 2;
+  // Anchor the bars to a baseline a touch below yMin so even the smallest
+  // bar still shows some height (no zero-height bars).
+  const baseline = yMin - (yMax - yMin) * 0.08;
+  const yRange = Math.max(1, yMax - baseline);
 
-  const xStep = innerW / Math.max(1, points.length - 1);
-  const project = (i, y) => [
-    PAD_L + i * xStep,
-    PAD_T + innerH - ((y - yMin + yMidShift) / yRangeP) * innerH,
-  ];
-  const coords = points.map((_, i) => project(i, ys[i]));
+  // Bar geometry: thin gaps between bars, rounded top via rx on rect.
+  const gapFrac = 0.18;
+  const slotW = innerW / n;
+  const barW = slotW * (1 - gapFrac);
+  const barRx = Math.min(4, barW * 0.18);
 
-  // Smooth curve via centripetal Catmull-Rom → cubic bezier.
-  const path = catmullRomPath(coords);
-  const lastX = coords[coords.length - 1][0];
-  const firstX = coords[0][0];
-  const areaPath = `${path} L${lastX.toFixed(1)},${PAD_T + innerH} L${firstX.toFixed(1)},${PAD_T + innerH} Z`;
-
-  // Light horizontal gridlines (3 of them, no labels)
   const grid = [0.25, 0.5, 0.75]
     .map((f) => {
       const y = PAD_T + innerH * f;
@@ -665,80 +659,58 @@ function buildSparkline(points) {
     })
     .join("");
 
-  // Visible markers + a large highlighted dot on the latest point.
-  // Each point also gets a transparent 14px hit-target so the tooltip
-  // is easy to trigger on mobile + thin pointers.
-  const dots = coords
-    .map(([x, y], i) => {
-      const ep = points[i].epoch;
-      const ada = compactAda(ys[i]) + " ₳";
+  const bars = points
+    .map((p, i) => {
+      const v = ys[i];
+      const h = ((v - baseline) / yRange) * innerH;
+      const x = PAD_L + i * slotW + (slotW * gapFrac) / 2;
+      const y = PAD_T + innerH - h;
+      const isLast = i === n - 1;
+      const prev = i > 0 ? ys[i - 1] : null;
+      const deltaAbs = prev != null ? v - prev : null;
+      const deltaPct = prev != null && prev !== 0 ? ((v - prev) / prev) * 100 : null;
+      const ada = compactAda(v) + " ₳";
+      const deltaText = deltaPct == null
+        ? ""
+        : (deltaAbs > 0 ? "+" : "") + compactAda(Math.abs(deltaAbs)).replace("+", "") +
+          " ₳ (" + (deltaPct > 0 ? "+" : "") + deltaPct.toFixed(2) + "%)";
+      const deltaDir = deltaAbs == null ? "flat" : deltaAbs > 0 ? "up" : deltaAbs < 0 ? "down" : "flat";
+      const fill = isLast ? "url(#sp-bar-last)" : "url(#sp-bar)";
       const titleId = `sp-t-${i}`;
-      const isLast = i === coords.length - 1;
-      const visible = isLast
-        ? `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="#0033AD" opacity="0.18"/>
-           <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#fff" stroke="#0033AD" stroke-width="2.5"/>`
-        : `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#0033AD"/>`;
-      // Transparent hit-target with native SVG <title> (screen readers +
-      // free OS-level tooltip) and data attrs for the JS tooltip.
-      const hit = `<circle class="sp-hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="14" fill="transparent" stroke="transparent" tabindex="0" role="button" aria-describedby="${titleId}" data-epoch="${ep}" data-stake="${ada}"><title id="${titleId}">Epoch ${ep}: ${ada}</title></circle>`;
-      return visible + hit;
+      // Visible bar
+      const bar = `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="${barRx.toFixed(1)}" fill="${fill}"/>`;
+      // Full-column hit target so cursor catches the bar even at the top.
+      // Carries data attrs the JS tooltip consumes.
+      const hit = `<rect class="sp-hit" x="${(x - slotW * gapFrac / 2).toFixed(1)}" y="${PAD_T}" width="${slotW.toFixed(1)}" height="${innerH}" fill="transparent" tabindex="0" role="button" aria-describedby="${titleId}" data-epoch="${p.epoch}" data-stake="${ada}" data-delta="${deltaText}" data-delta-dir="${deltaDir}"><title id="${titleId}">Epoch ${p.epoch}: ${ada}${deltaText ? " (" + (deltaAbs > 0 ? "+" : "−") + deltaPct.toFixed(2) + "% vs prev)" : ""}</title></rect>`;
+      return bar + hit;
     })
     .join("");
 
-  // Current value chip above the last point
-  const lastVal = compactAda(ys[ys.length - 1]) + " ₳";
-  const [lx, ly] = coords[coords.length - 1];
-  const chipW = 78, chipH = 22;
-  const chipX = Math.min(W - PAD_R - chipW, Math.max(PAD_L, lx - chipW / 2));
-  const chipY = Math.max(4, ly - chipH - 10);
-  const chip = `
-    <g>
-      <rect x="${chipX}" y="${chipY}" width="${chipW}" height="${chipH}" rx="6" fill="#0033AD"/>
-      <text x="${chipX + chipW / 2}" y="${chipY + 15}" font-family="Rubik,system-ui,sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">${lastVal}</text>
-    </g>`;
-
-  // Epoch axis labels: first, middle, last
-  const midIdx = Math.floor(points.length / 2);
-  const labels = [0, midIdx, points.length - 1]
-    .map((i) => {
-      const [x] = coords[i];
-      const anchor = i === 0 ? "start" : i === points.length - 1 ? "end" : "middle";
-      return `<text x="${x.toFixed(1)}" y="${H - 12}" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#5a6577" text-anchor="${anchor}">E${points[i].epoch}</text>`;
+  // Axis labels: first, ~1/3, ~2/3, last
+  const idxs = [0, Math.floor(n / 3), Math.floor((2 * n) / 3), n - 1];
+  const labels = idxs
+    .map((i, slot) => {
+      const x = PAD_L + i * slotW + slotW / 2;
+      const anchor = slot === 0 ? "start" : slot === idxs.length - 1 ? "end" : "middle";
+      return `<text x="${x.toFixed(1)}" y="${H - 12}" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#5b6477" text-anchor="${anchor}">E${points[i].epoch}</text>`;
     })
     .join("");
 
-  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live stake trend, epoch ${points[0]?.epoch} to ${points[points.length - 1]?.epoch}, current ${lastVal}">
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live stake bar chart, ${n} epochs from E${points[0]?.epoch} to E${points[n - 1]?.epoch}">
     <defs>
-      <linearGradient id="sp-area" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#0033AD" stop-opacity="0.22"/>
-        <stop offset="100%" stop-color="#0033AD" stop-opacity="0"/>
+      <linearGradient id="sp-bar" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#0033AD"/>
+        <stop offset="100%" stop-color="#3d6dd6"/>
+      </linearGradient>
+      <linearGradient id="sp-bar-last" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#001f6e"/>
+        <stop offset="100%" stop-color="#0033AD"/>
       </linearGradient>
     </defs>
     ${grid}
-    <path d="${areaPath}" fill="url(#sp-area)"/>
-    <path d="${path}" fill="none" stroke="#0033AD" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-    ${dots}
-    ${chip}
+    ${bars}
     ${labels}
   </svg>`;
-}
-
-// Catmull-Rom (centripetal-ish) → cubic bezier path string.
-function catmullRomPath(pts) {
-  if (pts.length < 2) return "";
-  const d = [`M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`];
-  for (let i = 0; i < pts.length - 1; i++) {
-    const p0 = pts[i - 1] || pts[i];
-    const p1 = pts[i];
-    const p2 = pts[i + 1];
-    const p3 = pts[i + 2] || p2;
-    const c1x = p1[0] + (p2[0] - p0[0]) / 6;
-    const c1y = p1[1] + (p2[1] - p0[1]) / 6;
-    const c2x = p2[0] - (p3[0] - p1[0]) / 6;
-    const c2y = p2[1] - (p3[1] - p1[1]) / 6;
-    d.push(`C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`);
-  }
-  return d.join(" ");
 }
 
 // "61,272,784" → "61.2M" (millions, 1dp). For values >= 1B uses "1.2B".
