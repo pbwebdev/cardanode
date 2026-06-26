@@ -397,7 +397,7 @@ async function handleYouTube(env, ctx) {
   // failed response (e.g. a stale 403) got stuck in cache.
   const upstream =
     `https://www.googleapis.com/youtube/v3/playlistItems` +
-    `?part=snippet&playlistId=${uploadsId}&maxResults=6&key=${env.YOUTUBE_API_KEY}&_v=4`;
+    `?part=snippet&playlistId=${uploadsId}&maxResults=6&key=${env.YOUTUBE_API_KEY}&_v=5`;
 
   let data;
   try {
