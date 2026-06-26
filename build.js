@@ -8,9 +8,10 @@
     - src/content/     migrated WordPress posts + comments
     - src/templates/   page templates for build-posts.js
 */
-import { writeFileSync, mkdirSync, cpSync, rmSync, existsSync, readdirSync, statSync } from "node:fs";
+import { writeFileSync, readFileSync, mkdirSync, cpSync, rmSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { execSync } from "node:child_process";
+import * as esbuild from "esbuild";
 
 /* ---------------- version stamp ---------------- */
 
@@ -58,6 +59,29 @@ mkdirSync(PUBLIC, { recursive: true });
 if (existsSync(STATIC)) {
   cpSync(STATIC, PUBLIC, { recursive: true });
   console.log(`✓ copied ${STATIC}/ -> ${PUBLIC}/ (${countFiles(STATIC)} files)`);
+}
+
+/* ---------------- minify CSS + JS in place ---------------- */
+
+await minifyAsset(join(PUBLIC, "styles/main.css"), "css");
+for (const f of readdirSync(join(PUBLIC, "scripts")).filter((n) => n.endsWith(".js"))) {
+  await minifyAsset(join(PUBLIC, "scripts", f), "js");
+}
+
+async function minifyAsset(path, loader) {
+  if (!existsSync(path)) return;
+  const src = readFileSync(path, "utf8");
+  const before = src.length;
+  const result = await esbuild.transform(src, {
+    loader,
+    minify: true,
+    target: loader === "js" ? "es2020" : undefined,
+    legalComments: "none",
+  });
+  writeFileSync(path, result.code);
+  const after = result.code.length;
+  const pct = ((1 - after / before) * 100).toFixed(1);
+  console.log(`  ✓ minified ${path.replace(PUBLIC + "/", "")}: ${before.toLocaleString()}B → ${after.toLocaleString()}B (-${pct}%)`);
 }
 
 function countFiles(dir) {

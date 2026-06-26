@@ -69,9 +69,10 @@ function withCacheHeaders(res, pathname) {
   } else if (/\.(?:woff2?|otf|ttf|eot)$/i.test(pathname)) {
     cc = "public, max-age=31536000, immutable";
   } else if (/\.(?:css|m?js)$/i.test(pathname)) {
-    // CSS + JS: 1h fresh + 1d SWR. Long enough to amortise, short enough
-    // that a deploy is fully live within an hour without filename hashing.
-    cc = "public, max-age=3600, stale-while-revalidate=86400";
+    // CSS + JS: 1y immutable. Cache-busting is handled at the HTML layer
+    // by appending ?v=<build-sha> to every local <link>/<script> URL on
+    // each request (see transformHtml in handleRoot + serveAsset).
+    cc = "public, max-age=31536000, immutable";
   } else if (pathname === "/sitemap.xml" || pathname === "/robots.txt") {
     cc = "public, max-age=3600";
   } else if (/\.(?:json|txt|xml|webmanifest)$/i.test(pathname)) {
@@ -113,18 +114,41 @@ function isHtmlPath(pathname) {
   return true;
 }
 
-function maybeNoindex(res, url) {
-  if (isProdHost(url)) return res;
+// Single HTML transform: per-deploy cache-busting on local CSS/JS URLs
+// (so PSI sees 1y cache without staleness on deploy) + noindex on dev hosts.
+function transformHtml(res, url) {
   const ct = res.headers.get("content-type") || "";
   if (!ct.includes("text/html")) return res;
-  // Every static HTML page in this site has a <meta name="robots"> tag,
-  // so we always replace rather than append (avoids ordering issues with
-  // HTMLRewriter firing the <head> open event before inner elements).
-  return new HTMLRewriter()
-    .on('meta[name="robots"]', {
+  const sha = VERSION.sha && VERSION.sha !== "dev" ? VERSION.sha : null;
+  const onProd = isProdHost(url);
+  if (!sha && onProd) return res; // nothing to rewrite
+
+  let rw = new HTMLRewriter();
+  if (sha) {
+    rw = rw
+      .on('link[rel~="stylesheet"][href^="/"]', {
+        element(el) { stampVersion(el, "href", sha); },
+      })
+      .on('script[src^="/"]', {
+        element(el) { stampVersion(el, "src", sha); },
+      });
+  }
+  if (!onProd) {
+    rw = rw.on('meta[name="robots"]', {
       element(el) { el.setAttribute("content", "noindex, nofollow"); },
-    })
-    .transform(res);
+    });
+  }
+  return rw.transform(res);
+}
+
+// Kept as alias for older callers — handleRoot used to call maybeNoindex.
+const maybeNoindex = transformHtml;
+
+function stampVersion(el, attr, sha) {
+  const v = el.getAttribute(attr) || "";
+  if (!v || v.includes("?")) return;            // skip if external or already versioned
+  if (!v.match(/\.(?:css|m?js)$/i)) return;     // only CSS/JS
+  el.setAttribute(attr, `${v}?v=${sha}`);
 }
 
 function handleRobots(url) {
@@ -229,6 +253,18 @@ async function handleRoot(request, env, ctx) {
     rewriter.on('meta[name="robots"]', {
       element(el) { el.setAttribute("content", "noindex, nofollow"); },
     });
+  }
+  // Per-deploy ?v=<sha> versioning on local CSS/JS URLs so they can be
+  // safely 1y-cached. SHA is dev/empty during local builds → skipped then.
+  const sha = VERSION.sha && VERSION.sha !== "dev" ? VERSION.sha : null;
+  if (sha) {
+    rewriter
+      .on('link[rel~="stylesheet"][href^="/"]', {
+        element(el) { stampVersion(el, "href", sha); },
+      })
+      .on('script[src^="/"]', {
+        element(el) { stampVersion(el, "src", sha); },
+      });
   }
 
   return rewriter.transform(assetRes);
