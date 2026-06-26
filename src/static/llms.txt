@@ -1,6 +1,6 @@
 # cardanode.com.au — Cardano Stake Pool Australia
 
-> ADAOZ is an Australian Cardano stake pool. Delegate ADA to ADAOZ to stake ADA on the Cardano blockchain. Run by Peter Bui, Cardano Ambassador and Midnight Ambassador, host of the Learn Cardano YouTube channel. Based in Brisbane, Australia, operating since 20 February 2021.
+> ADAOZ is an Australian Cardano stake pool. Delegate ADA to ADAOZ to stake ADA on the Cardano blockchain. Run by Peter Bui, Cardano Ambassador and Midnight Ambassador, host of the Learn Cardano YouTube channel. Based on the Gold Coast, Queensland, Australia, operating since 20 February 2021.
 
 ## Primary topics
 
@@ -16,7 +16,7 @@
 - **Pool name:** ADAOZ
 - **Pool bech32 ID:** `pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze`
 - **Operator:** Peter Bui (Cardano Ambassador, Midnight Ambassador, founder of Mesh With Us)
-- **Location:** Brisbane, Queensland, Australia
+- **Location:** Riva Offices, 21 Crombie Ave, Bundall, QLD 4217, Gold Coast, Australia
 - **Operating since:** 20 February 2021
 - **Pledge:** 60,000 ₳
 - **Margin:** 1.0%
