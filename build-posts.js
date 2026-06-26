@@ -457,6 +457,100 @@ console.log(
   `✓ Generated ${posts.length} post pages + ${totalPages} blog index pages + ${categories.length} category indexes.`,
 );
 
+/* ---------------- HTML sitemap at /sitemap/ ---------------- */
+
+function renderHtmlSitemap() {
+  const sectionLinks = [
+    { href: "/", label: "Home" },
+    { href: "/#operator", label: "About — the operator (Peter Bui)" },
+    { href: "/#delegate", label: "Delegate ADA to ADAOZ" },
+    { href: "/#faq", label: "FAQ — Cardano staking questions" },
+    { href: "/#podcast", label: "Learn Cardano Podcast" },
+    { href: "/#contact", label: "Contact" },
+  ];
+
+  const catLinks = categories.map((c) => ({
+    href: `/blog/category/${c.slug}/`,
+    label: c.name,
+    count: c.posts.length,
+  }));
+
+  const postLinks = posts.map((p) => ({
+    href: `/${p.slug}/`,
+    label: p.title || p.slug,
+    date: p.date || "",
+  }));
+
+  const content = `<section class="container section">
+  <div class="section-head">
+    <div class="eyebrow">Sitemap</div>
+    <h1>Every page on cardanode.com.au</h1>
+    <p class="lede">A complete index of the site. Looking for the machine-readable version? <a href="/sitemap.xml">/sitemap.xml</a> is here too.</p>
+  </div>
+
+  <div class="sitemap-block">
+    <h2>Main sections</h2>
+    <ul class="sitemap-list">
+      ${sectionLinks.map((l) => `<li><a href="${l.href}">${escapeHtml(l.label)}</a></li>`).join("\n      ")}
+    </ul>
+  </div>
+
+  <div class="sitemap-block">
+    <h2>Blog</h2>
+    <ul class="sitemap-list">
+      <li><a href="/blog/"><strong>All articles</strong> (${posts.length} posts)</a></li>
+    </ul>
+    <h3 style="margin-top:24px;">Categories</h3>
+    <ul class="sitemap-list sitemap-cats">
+      ${catLinks
+        .map((c) => `<li><a href="${c.href}">${escapeHtml(c.label)}</a> <span class="sm-count">${c.count}</span></li>`)
+        .join("\n      ")}
+    </ul>
+    <h3 style="margin-top:24px;">All ${posts.length} posts</h3>
+    <ul class="sitemap-list sitemap-posts">
+      ${postLinks
+        .map((p) => `<li><a href="${p.href}">${escapeHtml(p.label)}</a>${p.date ? ` <span class="sm-date">${escapeHtml(p.date)}</span>` : ""}</li>`)
+        .join("\n      ")}
+    </ul>
+  </div>
+
+  <div class="sitemap-block">
+    <h2>Site & tooling</h2>
+    <ul class="sitemap-list">
+      <li><a href="/sitemap.xml">XML sitemap (/sitemap.xml)</a></li>
+      <li><a href="/robots.txt">robots.txt</a></li>
+      <li><a href="/llms.txt">llms.txt</a> — AI / LLM crawler summary</li>
+    </ul>
+  </div>
+</section>`;
+
+  const canonical = `${SITE}/sitemap/`;
+  const html = render(baseTpl, {
+    title: "Sitemap · ADAOZ Cardano Stake Pool Australia",
+    description: "Complete index of every page on cardanode.com.au — sections, blog categories, and all 82 articles. Also linked at /sitemap.xml for crawlers.",
+    ogTitle: "Sitemap · cardanode",
+    ogImageAbs: `${SITE}/images/opengraph.png`,
+    canonical,
+    articleMeta: "",
+    jsonLd: `<script type="application/ld+json">${JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${canonical}#sitemap`,
+      name: "Sitemap",
+      url: canonical,
+      inLanguage: "en-AU",
+      isPartOf: { "@type": "WebSite", "@id": `${SITE}/#website` },
+    })}</script>`,
+    content,
+  });
+
+  mkdirSync(join(OUT, "sitemap"), { recursive: true });
+  writeFileSync(join(OUT, "sitemap/index.html"), html);
+  console.log(`✓ HTML sitemap at /sitemap/ (${sectionLinks.length} sections + ${categories.length} cats + ${posts.length} posts).`);
+}
+
+renderHtmlSitemap();
+
 /* ---------------- sitemap.xml ---------------- */
 
 const sitemapUrls = [];
@@ -464,7 +558,7 @@ const today = new Date().toISOString().slice(0, 10);
 
 sitemapUrls.push({ loc: `${SITE}/`, lastmod: today, priority: "1.0", changefreq: "weekly" });
 sitemapUrls.push({ loc: `${SITE}/blog/`, lastmod: today, priority: "0.9", changefreq: "weekly" });
-sitemapUrls.push({ loc: `${SITE}/contact-us/`, lastmod: today, priority: "0.4", changefreq: "yearly" });
+sitemapUrls.push({ loc: `${SITE}/sitemap/`, lastmod: today, priority: "0.3", changefreq: "weekly" });
 
 for (let p = 2; p <= totalPages; p++) {
   sitemapUrls.push({ loc: `${SITE}/blog/page/${p}/`, lastmod: today, priority: "0.6", changefreq: "weekly" });
