@@ -26,6 +26,7 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/pool-stats") return handlePoolStats(ctx);
+    if (url.pathname === "/api/pool-info") return handlePoolInfo(url, ctx);
     if (url.pathname === "/api/account-info") return handleAccountInfo(url, ctx);
     if (url.pathname === "/api/youtube") return handleYouTube(env, ctx);
     if (url.pathname === "/api/contact" && request.method === "POST")
@@ -377,6 +378,98 @@ async function fetchPoolStats(ctx) {
   const cached = json(out, 200, { "cache-control": "public, max-age=86400" });
   ctx.waitUntil(cache.put(cacheKey, cached.clone()));
   return out;
+}
+
+/* ---------------- Pool lookup (any pool, by ID or ticker) ---------------- */
+// Used by the staking calculator on the post page so visitors can compare
+// ADAOZ's APR against any other Cardano stake pool.
+
+async function handlePoolInfo(url, ctx) {
+  const idParam = (url.searchParams.get("id") || "").trim();
+  const tickerParam = (url.searchParams.get("ticker") || "").trim().toUpperCase();
+  if (!idParam && !tickerParam) return json({ error: "missing_id_or_ticker" }, 400);
+
+  // Cache by normalized lookup key.
+  const cacheKey = new Request(
+    `https://cache.local/pool-info/v1/${idParam || `ticker:${tickerParam}`}`,
+  );
+  const cache = caches.default;
+  const hit = await cache.match(cacheKey);
+  if (hit) return hit;
+
+  let poolId = idParam;
+
+  // If only ticker provided, look it up.
+  if (!poolId) {
+    if (!/^[A-Z0-9]{1,8}$/.test(tickerParam)) return json({ error: "invalid_ticker" }, 400);
+    const lookupRes = await fetch(
+      `${KOIOS}/pool_list?ticker=eq.${encodeURIComponent(tickerParam)}&select=pool_id_bech32,ticker,pool_status&limit=5`,
+      { headers: { accept: "application/json" } },
+    );
+    if (!lookupRes.ok) return json({ error: "ticker_lookup_failed", status: lookupRes.status }, 502);
+    const rows = await lookupRes.json();
+    const active = Array.isArray(rows) ? rows.find((r) => r.pool_status === "registered") || rows[0] : null;
+    if (!active?.pool_id_bech32) return json({ error: "ticker_not_found", ticker: tickerParam }, 404);
+    poolId = active.pool_id_bech32;
+  }
+
+  if (!/^pool1[0-9a-z]{50,}$/.test(poolId)) return json({ error: "invalid_pool_id" }, 400);
+
+  // Fetch /pool_info (POST + array) and /pool_history (GET + singular) in parallel.
+  const [infoRes, histRes] = await Promise.all([
+    fetch(`${KOIOS}/pool_info`, {
+      method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify({ _pool_bech32_ids: [poolId] }),
+    }),
+    fetch(`${KOIOS}/pool_history?_pool_bech32=${poolId}`, {
+      headers: { accept: "application/json" },
+    }),
+  ]);
+
+  if (!infoRes.ok) return json({ error: "pool_info_failed", status: infoRes.status }, 502);
+  const infoArr = await infoRes.json();
+  const p = Array.isArray(infoArr) ? infoArr[0] : null;
+  if (!p) return json({ error: "pool_not_found" }, 404);
+
+  let lifetimeRoa = null;
+  let recentRoa = null;
+  if (histRes.ok) {
+    try {
+      const history = (await histRes.json()) || [];
+      const rosVals = history.map((r) => Number(r.epoch_ros)).filter((v) => Number.isFinite(v) && v > 0);
+      if (rosVals.length) lifetimeRoa = rosVals.reduce((a, b) => a + b, 0) / rosVals.length;
+      const sorted = [...history].sort((a, b) => Number(b.epoch_no) - Number(a.epoch_no));
+      for (const r of sorted) {
+        const v = Number(r.epoch_ros);
+        if (Number.isFinite(v) && v > 0) { recentRoa = v; break; }
+      }
+    } catch { /* graceful */ }
+  }
+
+  const out = {
+    pool_id: poolId,
+    ticker: p.meta_json?.ticker || null,
+    name: p.meta_json?.name || null,
+    description: p.meta_json?.description || null,
+    homepage: p.meta_json?.homepage || null,
+    margin: p.margin ?? null,
+    fixed_cost_ada: p.fixed_cost ? Math.round(Number(p.fixed_cost) / 1_000_000) : null,
+    pledge_ada: p.pledge ? Math.round(Number(p.pledge) / 1_000_000) : null,
+    live_stake_ada: p.live_stake ? Math.round(Number(p.live_stake) / 1_000_000) : null,
+    active_stake_ada: p.active_stake ? Math.round(Number(p.active_stake) / 1_000_000) : null,
+    live_saturation: p.live_saturation ?? null,
+    block_count: p.block_count ?? null,
+    lifetime_roa: lifetimeRoa,
+    recent_roa: recentRoa,
+    fetched_at: new Date().toISOString(),
+  };
+
+  // Cache 6h — pool stats are slow-moving, and the calculator UI doesn't
+  // need to be perfectly fresh.
+  const response = json(out, 200, { "cache-control": "public, max-age=21600" });
+  ctx.waitUntil(cache.put(cacheKey, response.clone()));
+  return response;
 }
 
 /* ---------------- YouTube (Data API v3) ---------------- */
