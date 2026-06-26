@@ -1317,7 +1317,16 @@ img { max-width: 100%; height: auto; display: block; }
 .sc-card-mini > div { font-size: 0.82rem; color: var(--muted-2); }
 .sc-card-mini strong { display: block; color: var(--ink); font-family: "Poppins", sans-serif; font-weight: 600; font-size: 0.95rem; margin-top: 2px; }
 
-.sc-compare-input-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.sc-compare-block { display: flex; flex-direction: column; gap: 6px; }
+.sc-compare-label {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.sc-compare-input-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 2px; }
 .sc-compare-input-row input {
   flex: 1;
   min-width: 200px;

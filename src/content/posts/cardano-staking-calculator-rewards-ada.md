@@ -11,59 +11,7 @@ youtube: []
 ---
 Work out what your ADA could earn over time. Defaults to **ADAOZ's lifetime average ROA** (pulled live from Koios). Enter your stake, drag the slider for time horizon, and optionally compare against another pool by ticker or pool ID.
 
-<div id="staking-calc" class="staking-calc">
-  <div class="sc-grid">
-    <div class="sc-inputs">
-      <div class="sc-field">
-        <label for="sc-amount">Your ADA</label>
-        <input id="sc-amount" type="number" min="0" step="1" value="10000" inputmode="decimal">
-      </div>
-      <div class="sc-field">
-        <label for="sc-years">Time horizon</label>
-        <div class="sc-slider-wrap">
-          <input id="sc-years" type="range" min="1" max="120" step="1" value="36" aria-describedby="sc-years-label">
-          <span id="sc-years-label" class="sc-horizon-out">3 years</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sc-results has-compare" aria-live="polite">
-      <div class="sc-card adaoz">
-        <div class="sc-card-head">
-          <div class="sc-card-name">ADAOZ · Australia's Cardano stake pool</div>
-          <div class="sc-card-apr"><span id="sc-adaoz-apr">—</span> APR</div>
-        </div>
-        <div class="sc-card-final" id="sc-adaoz-final">—</div>
-        <div class="sc-card-rewards">incl. <strong id="sc-adaoz-rewards">—</strong> in rewards</div>
-        <div class="sc-card-mini">
-          <div>Per epoch (5 days)<strong id="sc-adaoz-per-epoch">—</strong></div>
-          <div>Per year (avg.)<strong id="sc-adaoz-per-year">—</strong></div>
-        </div>
-      </div>
-
-      <div class="sc-card" id="sc-compare-card" hidden>
-        <div class="sc-card-head">
-          <div class="sc-card-name" id="sc-compare-name">—</div>
-          <div class="sc-card-apr"><span id="sc-compare-apr">—</span> APR</div>
-        </div>
-        <div class="sc-card-final" id="sc-compare-final">—</div>
-        <div class="sc-card-rewards">incl. <strong id="sc-compare-rewards">—</strong> in rewards</div>
-        <div id="sc-compare-delta" class="sc-delta flat">—</div>
-      </div>
-    </div>
-
-    <div>
-      <label for="sc-compare-input" class="sc-field"><span style="font-family:'Mulish';font-weight:700;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:#555f73;">Compare another pool</span></label>
-      <div class="sc-compare-input-row">
-        <input id="sc-compare-input" type="text" placeholder="Ticker (e.g. ADAOZ) or pool ID (pool1…)" autocomplete="off">
-        <button id="sc-compare-btn" class="btn" type="button">Compare</button>
-      </div>
-      <p id="sc-compare-status" class="sc-status"></p>
-    </div>
-
-    <p class="sc-foot">APR is the pool's <strong>lifetime average ROA</strong> from Koios — every epoch since the pool began producing blocks. Compounding assumes rewards are restaked each epoch (Cardano rewards auto-compound, so this matches reality). Doesn't include the one-off 2 ₳ stake-key registration deposit or ~0.2 ₳ delegation fee — both are refundable / paid once.</p>
-  </div>
-</div>
+<div id="staking-calc" class="staking-calc"><div class="sc-grid"><div class="sc-inputs"><div class="sc-field"><label for="sc-amount">Your ADA</label><input id="sc-amount" type="number" min="0" step="1" value="10000" inputmode="decimal"></div><div class="sc-field"><label for="sc-years">Time horizon</label><div class="sc-slider-wrap"><input id="sc-years" type="range" min="1" max="120" step="1" value="36" aria-describedby="sc-years-label"><span id="sc-years-label" class="sc-horizon-out">3 years</span></div></div></div><div class="sc-results has-compare" aria-live="polite"><div class="sc-card adaoz"><div class="sc-card-head"><div class="sc-card-name">ADAOZ · Australia's Cardano stake pool</div><div class="sc-card-apr"><span id="sc-adaoz-apr">—</span> APR</div></div><div class="sc-card-final" id="sc-adaoz-final">—</div><div class="sc-card-rewards">incl. <strong id="sc-adaoz-rewards">—</strong> in rewards</div><div class="sc-card-mini"><div>Per epoch (5 days)<strong id="sc-adaoz-per-epoch">—</strong></div><div>Per year (avg.)<strong id="sc-adaoz-per-year">—</strong></div></div></div><div class="sc-card" id="sc-compare-card" hidden><div class="sc-card-head"><div class="sc-card-name" id="sc-compare-name">—</div><div class="sc-card-apr"><span id="sc-compare-apr">—</span> APR</div></div><div class="sc-card-final" id="sc-compare-final">—</div><div class="sc-card-rewards">incl. <strong id="sc-compare-rewards">—</strong> in rewards</div><div id="sc-compare-delta" class="sc-delta flat">—</div></div></div><div class="sc-compare-block"><label for="sc-compare-input" class="sc-compare-label">Compare another pool</label><div class="sc-compare-input-row"><input id="sc-compare-input" type="text" placeholder="Ticker (e.g. ADAOZ) or pool ID (pool1…)" autocomplete="off"><button id="sc-compare-btn" class="btn" type="button">Compare</button></div><p id="sc-compare-status" class="sc-status"></p></div><p class="sc-foot">APR is the pool's <strong>lifetime average ROA</strong> from Koios — every epoch since the pool began producing blocks. Compounding assumes rewards are restaked each epoch (Cardano rewards auto-compound, so this matches reality). Doesn't include the one-off 2 ₳ stake-key registration deposit or ~0.2 ₳ delegation fee — both are refundable / paid once.</p></div></div>
 
 <script type="module" src="/scripts/staking-calculator.js"></script>
 
