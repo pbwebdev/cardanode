@@ -1357,6 +1357,18 @@ img { max-width: 100%; height: auto; display: block; }
   min-height: 280px;
 }
 .sc-chart svg { width: 100%; height: auto; display: block; }
+
+/* Let the staking calculator bleed past the post body's 760px max-width so
+   the chart has real room. Stays inside the page container on desktop, and
+   collapses cleanly on mobile. */
+.post .staking-calc {
+  width: min(1080px, calc(100vw - 48px));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 900px) {
+  .post .staking-calc { width: 100%; margin-left: 0; transform: none; }
+}
 .sc-legend {
   display: flex;
   flex-wrap: wrap;
