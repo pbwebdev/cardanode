@@ -1,0 +1,57 @@
+# cardanode.com.au — Cardano Stake Pool Australia
+
+> ADAOZ is an Australian Cardano stake pool. Delegate ADA to ADAOZ to stake ADA on the Cardano blockchain. Run by Peter Bui, Cardano Ambassador and Midnight Ambassador, host of the Learn Cardano YouTube channel. Based in Brisbane, Australia, operating since 20 February 2021.
+
+## Primary topics
+
+- Cardano Stake Pool Australia (ADAOZ)
+- How to delegate ADA to a Cardano stake pool
+- How to stake ADA (Lace, Eternl, Nami, Typhon, NuFi, Begin, Yoroi wallets — any CIP-30 wallet)
+- Cardano staking rewards (earned every epoch, ~5 days)
+- One-off 2 ADA stake-key registration deposit (refundable on de-registration)
+- Cardano governance, Midnight sidechain, NIGHT token allocations
+
+## Key facts
+
+- **Pool name:** ADAOZ
+- **Pool bech32 ID:** `pool1vev8z03vh7jwx3mfrgzrt9fltt97nupaxv8ffj4r5r8mgwts5ze`
+- **Operator:** Peter Bui (Cardano Ambassador, Midnight Ambassador, founder of Mesh With Us)
+- **Location:** Brisbane, Queensland, Australia
+- **Operating since:** 20 February 2021
+- **Pledge:** 60,000 ₳
+- **Margin:** 1.0%
+- **Fixed fee:** 340 ₳ per epoch
+- **Live stats endpoint:** https://cardanode.com.au/api/pool-stats (JSON, refreshed daily from Koios)
+
+## Pages
+
+- [Home — Cardano Stake Pool Australia · Delegate ADA to ADAOZ](https://cardanode.com.au/)
+- [Delegate to ADAOZ (in-page wallet connect)](https://cardanode.com.au/#delegate)
+- [About the operator — Peter Bui](https://cardanode.com.au/#operator)
+- [Cardano × Midnight — earn NIGHT tokens](https://cardanode.com.au/#midnight)
+- [Learn Cardano Podcast](https://cardanode.com.au/#podcast)
+- [Contact](https://cardanode.com.au/#contact)
+- [Blog index — staking guides + Cardano news](https://cardanode.com.au/blog/)
+
+## Categorised blog content
+
+- [Staking — how to stake ADA, delegate to a Cardano stake pool](https://cardanode.com.au/blog/category/staking/)
+- [DeFi — Cardano decentralised finance](https://cardanode.com.au/blog/category/defi/)
+- [NFT — Cardano NFTs](https://cardanode.com.au/blog/category/nft/)
+- [Stake Pool Operators — running a Cardano stake pool](https://cardanode.com.au/blog/category/stake-pool-operators/)
+- [Stake Pool Updates — ADAOZ news](https://cardanode.com.au/blog/category/stake-pool-updates/)
+- [Wallets — Cardano wallet guides (Lace, Eternl, Nami, Yoroi, Daedalus)](https://cardanode.com.au/blog/category/wallets/)
+- [Learn Cardano Podcast — full episode archive](https://cardanode.com.au/blog/category/learn-cardano-podcast/)
+- [Onboarding — getting started with Cardano in Australia](https://cardanode.com.au/blog/category/onboarding/)
+
+## Sitemap
+
+- [XML sitemap](https://cardanode.com.au/sitemap.xml)
+
+## Related properties
+
+- [Learn Cardano YouTube channel](https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA)
+- [learncardano.io](https://learncardano.io)
+- [Mesh With Us — Cardano consulting and dev](https://meshwithus.com.au)
+- [CardanoPress WordPress plugin](https://cardanopress.io/)
+- [Brisbane Cardano Meetup](https://www.meetup.com/cardano-blockchain-brisbane-au/)

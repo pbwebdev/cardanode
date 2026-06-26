@@ -323,7 +323,7 @@ function renderPost(post, all) {
 
   const canonical = `${SITE}/${post.slug}/`;
   const html = render(baseTpl, {
-    title: `${post.title || post.slug} · cardanode`,
+    title: `${post.title || post.slug} · ADAOZ Cardano Stake Pool Australia`,
     description: post.metaDescription || post.excerpt || post.title || "",
     ogTitle: post.ogTitle || post.title || "",
     ogImageAbs: absoluteUrl(post.ogImage),
@@ -372,12 +372,12 @@ function renderIndexPage(posts, pageNum, totalPages, opts = {}) {
   const html = render(baseTpl, {
     title:
       pageNum === 1
-        ? `${heading} · cardanode`
-        : `${heading} · page ${pageNum} · cardanode`,
+        ? `${heading} · ADAOZ Cardano Stake Pool Australia`
+        : `${heading} · page ${pageNum} · ADAOZ Cardano Stake Pool Australia`,
     description: categoryName
-      ? `Posts tagged ${categoryName} on cardanode — Australian Cardano stake pool ADAOZ + Learn Cardano.`
-      : "Articles on Cardano staking, DeFi, NFTs, stake pool operations, and Learn Cardano podcast episodes from Peter Bui at ADAOZ.",
-    ogTitle: `${heading} · cardanode`,
+      ? `${categoryName} articles from ADAOZ, the Australian Cardano stake pool. How to stake ADA, delegate to a Cardano stake pool, and more.`
+      : "Stake ADA guides, how to delegate to a Cardano stake pool, Cardano DeFi, NFTs, stake pool operations, and Learn Cardano episodes from ADAOZ — Cardano Stake Pool Australia.",
+    ogTitle: `${heading} · ADAOZ Cardano Stake Pool Australia`,
     ogImageAbs: `${SITE}/images/opengraph.jpg`,
     canonical: _canonical_,
     articleMeta: "",
