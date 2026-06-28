@@ -21,4 +21,4 @@ addr1v8gr92w22yhcr4vwry06dv7hlpv3fy8sur5wsqcm46ah4gsyzyjr7
 
 All ADA goes to supporting the podcast and our content to help your journey into Cardano.
 
-[![](https://pro.nft-maker.io/images/buttons/paybutton_1_1.svg)](https://payment.nft-maker.io/?p=7ffa025e88424bf6b3ec415a9eb13287&c=1)
+[![Pay with NFT-MAKER.IO](https://pro.nft-maker.io/images/buttons/paybutton_1_1.svg)](https://payment.nft-maker.io/?p=7ffa025e88424bf6b3ec415a9eb13287&c=1)

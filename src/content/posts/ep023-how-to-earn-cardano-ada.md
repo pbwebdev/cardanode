@@ -37,7 +37,7 @@ https://twitter.com/CardanoCity/status/1423791990119010306?s=20
 
 It's a mysterious NFT drop where we have only seen a handful of images from a Twitter account. They're stunning images generated in a futuristic cyberpunk metaverse. No one knows who is working on the project, no one knows any details of the project other than there is a website where the NFT might be dropped from, [cardanocity.io](https://cardanocity.io). It should be released 12 hours after this podcast episode is released.
 
-![](/uploads/2021/08/cc_soon-800x490.jpg)
+![Cardano City cyberpunk metaverse NFT teaser](/uploads/2021/08/cc_soon-800x490.jpg)
 
 Cardano City landing page image
 
@@ -69,7 +69,7 @@ The easiest by far is [NFT-Maker.io](https://NFT-Maker.io). I [interviewed Patri
 
 To use the platform, upload a valid image file and fill in the form details.
 
-![](/uploads/2021/08/nft-maker-io.create-nft-800x482.jpg)
+![Creating an NFT on the NFT-MAKER.IO platform](/uploads/2021/08/nft-maker-io.create-nft-800x482.jpg)
 
 Creating an NFT on NFT Maker
 
@@ -176,13 +176,13 @@ Unfortunately, I can't cover how Coti may be utilised in a website that us mere 
 
 If you love the podcast and want to support it, you can purchase merchandise via our WooCommerce store and use ADA to make your purchase.
 
-![](/uploads/2021/08/cardano-ada-hoodie-800x584.jpg)
+![Cardano ADA branded hoodie merchandise](/uploads/2021/08/cardano-ada-hoodie-800x584.jpg)
 
 Check out our merchandise on the Merch page
 
 ## BONUS - Earn Cardano (ADA) by Becoming a part of the Project Catalyst Ecosystem
 
-![](/uploads/2021/09/project-catalyst.webp)
+![Cardano Project Catalyst logo](/uploads/2021/09/project-catalyst.webp)
 
 Contribute to Project Catalyst and the Cardano ecosystem to earn Cardano ADA
 

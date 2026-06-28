@@ -4,7 +4,7 @@ slug: "ada-rewards-disappeared-from-yoroi-wallet"
 date: "2021-10-01"
 categories: ["Staking", "Yoroi"]
 excerpt: ""
-metaDescription: "ADA Rewards Have Disappeared from Yoroi Wallet"
+metaDescription: "ADA staking rewards vanished from your Yoroi wallet? It's usually a Cardano DBSync display bug, not lost funds. Here's what's happening and how to fix it."
 ogTitle: "ADA Rewards Have Disappeared from Yoroi Wallet"
 ogImage: ""
 youtube: ["https://www.youtube.com/embed/xcECPya1lWY"]

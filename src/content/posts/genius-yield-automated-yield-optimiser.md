@@ -149,7 +149,7 @@ Genius Yield offers statuses and bonus NFTs for anyone who delegates to their st
 
 If you meet those requirements, you will be eligible for these NFTs and statuses.
 
-![](/uploads/2021/12/genius-yield-bonus-status-800x450.jpg)
+![Genius Yield delegation bonus NFT status tiers](/uploads/2021/12/genius-yield-bonus-status-800x450.jpg)
 
 _34 epoch = 5.7 month, 30 epoch = 5 month, 25 epoch = 4.3 month_
 

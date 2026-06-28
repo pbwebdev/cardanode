@@ -4,7 +4,7 @@ slug: "sundaeswap-iso-complete-guide-sundae-tokens"
 date: "2021-11-07"
 categories: ["DeFi"]
 excerpt: ""
-metaDescription: "SundaeSwap ISO: Easy Complete Guide to Getting Sundae Tokens from the #1 Cardano DEX"
+metaDescription: "Complete guide to the SundaeSwap ISO: how to delegate ADA to an ISO stake pool like ADAOZ and earn free SUNDAE tokens from Cardano's first major DEX."
 ogTitle: "SundaeSwap ISO: Easy Complete Guide to Getting Sundae Tokens from the #1 Cardano DEX"
 ogImage: "/uploads/2021/11/sundaeswap-website-screenshot-800x450.jpg"
 youtube: ["https://www.youtube.com/c/learncardano", "https://www.youtube.com/embed/NeiDo1hZ5yM", "https://www.youtube.com/embed/mxoZc8YTCso", "https://www.youtube.com/embed/vAJMuKfR4jg", "https://www.youtube.com/embed/z4x32k6vi28"]

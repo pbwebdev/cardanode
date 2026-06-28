@@ -4,7 +4,7 @@ slug: "ep021-best-secure-practises-for-crypto"
 date: "2021-08-18"
 categories: ["Learn Cardano Podcast"]
 excerpt: ""
-metaDescription: "EP021 - Best Secure Practises for Crypto"
+metaDescription: "Learn Cardano Podcast EP021: the best security practices for crypto. How to safely choose exchanges and wallets and protect your ADA before you invest."
 ogTitle: "EP021 - Best Secure Practises for Crypto"
 ogImage: "/uploads/2021/08/binance-wallet-review-security.jpg"
 youtube: ["https://www.youtube.com/embed/7xZGQVI8lXg"]
@@ -160,7 +160,7 @@ Between all the different exchanges that I have used, Binance has a high level o
 
 ### Pro Tips
 
-![](/uploads/2021/08/binance-wallet-review-security.jpg)
+![Binance account security features](/uploads/2021/08/binance-wallet-review-security.jpg)
 
 Security features of Binance
 
@@ -180,7 +180,7 @@ Anti Phishing Code. A hacker can copy emails that come out from an exchange with
 
 This happens all the time, from online tech support scams and not YouTube live events where hackers promise to send double the ADA that is sent to their address that may appear on the video.
 
-![](/uploads/2021/08/Screen-Shot-2021-08-18-at-11.03.23-pm-800x459.png)
+![Example of a fake Cardano ADA giveaway scam](/uploads/2021/08/Screen-Shot-2021-08-18-at-11.03.23-pm-800x459.png)
 
 Another Cardano Giveaway Scam
 

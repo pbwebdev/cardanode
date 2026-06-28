@@ -4,7 +4,7 @@ slug: "how-to-stake-ada-on-coinspot"
 date: "2021-07-19"
 categories: ["Staking"]
 excerpt: ""
-metaDescription: "How to Stake ADA on CoinSpot"
+metaDescription: "Can you stake ADA on CoinSpot? No — the exchange doesn't support Cardano staking. Learn how to move your ADA to Daedalus or Yoroi and earn rewards instead."
 ogTitle: "How to Stake ADA on CoinSpot"
 ogImage: ""
 youtube: []

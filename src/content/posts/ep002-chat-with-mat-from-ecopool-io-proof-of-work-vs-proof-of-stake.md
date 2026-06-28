@@ -53,7 +53,7 @@ Statistics from the University of Cambridge
 
 The amount of electricity that is used to mine Bitcoin at the moment is approximately 135 Terra Watt-hours per year. That number would mean nothing to a lot of people without something to compare to.
 
-![](/uploads/2021/04/bitcoin-power-uage-comparison-to-countries-800x313.png)
+![Bitcoin power usage compared to country energy consumption](/uploads/2021/04/bitcoin-power-uage-comparison-to-countries-800x313.png)
 
 The entire country of Ukraine uses 128 TWh, Sweden uses 131.9 TWh, Malaysia uses 147.21 TWh and Egypt uses 150.58 TWh. To power Bitcoin, we need the equivalent power usage as these countries. This is extremely unsustainable and costly to the environment. Countries like China have started to [ban the mining of cryptocurrencies](https://www.cnbc.com/2021/03/02/china-bitcoin-mining-hub-to-shut-down-cryptocurrency-projects.html) in certain regions because of this high energy usage.
 

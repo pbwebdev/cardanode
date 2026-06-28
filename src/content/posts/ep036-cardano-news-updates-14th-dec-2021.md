@@ -81,7 +81,7 @@ It wasn't without its own dramas, there was a cache rendering issue on the relea
 
 ## Claymates in TimeSquare
 
-![](/uploads/2021/12/FGRPnr4X0AYWUi5-600x800.jpeg)
+![Claymates NFT featured in Times Square](/uploads/2021/12/FGRPnr4X0AYWUi5-600x800.jpeg)
 
 ## MinSwap FISO Claim
 

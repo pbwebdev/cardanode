@@ -99,17 +99,17 @@ Ensure that no one can see your screen. Ensure that the word phrase is written d
 
 Some people go to the length of etching their recovery phrase into stainless steel plates or pressed in leather. We'll write about this in a future post.
 
-![](/uploads/2021/02/recovery-phrase.png)
+![Yoroi wallet recovery phrase setup screen](/uploads/2021/02/recovery-phrase.png)
 
 Write down your recovery phrase and be prepared to write it back into the wallet extension.
 
 The next screen will ask you to restore the recovery phrase by either typing in the words or selecting them on the screen.Â 
 
-![](/uploads/2021/02/accept.png)
+![Confirming the Yoroi wallet recovery phrase](/uploads/2021/02/accept.png)
 
 Once you're done, click accept to the screen prompts and continue. If you are ever to restore a wallet, this seed phrase is what you will do to restore it. It might be a good idea at this point to remove the Yoroi wallet and practise restoring your wallet from your seed phrase before transferring your millions of ADA to the wallet, only to lose it one day from not being able to restore the wallet.
 
-![](/uploads/2021/02/Screen-Shot-2021-02-28-at-1.13.14-pm-600x388.png)
+![Yoroi wallet successfully created confirmation screen](/uploads/2021/02/Screen-Shot-2021-02-28-at-1.13.14-pm-600x388.png)
 
 Your wallet is now created!
 
@@ -137,7 +137,7 @@ Our pool, ADAOZ, is a pretty good new pool with low saturation and good growth.Â
 
 In the search box, paste in the Ticker you wish to delegate to. In this case, our pool, **ADAOZ**.
 
-![](/uploads/2021/05/Screen-Shot-2021-05-27-at-8.36.18-pm-800x209.png)
+![Searching for the ADAOZ ticker in the Yoroi delegation list](/uploads/2021/05/Screen-Shot-2021-05-27-at-8.36.18-pm-800x209.png)
 
 You will see the pool icon and details. \[ADAOZ\] ADA Australia. Click "Delegate".
 
@@ -147,7 +147,7 @@ On all pools you will see a Cost. This cost as you can see on our pool is the fe
 
 The fee is taken from the rewards that are distributed to the pool each epoch collectively.
 
-![](/uploads/2021/06/cardano-fees-800x521.png)
+![ADAOZ stake pool cost and margin fees shown in Yoroi](/uploads/2021/06/cardano-fees-800x521.png)
 
 See the data at: https://adapools.org/ADAOZ
 

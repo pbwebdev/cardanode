@@ -27,7 +27,7 @@ In the latest Cardano 360 update for May, the teams went through what the next 9
 
 Smart contracts are one of the biggest features that people are waiting on Cardano is it will open up a world of decentralised applications (dApps) to be built on Cardano.
 
-![](/uploads/2021/05/Screen-Shot-2021-05-30-at-12.54.31-pm-800x450.png)
+![Alonzo Cardano smart contracts roll-out plan](/uploads/2021/05/Screen-Shot-2021-05-30-at-12.54.31-pm-800x450.png)
 
 Alonzo Cardano smart contracts roll out plan
 
@@ -61,7 +61,7 @@ This tool alone could potentially bring in hundreds if not thousands of more use
 
 ### ERC-20 Converter
 
-![](/uploads/2021/05/erc20-converter-800x450.png)
+![ERC-20 converter demo moving tokens between Ethereum and Cardano](/uploads/2021/05/erc20-converter-800x450.png)
 
 We knew that this was coming but we finally got to see a demo of it working between Ethereum and Cardano where you can convert the Ethereum ERC-20 token AGI to AGIX which is the equivalent native token on Cardano.
 
@@ -69,7 +69,7 @@ Users will be able to lock their ERC-20 tokens on the Ethereum blockchain and ge
 
 ### Hydra Scaling
 
-![](/uploads/2021/05/hydra-cardano-scaling-800x450.png)
+![Hydra Cardano scaling protocol overview](/uploads/2021/05/hydra-cardano-scaling-800x450.png)
 
 The initial stages and development of Hydra were announced. This three-part protocol allows the Cardano network to scale up to 2 million transactions per second with 2000 operational stake pools. That is a mind-boggling number when you look at current providers such as VISA which currently processes ~2000 transactions per second.
 

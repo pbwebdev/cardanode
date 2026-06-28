@@ -9,7 +9,7 @@ ogTitle: "ADAXPro / VyFinance Partnership NFT Giveaway"
 ogImage: "/uploads/2022/02/adax-vyfi-nft0giveaway-800x450.jpg"
 youtube: ["https://www.youtube.com/embed/Eh5juGVMooA", "https://www.youtube.com/embed/w1Krx0c8t9w"]
 ---
-![](/uploads/2022/02/adax-vyfi-nft0giveaway-800x450.jpg)
+![ADAXPro and VyFinance partnership NFT giveaway](/uploads/2022/02/adax-vyfi-nft0giveaway-800x450.jpg)
 
 Enter via the Gleam app for your chance to win one of the partnership NFT to stake via the VyFi platform.
 

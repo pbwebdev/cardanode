@@ -37,7 +37,7 @@ At the time of writing this article, the number of times the MuesliSwap Plutus s
 
 On the 12th of December 2021, the [number of executions of the MuesliSwap script](https://twitter.com/RichardMcCrackn/status/1470073514573107211?s=20) was 11,500 executions.
 
-![](/uploads/2021/12/muesliswap-transactions-800x450.jpg)
+![MuesliSwap Plutus script execution count on Cardano](/uploads/2021/12/muesliswap-transactions-800x450.jpg)
 
 You can [view the script on CardanoScan](https://cardanoscan.io/address/7115b95fdaceeb507073a1bd198803373beeafbd82560fbf8abe9073ff).
 
@@ -49,7 +49,7 @@ Users can set limit orders. This is what you find in order book exchanges where 
 
 ## The Codebase
 
-[![](/uploads/2021/12/muesliswap-code-800x450.jpg)](https://github.com/MuesliSwapTeam)
+[![MuesliSwap codebase and Plutus contracts on GitHub](/uploads/2021/12/muesliswap-code-800x450.jpg)](https://github.com/MuesliSwapTeam)
 
 MuesliSwap codebase and contracts on Github
 
@@ -71,7 +71,7 @@ The team do plan to form a Decentralised Autonomous Organisation (DAO) around th
 
 ## Milk Token Tokenomics
 
-![](/uploads/2021/12/muesliswap-tokenomics-800x450.jpg)
+![MuesliSwap MILK token tokenomics breakdown](/uploads/2021/12/muesliswap-tokenomics-800x450.jpg)
 
 Muesli is better with milk and in this case, the team have created the MILK token which will be used across the DEX.
 

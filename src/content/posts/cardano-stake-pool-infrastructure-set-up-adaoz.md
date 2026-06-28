@@ -57,7 +57,7 @@ We've made our monitoring stats completely public. You can access them via [ADAP
 
 We believe in transparency with our stake pool. If we've stuffed up in managing it, and failed to produce a block, these screens will verify that fact and hold us accountable.
 
-![](/uploads/2021/03/adapools-relay-stats-800x406.png)
+![ADAOZ stake pool stats on ADAPools.org](/uploads/2021/03/adapools-relay-stats-800x406.png)
 
 ADAOZ pool stats on ADAPools.org
 

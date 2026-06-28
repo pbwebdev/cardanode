@@ -35,7 +35,7 @@ Other methods include credit card which incurs a 3% processing fee but allows yo
 
 ### Debit Card and Rewards
 
-![](/uploads/2021/03/crypto-debit-card-800x600.jpg)
+![Ruby Red Crypto.com VISA debit rewards card](/uploads/2021/03/crypto-debit-card-800x600.jpg)
 
 Ruby Red Crypto VISA debit rewards card in Australia
 
@@ -77,7 +77,7 @@ Simply use the PayID email deposit@coinspot.com.au, and add 413216397 as the des
 
 Once you have funds on your wallet, simply go to the dashboard and click Buy Cardano.
 
-![](/uploads/2021/03/coinspot-buy-cardano-800x556.png)
+![Buying Cardano ADA on the CoinSpot exchange](/uploads/2021/03/coinspot-buy-cardano-800x556.png)
 
 Select how much you want to buy and your order will be processed.
 

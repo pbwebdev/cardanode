@@ -4,7 +4,7 @@ slug: "ep007-how-to-be-a-stake-pool-operator-casey"
 date: "2021-05-11"
 categories: ["Learn Cardano Podcast"]
 excerpt: ""
-metaDescription: "EP007 - Confessions on How to Be a Stake Pool Operator with Casey Gibson"
+metaDescription: "Learn Cardano Podcast EP007: Casey Gibson reveals what it really takes to be a Cardano stake pool operator — setup, daily maintenance and his top 5 tips."
 ogTitle: "EP007 - Confessions on How to Be a Stake Pool Operator with Casey Gibson"
 ogImage: "/uploads/2021/06/adaoz-cardano-stake-pool-800x419.jpg"
 youtube: ["https://www.youtube.com/watch?v=06Wo6tjqef0", "https://www.youtube.com/watch?v=HpCA5k_Fl9c"]

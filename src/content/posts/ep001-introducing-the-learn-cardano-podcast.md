@@ -4,7 +4,7 @@ slug: "ep001-introducing-the-learn-cardano-podcast"
 date: "2021-03-29"
 categories: ["Learn Cardano Podcast"]
 excerpt: ""
-metaDescription: "Ep001 - Introducing the Learn Cardano Podcast"
+metaDescription: "Learn Cardano Podcast EP001: Peter Bui introduces the show — breaking down Cardano, ADA staking, Catalyst and crypto for everyday users. Start here."
 ogTitle: "Ep001 - Introducing the Learn Cardano Podcast"
 ogImage: "/uploads/2021/03/Screen-Shot-2021-03-27-at-8.58.45-am-800x327.png"
 youtube: ["https://www.youtube.com/channel/UCj-_2e7L2UgHaJLrGEOJRzA"]
@@ -92,7 +92,7 @@ All of these wallets have their pros and cons but the ones that I'll concentrate
 
 Whatever wallet you use, it is important to make sure your wallet seed phrase is secure. This phrase is what you will use to recover your wallet if your computer is destroyed or if you need to restore your wallet on another device. I've seen people press their seed phrase on to leather or use high-temperature proof metal sheets to etch their seed phrases into.
 
-![](/uploads/2021/03/cryptosteel-capsule-sliding-tiles-wide-1030x686-1-800x533.jpg)
+![CryptoSteel capsule for storing a wallet recovery phrase](/uploads/2021/03/cryptosteel-capsule-sliding-tiles-wide-1030x686-1-800x533.jpg)
 
 Capsule by CryptoSteel
 

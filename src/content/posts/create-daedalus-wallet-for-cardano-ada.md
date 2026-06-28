@@ -24,13 +24,13 @@ Follow these easy steps to get started with delegating your ADA to a Stake Pool.
 
 You can download the official wallet from the Daedalus website, [https://daedaluswallet.io/](https://daedaluswallet.io/).
 
-![](/uploads/2021/02/daedalus-download-1024x684.png)
+![Downloading Daedalus from the official wallet website](/uploads/2021/02/daedalus-download-1024x684.png)
 
 Ensure you are on the right website and not downloading a fake version.
 
 Install the wallet app by opening it and following the instructions.
 
-![](/uploads/2021/02/install-daedalus.png)
+![Installing the Daedalus wallet app](/uploads/2021/02/install-daedalus.png)
 
 ## Create Daedalus Wallet
 
@@ -40,7 +40,7 @@ Click "ADD Wallet" from the bottom of the app, and select "Create a wallet".
 
 Give your wallet a descriptive name and create a sending password. This password is used to confirm that it is you that is sending ADA from this wallet or participating on the network using the wallet.
 
-![](/uploads/2021/02/daedalus-create-recovery-phrase.png)
+![Creating a recovery phrase in the Daedalus wallet](/uploads/2021/02/daedalus-create-recovery-phrase.png)
 
 Create your 24 word recovery word phrase. This recovery phrase is used to restore your wallet on a new device or on a different wallet app such as the browser version of Yoroi or the Yoroi mobile app. The same wallet can be used across multiple wallet applications.
 
@@ -50,7 +50,7 @@ Ensure you keep your recovery phrase safe.
 
 Create Daedalus wallet in one more step!
 
-![](/uploads/2021/02/sync-your-wallet-1024x776.png)
+![Daedalus wallet syncing with the Cardano blockchain](/uploads/2021/02/sync-your-wallet-1024x776.png)
 
 Click continue and finish creating your wallet.
 

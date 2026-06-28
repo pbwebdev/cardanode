@@ -25,7 +25,7 @@ You'll find these interviews right here on the audio podcast and even more extra
 
 Grayscale includes Cardano as one of their product offerings for their tradable trust fund product called Grayscale Digital Large Cap Fund and has made Cardano it's 3rd largest holding in this fund making up 4.26% of the overall fund.
 
-![](/uploads/2021/07/Cardano_grayscale1-750x800.jpg)
+![Cardano as a top holding in the Grayscale Digital Large Cap Fund](/uploads/2021/07/Cardano_grayscale1-750x800.jpg)
 
 ### Who is Grayscale?
 

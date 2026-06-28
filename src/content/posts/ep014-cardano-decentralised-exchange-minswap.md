@@ -39,7 +39,7 @@ The summit registration for 2021 is open, [https://summit.cardano.org/](https://
 
 We should see this major event after the release of smart contracts on the Cardano blockchain.
 
-![](/uploads/2021/06/cardano-summit-800x442.png)
+![Cardano Summit 2021 announcement](/uploads/2021/06/cardano-summit-800x442.png)
 
 Cardano Summit 2021 is coming.
 

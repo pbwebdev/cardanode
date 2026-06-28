@@ -4,7 +4,7 @@ slug: "how-to-vote-in-the-sundaeswap-iso"
 date: "2021-11-10"
 categories: ["DeFi"]
 excerpt: ""
-metaDescription: "How to Vote in the SundaeSwap ISO"
+metaDescription: "How to vote in the SundaeSwap ISO to choose which trusted Cardano stake pools host it. A step-by-step video guide — vote for ADAOZ. (Voting now closed.)"
 ogTitle: "How to Vote in the SundaeSwap ISO"
 ogImage: "/uploads/2021/11/sundaeswap-how-to-vote-card-800x450.jpg"
 youtube: ["https://www.youtube.com/c/learncardano", "https://www.youtube.com/embed/K_yqGVxwypU", "https://www.youtube.com/embed/doF0gA0Njs8"]

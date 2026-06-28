@@ -4,7 +4,7 @@ slug: "ardana-ispo-via-the-ardana-stake-pool-alliance"
 date: "2022-02-15"
 categories: ["DeFi"]
 excerpt: ""
-metaDescription: "Ardana ISPO via the Ardana Stake Pool Alliance"
+metaDescription: "Ardana's ISPO lets you earn $DANA tokens by delegating ADA to an Ardana Stake Pool Alliance member like ADAOZ. Here's how the ISPO works and how to join."
 ogTitle: "Ardana ISPO via the Ardana Stake Pool Alliance"
 ogImage: "/uploads/2022/02/ASPA_Full_Name_Logo_Coloured-800x355.png"
 youtube: ["https://www.youtube.com/embed/qZtHwxOLXbI"]

@@ -23,7 +23,7 @@ As the announcement about Tesla no longer accepting Bitcoin for the payment of t
 
 ### Why didn't ADA crash like the other cryptocurrencies?
 
-![](/uploads/2021/05/IMG_2227-636x800.jpg)
+![Share of circulating ADA being staked across stake pools](/uploads/2021/05/IMG_2227-636x800.jpg)
 
 Out of all the ADA in circulation, 32,462,461,480, approximately 23,000,000,000 or 70% is being staked on various stake pools in private wallets or locked up on contract staking on exchanges. This means that if the market crashes, all of this staked and locked up ADA on exchanges is just that little harder to move and isn't being traded by bots or have stop-loss orders set to sell on these exchanges.
 

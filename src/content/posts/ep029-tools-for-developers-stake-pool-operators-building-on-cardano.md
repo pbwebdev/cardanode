@@ -52,7 +52,7 @@ It is a good idea to test your website and infrastructure to ensure it can handl
 
 We like to use a service called Loadster which allows for the mimicking of users in a live environment.
 
-![](/uploads/2021/10/Screen-Shot-2021-10-19-at-1.56.33-pm-800x273.png)
+![Loadster load-test results with 10,000 concurrent users](/uploads/2021/10/Screen-Shot-2021-10-19-at-1.56.33-pm-800x273.png)
 
 Test results from Loadster test with 10,000 unique users
 
@@ -64,7 +64,7 @@ The report will give you an idea of how much traffic the infrastructure can hand
 
 ## TangoCrypto
 
-![](/uploads/2021/10/tangocrypto-800x265.png)
+![TangoCrypto Cardano developer API platform](/uploads/2021/10/tangocrypto-800x265.png)
 
 TangoCrypto is a project similar to that of BlockFrost that allows you to interact with a Cardano node. It gives you more flexibility as it is more than just a REST API. It offers Webhooks, Email notifications, Websockets, Mobile push notifications, Apache Kafka, AWS Kinesis and many more. These services will allow you to constantly push data to a secondary source from the blockchain for secondary actions.
 
@@ -76,7 +76,7 @@ There is also an application development layer that will be built on the project
 
 ## Heidrun
 
-[![](/uploads/2021/10/heidrum-payment-wallet-info-800x573.png)](https://github.com/adosia/Heidrun)
+[![Heidrun payment wallet info on GitHub](/uploads/2021/10/heidrum-payment-wallet-info-800x573.png)](https://github.com/adosia/Heidrun)
 
 Heidrum Wallet Information
 

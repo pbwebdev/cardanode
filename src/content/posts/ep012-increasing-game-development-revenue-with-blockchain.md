@@ -89,33 +89,33 @@ Worse, developers stop supporting marketplaces that are still being developed. Y
 
 ### At the same time as Novellia is being developed, you’re also building Occulta Novellia. What is it?
 
--   ![](/uploads/2021/06/alpha_draculi-800x450.jpg)
+-   ![Occulta Novellia game art: Alpha Draculi](/uploads/2021/06/alpha_draculi-800x450.jpg)
     
--   ![](/uploads/2021/06/cryptic_cat-800x450.jpg)
+-   ![Occulta Novellia game art: Cryptic Cat](/uploads/2021/06/cryptic_cat-800x450.jpg)
     
--   ![](/uploads/2021/06/draculi_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Draculi](/uploads/2021/06/draculi_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/ghost_rotakin_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Ghost Rotakin](/uploads/2021/06/ghost_rotakin_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/glacial_draculi-800x450.jpg)
+-   ![Occulta Novellia game art: Glacial Draculi](/uploads/2021/06/glacial_draculi-800x450.jpg)
     
--   ![](/uploads/2021/06/Grevan-Ranger-800x450.jpg)
+-   ![Occulta Novellia game art: Grevan Ranger](/uploads/2021/06/Grevan-Ranger-800x450.jpg)
     
--   ![](/uploads/2021/06/illieander_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Illieander](/uploads/2021/06/illieander_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/iscara_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Iscara](/uploads/2021/06/iscara_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/laurence_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Laurence](/uploads/2021/06/laurence_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/phanamite-auto-medic-800x450.jpg)
+-   ![Occulta Novellia game art: Phanamite Auto Medic](/uploads/2021/06/phanamite-auto-medic-800x450.jpg)
     
--   ![](/uploads/2021/06/rotakin_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Rotakin](/uploads/2021/06/rotakin_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/ten_thousand_guns_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Ten Thousand Guns](/uploads/2021/06/ten_thousand_guns_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/voyin_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Voyin](/uploads/2021/06/voyin_art_branded-800x450.jpg)
     
--   ![](/uploads/2021/06/zragnirr_art_branded-800x450.jpg)
+-   ![Occulta Novellia game art: Zragnirr](/uploads/2021/06/zragnirr_art_branded-800x450.jpg)
     
 
 Some of the card artwork from Occulta Novellia

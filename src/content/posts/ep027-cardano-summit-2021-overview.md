@@ -43,7 +43,7 @@ https://twitter.com/CardanoStiftung/status/1441728796969799681?s=20
 
 ## COTI to Deliver Djed StableCoin
 
-![](/uploads/2021/09/FAPPixQUcAIPmCq-800x381.jpg)
+![COTI to deliver the Djed stablecoin for Cardano](/uploads/2021/09/FAPPixQUcAIPmCq-800x381.jpg)
 
 There has been a lot of talk about the algorithmic stable coin that IOG has been working on called Djed. It's been a research whitepaper for a while. At the Cardano Summit 2021, it was revealed that COTI, who has been working with Cardano will be the project that is releasing the Djed stable coin for Cardano. Ardana, another DeFi project is also releasing their stable coin for Cardano, the $dUSD token.
 

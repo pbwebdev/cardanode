@@ -38,9 +38,9 @@ August is crunch time for the teams working on Alonzo and the rollout of smart c
 
 ## FUD Ethereum Maxis
 
--   ![](/uploads/2021/08/twitter_E7btA5aVcAAkXTh-370x800.jpg)
+-   ![Ethereum maximalist FUD tweet about Cardano smart contracts](/uploads/2021/08/twitter_E7btA5aVcAAkXTh-370x800.jpg)
     
--   ![](/uploads/2021/08/twitter_E7btA5cVcAI71_i-370x800.jpg)
+-   ![Ethereum maximalist FUD tweet about Cardano being a ghost chain](/uploads/2021/08/twitter_E7btA5cVcAI71_i-370x800.jpg)
     
 
 As Cardano moves close and closer to the launch of smart contracts, we are seeing more Eth fans give the Cardano project grief in regards to the none existence of smart contracts, the delayed releases and Cardano being a ghost chain providing no value to the blockchain ecosystem.
@@ -123,6 +123,6 @@ Since Fed 22nd the pool has gone from 1000 ADA to 10.6M in 5 months. That's doin
 
 Join our [Telegram Group](https://t.me/learncardano) where we now have live updates of the pool posted directly to the channel.
 
-![](/uploads/2021/08/telegram-pooltoolbot-notifications-800x420.jpg)
+![PoolTool Telegram bot posting live ADAOZ pool notifications](/uploads/2021/08/telegram-pooltoolbot-notifications-800x420.jpg)
 
 https://t.me/learncardano

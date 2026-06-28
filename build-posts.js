@@ -129,16 +129,20 @@ function loadPosts() {
       }
       // Hero dedup: if the first <img> in the body matches ogImage, drop it
       // from the body so the hero (rendered separately) doesn't duplicate.
+      // Reuse that image's alt text for the hero so we don't lose it.
       let bodyMd = content;
+      let heroAlt = "";
       if (data.ogImage) {
-        const firstImg = content.match(/!\[[^\]]*\]\(([^)]+)\)/);
-        if (firstImg && firstImg[1] === data.ogImage) {
+        const firstImg = content.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+        if (firstImg && firstImg[2] === data.ogImage) {
+          heroAlt = firstImg[1] || "";
           bodyMd = content.replace(firstImg[0], "").trimStart();
         }
       }
       return {
         ...data,
         slug,
+        heroAlt: heroAlt || data.ogTitle || data.title || "",
         bodyHtml: marked.parse(bodyMd),
         comments,
         categoriesSlugged: (data.categories || []).map((c) => ({ name: c, slug: slugify(c) })),
@@ -309,7 +313,7 @@ function renderPost(post, all) {
     ? " · " + renderCategoryBadges(post.categoriesSlugged)
     : "";
   const heroImage = post.ogImage
-    ? renderPicture(post.ogImage, "", "hero")
+    ? renderPicture(post.ogImage, post.heroAlt || post.title || "", "hero")
     : "";
   const content =
     render(postTpl, {

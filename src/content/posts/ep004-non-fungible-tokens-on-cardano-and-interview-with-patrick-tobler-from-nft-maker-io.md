@@ -36,7 +36,7 @@ Over the weekend we saw a massive drop in the cryptocurrency markets and rumours
 
 It's concerning to see who correlated they area and how centralised mining operations are for Bitcoin. Something that Cardano doesn't have an issue with since thousands of stake pool operators around the world are setting up relays around the world on low power infrastructure.
 
-![](/uploads/2021/04/EzPJghMVcAEhvqL-800x360.jpeg)
+![Bitcoin hash rate drop chart](/uploads/2021/04/EzPJghMVcAEhvqL-800x360.jpeg)
 
 Bitcoins hash rate drop in 2017
 

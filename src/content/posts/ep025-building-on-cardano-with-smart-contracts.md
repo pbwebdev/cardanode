@@ -35,11 +35,11 @@ A more public source of projects is Trading with Paul's BuildingOnCardano.com we
 
 A nice way to see everything at a glance is with an infographic produced by @cardains\_
 
-![](/uploads/2021/09/E-FiW5PVIAA_FEJ-800x450.jpeg)
+![Infographic of projects building on Cardano, May 2021](/uploads/2021/09/E-FiW5PVIAA_FEJ-800x450.jpeg)
 
 May 26th 2021
 
-![](/uploads/2021/09/E-FhuJoUUAEP9V8-800x450.jpeg)
+![Infographic of projects building on Cardano, August 2021](/uploads/2021/09/E-FhuJoUUAEP9V8-800x450.jpeg)
 
 August 31st 2021
 

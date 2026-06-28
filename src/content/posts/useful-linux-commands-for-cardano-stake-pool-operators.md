@@ -17,7 +17,7 @@ If you have this installed, you can easily monitor the CPU & memory usage of all
 
 'htop' is a cross-platform ncurses-based process viewer. It is similar to 'top' but allows you to scroll vertically and horizontally, and interact using a pointing device (mouse).  You can observe all processes running on the system, along with their command-line arguments, as well as view them in a tree format, select multiple processes and acting on them all at once. Tasks related to processes (killing, renicing) can be done without entering their PIDs.
 
-![](/uploads/2021/03/htop-800x413.png)
+![htop showing processes running on a Cardano stake pool relay](/uploads/2021/03/htop-800x413.png)
 
 Screenshot of HTOP and all the processes running on a Cardano Stake Pool relay
 
@@ -27,7 +27,7 @@ You can see the PID, user, CPU percentage usage and memory percentage usage and 
 
 This is a quick command to see the basic system usage.
 
-![](/uploads/2021/03/Screen-Shot-2021-03-24-at-9.31.14-pm.png)
+![landscape-sysinfo system usage display on a Raspberry Pi](/uploads/2021/03/Screen-Shot-2021-03-24-at-9.31.14-pm.png)
 
 landscape-sysinfo display on a Raspberry Pi
 

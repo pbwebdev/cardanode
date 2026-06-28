@@ -62,7 +62,7 @@ There are liquidity pools that are available for SUNDAE token yield farming.
 
 ? **Not all pools will qualify for yield farming. It is important to provide liquidity to the correct liquidity pools.** ?
 
-![](/uploads/2022/01/yield-unknown-800x254.png)
+![SundaeSwap yield farming pool eligibility disclaimer](/uploads/2022/01/yield-unknown-800x254.png)
 
 Note the disclaimer letting you know if the pool is eligible for SundaeSwap yield farming rewards.
 

@@ -72,7 +72,7 @@ Currently, we have a 1,024,000 ADA pledge allocated to our pool.
 
 To find out more about the calculation of reward, please refer to the [explanation of the reward calculation](https://docs.cardano.org/en/latest/explore-cardano/understanding-pledging-and-rewards.html) from the Cardano project.
 
-![](/uploads/2021/02/pledge_formula.png)
+![Cardano's formula for calculating stake pool rewards](/uploads/2021/02/pledge_formula.png)
 
 Cardano's formula to calculate rewards
 

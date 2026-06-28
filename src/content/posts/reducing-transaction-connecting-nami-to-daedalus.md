@@ -164,7 +164,7 @@ With this method, you'll be able to have the best of both worlds.
 
 Daedalus has always been the best wallet for NFT drops as you had that open and constant connection to the blockchain but of course, Daedalus can't connect directly to dApps because it is a native application on your computer and not a browser extension.
 
-[![](/uploads/2022/01/daedalus-nami-nft-drops-1-800x450.jpg)](https://bit.ly/34xqvI6)
+[![ADAWaifus.io Cardano NFT drop](/uploads/2022/01/daedalus-nami-nft-drops-1-800x450.jpg)](https://bit.ly/34xqvI6)
 
 Cardano NFT ADAWaifus.io
 
