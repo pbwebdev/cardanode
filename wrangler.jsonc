@@ -11,14 +11,34 @@
   "observability": {
     "enabled": true
   },
-  "workers_dev": true
+  "workers_dev": true,
+
+  // Per-IP rate limit for the contact form. The Worker checks this binding
+  // defensively — if it isn't present the handler still works, just
+  // unprotected by rate limit. 5 submissions per minute is plenty for a
+  // real person; well under a bot's firehose.
+  "ratelimits": [
+    { "name": "CONTACT_LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }
+  ]
+
   // Custom domain `dev.cardanode.com.au` is attached via the Cloudflare
   // dashboard (Workers & Pages → cardanode → Domains & Routes → Add).
   // Wrangler-driven `routes` with `custom_domain: true` requires the API
   // token to have Workers Routes:Edit + DNS:Edit on the zone, which the
   // current token doesn't carry. Easier to wire it once in the dashboard.
+  //
   // Secrets (set via `wrangler secret put <NAME>`):
-  //   TURNSTILE_SECRET    — required for /api/contact
-  //   BLOCKFROST_KEY      — OPTIONAL fallback only; Koios is primary
+  //   FORM_SECRET         — OPTIONAL; HMAC key for /api/contact tokens. If not
+  //                         set, the Worker derives the key from RESEND_API_KEY
+  //                         (or Telegram / Turnstile secret) as a fallback.
+  //   RESEND_API_KEY      — sending-only API key, scoped to the sender domain
   //   CONTACT_TO          — email address that receives contact-form submissions
+  //   CONTACT_FROM        — verified Resend sender address
+  //   TELEGRAM_BOT_TOKEN  — optional Telegram notification backend
+  //   TELEGRAM_CHAT_ID    — recipient chat id for Telegram
+  //   TURNSTILE_SECRET    — OPTIONAL belt-and-braces CAPTCHA
+  //   YOUTUBE_API_KEY     — API-restricted to YouTube Data API v3,
+  //                         Application restrictions MUST be None
+  //                         (Workers cannot set Referer)
+  //   BLOCKFROST_KEY      — OPTIONAL fallback only; Koios is primary
 }

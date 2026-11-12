@@ -29,10 +29,16 @@ export default {
     if (url.pathname === "/api/pool-info") return handlePoolInfo(url, ctx);
     if (url.pathname === "/api/account-info") return handleAccountInfo(url, ctx);
     if (url.pathname === "/api/youtube") return handleYouTube(env, ctx);
+    if (url.pathname === "/api/contact/token" && request.method === "GET")
+      return handleContactToken(request, env);
     if (url.pathname === "/api/contact" && request.method === "POST")
       return handleContact(request, env);
     if (url.pathname.startsWith("/api/blockfrost/"))
       return handleBlockfrost(request, env, url);
+
+    // Any other /api/* path: hard 404 in code. Don't let probes fall through
+    // to the static-asset handler (which would answer HTML or a framework 404).
+    if (url.pathname.startsWith("/api/")) return json({ error: "not_found" }, 404);
 
     if (url.pathname === "/robots.txt") return handleRobots(url);
 
@@ -580,51 +586,182 @@ async function handleAccountInfo(url, ctx) {
   return response;
 }
 
-/* ---------------- Contact form ---------------- */
+/* ---------------- Contact form ----------------
+   Hardening per the Mesh With Us contact-form security playbook.
+   Defence in depth: HMAC form token + honeypot + optional Turnstile + per-IP
+   rate limit + Origin check + body-size cap + content-type check. Visitors
+   never see env-var names, binding names, or Resend/Telegram error strings. */
+
+const FORM_TOKEN_MIN_AGE_MS = 3000;              // faster than any human types the whole form
+const FORM_TOKEN_MAX_AGE_MS = 24 * 60 * 60 * 1000; // a tab left open overnight still works
+const CONTACT_MAX_BODY_BYTES = 32 * 1024;        // more than enough for a contact form
+
+const _enc = new TextEncoder();
+function _hex(buf) {
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+async function _formKey(env) {
+  // Prefer a dedicated secret, else derive from Resend key, else Telegram, else Turnstile.
+  // Keys change rarely; if they rotate, outstanding tokens become `invalid` and the
+  // client simply fetches a new one. Acceptable.
+  const secret = env.FORM_SECRET || env.RESEND_API_KEY || env.TELEGRAM_BOT_TOKEN || env.TURNSTILE_SECRET;
+  if (!secret) return null;
+  return crypto.subtle.importKey(
+    "raw",
+    _enc.encode("cardanode-contact-form-token:" + secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign", "verify"],
+  );
+}
+async function issueFormToken(env, now = Date.now()) {
+  const key = await _formKey(env);
+  if (!key) return null;
+  const sig = await crypto.subtle.sign("HMAC", key, _enc.encode(String(now)));
+  return now + "." + _hex(sig);
+}
+// Returns one of: 'ok' | 'early' | 'missing' | 'invalid' | 'expired' | 'no_key'
+async function checkFormToken(token, env, now = Date.now()) {
+  if (!token) return "missing";
+  const m = /^(\d{10,16})\.([0-9a-f]{64})$/.exec(String(token));
+  if (!m) return "invalid";
+  const key = await _formKey(env);
+  if (!key) return "no_key";
+  const sig = new Uint8Array(m[2].match(/../g).map((h) => parseInt(h, 16)));
+  // verify (not ===): constant-time comparison inside WebCrypto.
+  if (!(await crypto.subtle.verify("HMAC", key, sig, _enc.encode(m[1])))) return "invalid";
+  const age = now - Number(m[1]);
+  if (age < FORM_TOKEN_MIN_AGE_MS) return "early";
+  if (age > FORM_TOKEN_MAX_AGE_MS) return "expired";
+  return "ok";
+}
+
+async function handleContactToken(request, env) {
+  // Rate-limit the token endpoint too — otherwise a bot can mint tokens
+  // in bulk. Separate key so it doesn't share quota with /api/contact.
+  if (env.CONTACT_LIMITER) {
+    try {
+      const ip = request.headers.get("cf-connecting-ip") || "unknown";
+      const rl = await env.CONTACT_LIMITER.limit({ key: "token:" + ip });
+      if (!rl.success) return json({ error: "rate_limited" }, 429);
+    } catch (e) { console.error("rate-limit error (token):", String(e)); }
+  }
+  const token = await issueFormToken(env);
+  if (!token) {
+    // No secret available to sign with. Don't surface that to the visitor.
+    console.error("contact-form: no FORM_SECRET / RESEND_API_KEY / TELEGRAM_BOT_TOKEN / TURNSTILE_SECRET set");
+    return json({ error: "server_config" }, 503);
+  }
+  return json({ token }, 200);
+}
 
 async function handleContact(request, env) {
+  // --- 1. Origin check: browsers always set Origin on POST. Foreign origin = 403.
+  const origin = request.headers.get("origin");
+  if (origin) {
+    try {
+      const o = new URL(origin).hostname;
+      const self = new URL(request.url).hostname;
+      // Allow the production host, the Workers.dev preview, dev subdomain, and localhost.
+      const ok = o === self || o === PROD_HOST || o === "dev.cardanode.com.au"
+        || o.endsWith(".workers.dev") || o === "localhost" || o === "127.0.0.1";
+      if (!ok) return json({ error: "forbidden" }, 403);
+    } catch { return json({ error: "forbidden" }, 403); }
+  }
+
+  // --- 2. Content-type: JSON only.
+  const ct = (request.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+  if (ct !== "application/json") return json({ error: "unsupported_media_type" }, 415);
+
+  // --- 3. Body-size cap: check Content-Length header AND the read text length.
+  // Bodies can arrive without the header, and the header can lie.
+  const cl = Number(request.headers.get("content-length") || "0");
+  if (cl > CONTACT_MAX_BODY_BYTES) return json({ error: "payload_too_large" }, 413);
+  let raw;
+  try { raw = await request.text(); }
+  catch { return json({ error: "invalid_body" }, 400); }
+  if (raw.length > CONTACT_MAX_BODY_BYTES) return json({ error: "payload_too_large" }, 413);
+
+  // --- 4. Per-IP rate limit, BEFORE anything reaches Resend/Telegram.
+  if (env.CONTACT_LIMITER) {
+    try {
+      const ip = request.headers.get("cf-connecting-ip") || "unknown";
+      const rl = await env.CONTACT_LIMITER.limit({ key: "send:" + ip });
+      if (!rl.success) return json({ error: "rate_limited" }, 429);
+    } catch (e) { console.error("rate-limit error (send):", String(e)); }
+  }
+
   let body;
-  try { body = await request.json(); }
+  try { body = JSON.parse(raw); }
   catch { return json({ error: "invalid_json" }, 400); }
 
   const name = String(body?.name || "").trim();
   const email = String(body?.email || "").trim();
   const message = String(body?.message || "").trim();
-  const token = body?.token || "";
+  const formToken = body?.formToken || "";
+  const turnstileToken = body?.turnstile || body?.token || "";
   const honeypot = String(body?.website || "");
 
-  // Honeypot: bots fill hidden fields. Real users leave them blank.
-  if (honeypot) return json({ ok: true }); // pretend success, drop silently
+  // --- 5. Honeypot: bots fill hidden fields. Real users leave them blank.
+  // Fake success so a bot learns nothing about how it was detected.
+  if (honeypot) {
+    console.log("contact-form: honeypot filled, dropped");
+    return json({ ok: true });
+  }
 
+  // --- 6. HMAC form token. Required when the server has a key available.
+  // The client fetches this from /api/contact/token on first form interaction,
+  // then waits out MIN_AGE before posting so a real human never hits `early`.
+  const tokenResult = await checkFormToken(formToken, env);
+  if (tokenResult === "early") {
+    // A bot driving the page. Fake success, send nothing.
+    console.log("contact-form: token too fresh, dropped", { ip: request.headers.get("cf-connecting-ip") });
+    return json({ ok: true });
+  }
+  if (tokenResult === "invalid") return json({ error: "token_invalid" }, 400);
+  if (tokenResult === "expired") return json({ error: "token_expired" }, 400);
+  if (tokenResult === "missing") return json({ error: "token_missing" }, 400);
+  // 'no_key' means we have no secret to sign with. Log and continue — don't
+  // block real messages because an env var isn't set. (The token endpoint
+  // returned 503 in that case; the client will have fallen back to no-token.)
+  if (tokenResult === "no_key") console.error("contact-form: no key to verify token");
+
+  // --- 7. Field validation.
   if (!name || name.length > 120) return json({ error: "invalid_name" }, 400);
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200)
     return json({ error: "invalid_email" }, 400);
   if (!message || message.length < 5 || message.length > 5000)
     return json({ error: "invalid_message" }, 400);
 
-  // Turnstile is optional but recommended. If TURNSTILE_SECRET is set,
-  // the form-side widget is required and we verify here.
+  // --- 8. Optional Turnstile check: belt-and-braces when configured.
   if (env.TURNSTILE_SECRET) {
-    if (!token) return json({ error: "missing_turnstile_token" }, 400);
-    const verify = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        method: "POST",
-        headers: { "content-type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          secret: env.TURNSTILE_SECRET,
-          response: token,
-          remoteip: request.headers.get("cf-connecting-ip") || "",
-        }),
-      },
-    );
-    const v = await verify.json().catch(() => null);
-    if (!v || !v.success) return json({ error: "turnstile_failed" }, 403);
+    if (!turnstileToken) return json({ error: "turnstile_missing" }, 400);
+    try {
+      const verify = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "content-type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            secret: env.TURNSTILE_SECRET,
+            response: turnstileToken,
+            remoteip: request.headers.get("cf-connecting-ip") || "",
+          }),
+        },
+      );
+      const v = await verify.json().catch(() => null);
+      if (!v || !v.success) return json({ error: "turnstile_failed" }, 403);
+    } catch (e) {
+      console.error("turnstile verify network error:", String(e));
+      return json({ error: "server_error" }, 502);
+    }
   }
 
-  // Compose a single submission payload reused across delivery backends.
+  // --- 9. Compose submission. Strip CR/LF from name so it can't inject
+  // headers via the email subject line.
+  const safeName = name.replace(/[\r\n]+/g, " ").slice(0, 120);
   const submission = {
-    name,
+    name: safeName,
     email,
     message,
     ip: request.headers.get("cf-connecting-ip") || "unknown",
@@ -641,13 +778,13 @@ async function handleContact(request, env) {
   const results = await Promise.allSettled(tasks);
   const failures = results.filter((r) => r.status === "rejected").map((r) => String(r.reason));
   if (failures.length === results.length && results.length > 0) {
-    // All backends failed — surface a server error so the form retries.
+    // Log the real failures, give the visitor a generic 502. Never leak
+    // backend names or upstream error text.
     console.error("contact-form: all backends failed", failures);
-    return json({ error: "delivery_failed", detail: failures.slice(0, 2) }, 502);
+    return json({ error: "server_error" }, 502);
   }
 
-  // At least one backend succeeded, OR no backends are configured (logged-only).
-  console.log("contact-form ok", { name, email, len: message.length, delivered: results.length - failures.length });
+  console.log("contact-form ok", { name: safeName, email, len: message.length, delivered: results.length - failures.length });
   return json({ ok: true });
 }
 
@@ -660,19 +797,24 @@ async function sendTelegram(env, s) {
     `<b>At:</b> <code>${escAttr(s.at)}</code>\n` +
     `<b>IP:</b> <code>${escAttr(s.ip)}</code>\n` +
     `\n<pre>${escAttr(body)}</pre>`;
-  const res = await fetch(
-    `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        chat_id: env.TELEGRAM_CHAT_ID,
-        text,
-        parse_mode: "HTML",
-        disable_web_page_preview: true,
-      }),
-    },
-  );
+  let res;
+  try {
+    res = await fetch(
+      `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          chat_id: env.TELEGRAM_CHAT_ID,
+          text,
+          parse_mode: "HTML",
+          disable_web_page_preview: true,
+        }),
+      },
+    );
+  } catch (e) {
+    throw new Error("telegram network: " + String(e).slice(0, 200));
+  }
   if (!res.ok) {
     throw new Error(`telegram ${res.status}: ${(await res.text()).slice(0, 200)}`);
   }
@@ -683,26 +825,35 @@ async function sendTelegram(env, s) {
 async function sendResend(env, s) {
   const to = env.CONTACT_TO || "peter@meshwithus.com.au";
   const from = env.CONTACT_FROM || "contact@cardanode.com.au"; // must be a verified Resend sender domain
+  // Name is already CR/LF-stripped upstream, but belt-and-braces inside the
+  // subject line since that's the header most vulnerable to injection.
+  const safeSubjectName = s.name.replace(/[\r\n]+/g, " ").slice(0, 80);
   const html = `<p><strong>From:</strong> ${escAttr(s.name)} &lt;${escAttr(s.email)}&gt;<br>
 <strong>IP:</strong> ${escAttr(s.ip)} (${escAttr(s.country)})<br>
 <strong>At:</strong> ${escAttr(s.at)}</p>
 <hr>
 <pre style="white-space:pre-wrap;font-family:system-ui,sans-serif;">${escAttr(s.message)}</pre>`;
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${env.RESEND_API_KEY}`,
-    },
-    body: JSON.stringify({
-      from: `cardanode contact <${from}>`,
-      to: [to],
-      reply_to: s.email,
-      subject: `cardanode contact: ${s.name}`,
-      html,
-      text: `From: ${s.name} <${s.email}>\nAt: ${s.at}\nIP: ${s.ip} (${s.country})\n\n${s.message}`,
-    }),
-  });
+  let res;
+  try {
+    res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${env.RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: `cardanode contact <${from}>`,
+        to: [to],
+        reply_to: s.email,
+        subject: `cardanode contact: ${safeSubjectName}`,
+        html,
+        text: `From: ${s.name} <${s.email}>\nAt: ${s.at}\nIP: ${s.ip} (${s.country})\n\n${s.message}`,
+      }),
+    });
+  } catch (e) {
+    // Network failure reaching Resend. Caller sees a generic 502; we log the detail.
+    throw new Error("resend network: " + String(e).slice(0, 200));
+  }
   if (!res.ok) throw new Error(`resend ${res.status}: ${(await res.text()).slice(0, 200)}`);
 }
 
@@ -734,6 +885,10 @@ function json(data, status = 200, extra = {}) {
     headers: {
       "content-type": "application/json; charset=utf-8",
       "cache-control": "no-store",
+      "x-content-type-options": "nosniff",
+      "x-robots-tag": "noindex",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "referrer-policy": "strict-origin-when-cross-origin",
       ...extra,
     },
   });
