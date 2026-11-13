@@ -151,7 +151,8 @@ ssh aiagent-linux 'cd ~/.openclaw/workspace/cardano/cardanode && npm run deploy'
 | `GET /api/pool-info?id=...&ticker=...` | **Any** Cardano pool lookup. Ticker lookup via Koios `pool_list?ticker=eq.X` PostgREST filter. Used by the staking calculator's compare-pool feature. 6h cache. |
 | `GET /api/account-info?stake=stake1...` | Koios `/account_info`. Validates input. Used by the delegation panel. 60s cache. |
 | `GET /api/youtube` | YouTube Data API v3 → uploads playlist. **6h CF upstream cache; bump `_v=<n>` query param to bust if 403s stick.** Requires `YOUTUBE_API_KEY` with Application restrictions = None (Workers can't set Referer). |
-| `POST /api/contact` | Honeypot + length validation + optional Turnstile verify. Posts to Telegram (if `TELEGRAM_BOT_TOKEN`+`TELEGRAM_CHAT_ID` set) AND/OR Resend (if `RESEND_API_KEY` set). `Promise.allSettled` — succeeds if any backend delivers. |
+| `GET /api/contact/token` | Server-signed HMAC form token. Client fetches on first form interaction, posts back on submit. Rate-limited by IP. `no-store`. |
+| `POST /api/contact` | Hardened per the contact-form security playbook. Checks in order: **Origin** (foreign = 403), **content-type** (JSON only, else 415), **body size** (≤32 KiB, else 413), **per-IP rate limit** via `CONTACT_LIMITER` binding (5 req/60s, else 429), **honeypot** (filled = fake success), **HMAC form token** (`early` < 3s = fake success + drop; `invalid`/`expired`/`missing` = 400), **field validation**, optional **Turnstile**. CR/LF stripped from name before use in email Subject. On success posts to Telegram and/or Resend via `Promise.allSettled`. Any upstream failure logs the detail server-side and returns a generic 502 — never leaks env var names or provider error text. |
 | `GET /api/blockfrost/*` | Only active if `BLOCKFROST_KEY` is set. Optional fallback. |
 | `GET /robots.txt` | Dynamic per host: prod = allow+sitemap; dev = `Disallow: /`. |
 | Any other HTML | `serveAsset` wraps `env.ASSETS.fetch` with path-aware Cache-Control + security headers + HTML transforms (`?v=<sha>` versioning, noindex on dev). |
@@ -165,14 +166,21 @@ Set via `npx wrangler secret put <NAME>`:
 | Secret | Purpose | Required? |
 |---|---|---|
 | `YOUTUBE_API_KEY` | YouTube Data API v3 | For podcast section videos. **Application restrictions must be None.** |
-| `TELEGRAM_BOT_TOKEN` | Contact-form notification via Telegram bot | Optional. Pair with `TELEGRAM_CHAT_ID`. |
+| `FORM_SECRET` | Dedicated HMAC key for /api/contact tokens | Optional. Falls back to `RESEND_API_KEY` → `TELEGRAM_BOT_TOKEN` → `TURNSTILE_SECRET` if unset. If none of those exist either, the token endpoint returns 503 and the form can't post. |
+| `TELEGRAM_BOT_TOKEN` | Contact-form notification via Telegram bot | Optional. Pair with `TELEGRAM_CHAT_ID`. Also used as a fallback HMAC seed if `FORM_SECRET` not set. |
 | `TELEGRAM_CHAT_ID` | Recipient chat id | Optional. |
-| `RESEND_API_KEY` | Contact-form email delivery via Resend | Optional. |
+| `RESEND_API_KEY` | Contact-form email delivery via Resend | Optional. Use a **sending-only** key scoped to the `cardanode.com.au` domain. Also used as the HMAC seed fallback. |
 | `CONTACT_TO` | Email recipient (default `peter@meshwithus.com.au`) | Optional. |
 | `CONTACT_FROM` | Resend verified sender (default `contact@cardanode.com.au`) | Optional. |
 | `TURNSTILE_SITEKEY` | Public site key — injected into HTML via HTMLRewriter | Optional. |
 | `TURNSTILE_SECRET` | Server-side verification | Optional. |
 | `BLOCKFROST_KEY` | Optional fallback chain provider | Optional. Koios is primary. |
+
+### Rate-limit bindings (in `wrangler.jsonc`)
+
+| Binding | Config | Used by |
+|---|---|---|
+| `CONTACT_LIMITER` | `limit: 5, period: 60` | `/api/contact` (`send:<ip>`) and `/api/contact/token` (`token:<ip>`), separate keys so they don't share quota |
 
 Local dev secrets in `.dev.vars` (gitignored).
 
@@ -328,6 +336,8 @@ Local dev secrets in `.dev.vars` (gitignored).
 9. **CF upstream cache can stick** — if you change a Worker fetch and the response was previously bad, the bad response may be cached for the `cacheTtl`. Bump the `_v=<n>` cache-buster query string in the upstream URL to force a fresh fetch (see `/api/youtube`).
 10. **The auditor parses every `<title>` element** — including SVG `<title>` tags inside icons/charts. Use `aria-label` on the parent rect/circle instead of inner `<title>` so SEO scanners don't read those as part of the page title.
 11. **Image cache busting for immutable assets** — when you replace `peter-bui.webp` etc, wrangler detects the content-hash change and reuploads. Browser cache may still hold the old `1y immutable` copy until URL changes — usually a hard refresh fixes it. CF cache purge requires zone perms our token doesn't have.
+12. **Contact form HSTS header** — the Worker sets `strict-transport-security: max-age=31536000; includeSubDomains; preload` on every JSON response, but the Cloudflare zone's own HSTS setting overrides at the edge. If `curl -D-` shows `max-age=0`, enable HSTS in the dashboard (SSL/TLS → Edge Certificates → HSTS). The Worker code is already correct.
+13. **Contact form `early` drops look like success** — the HMAC token system issues a response with `MIN_AGE=3000ms`. If the client submits before that elapses, the server returns `{ok:true}` as fake success and drops the message silently. The client in `src/static/scripts/contact-form.js` lazy-fetches the token on first focus/pointer-enter and waits out `3300ms` (slight clock-skew margin) before submit to avoid this. Any rewrite of the client must preserve the wait, or real messages from fast users disappear with no error.
 
 ---
 
